@@ -7,7 +7,6 @@ from django.db import models
 class School(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
-
     def __str__(self):
         return self.name
 
@@ -20,6 +19,7 @@ class Students(models.Model):
     contact = models.CharField(max_length=10, unique=False, null=False, default="1111111111")
     standard = models.IntegerField(default=10)
     school = models.ForeignKey(School, on_delete=models.CASCADE, related_name="school_student", unique=False, null=True)
+    team= models.CharField(max_length=5, unique=False, null=True, blank=True)
 
 
     def __str__(self):
