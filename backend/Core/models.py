@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
+
 # Create your models here.
 class AllTracker(models.Model):
     student = models.CharField(max_length=255, unique=False, null=True, blank=True)
@@ -15,7 +16,6 @@ class AllTracker(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     remarks = models.TextField()
 
-
     def __str__(self):
         return self.student + " " + self.school
 
@@ -25,8 +25,12 @@ class ImpactChallengeTable(models.Model):
     school = models.CharField(max_length=255)
     committee = models.CharField(max_length=255, unique=True, null=True, blank=True)
     portfolio = models.CharField(max_length=255, unique=True, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True,)
-    updated_at = models.DateTimeField(auto_now=True, )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True,
+    )
     remarks = models.TextField()
 
     def __str__(self):
@@ -38,8 +42,12 @@ class MUNChallengeTable(models.Model):
     school = models.CharField(max_length=255)
     committee = models.CharField(max_length=255, unique=True, null=True, blank=True)
     portfolio = models.CharField(max_length=255, unique=True, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True, )
-    updated_at = models.DateTimeField(auto_now=True, )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True,
+    )
     remarks = models.TextField()
 
     def __str__(self):

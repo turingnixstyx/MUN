@@ -4,54 +4,106 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='AllTracker',
+            name="AllTracker",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('student', models.CharField(blank=True, max_length=255, null=True)),
-                ('school', models.CharField(max_length=255)),
-                ('challenge', models.CharField(blank=True, max_length=255, null=True)),
-                ('committee', models.CharField(blank=True, max_length=255, null=True)),
-                ('portfolio', models.CharField(blank=True, max_length=255, null=True)),
-                ('add_on', models.CharField(blank=True, max_length=255, null=True)),
-                ('team', models.CharField(blank=True, max_length=100, null=True)),
-                ('preference', models.IntegerField(blank=True, null=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('remarks', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("student", models.CharField(blank=True, max_length=255, null=True)),
+                ("school", models.CharField(max_length=255)),
+                ("challenge", models.CharField(blank=True, max_length=255, null=True)),
+                ("committee", models.CharField(blank=True, max_length=255, null=True)),
+                ("portfolio", models.CharField(blank=True, max_length=255, null=True)),
+                ("add_on", models.CharField(blank=True, max_length=255, null=True)),
+                ("team", models.CharField(blank=True, max_length=100, null=True)),
+                ("preference", models.IntegerField(blank=True, null=True)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                ("remarks", models.TextField()),
             ],
         ),
         migrations.CreateModel(
-            name='ImpactChallengeTable',
+            name="ImpactChallengeTable",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('student', models.CharField(blank=True, max_length=255, null=True, unique=True)),
-                ('school', models.CharField(max_length=255)),
-                ('committee', models.CharField(blank=True, max_length=255, null=True, unique=True)),
-                ('portfolio', models.CharField(blank=True, max_length=255, null=True, unique=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('remarks', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "student",
+                    models.CharField(
+                        blank=True, max_length=255, null=True, unique=True
+                    ),
+                ),
+                ("school", models.CharField(max_length=255)),
+                (
+                    "committee",
+                    models.CharField(
+                        blank=True, max_length=255, null=True, unique=True
+                    ),
+                ),
+                (
+                    "portfolio",
+                    models.CharField(
+                        blank=True, max_length=255, null=True, unique=True
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                ("remarks", models.TextField()),
             ],
         ),
         migrations.CreateModel(
-            name='MUNChallengeTable',
+            name="MUNChallengeTable",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('student', models.CharField(blank=True, max_length=255, null=True, unique=True)),
-                ('school', models.CharField(max_length=255)),
-                ('committee', models.CharField(blank=True, max_length=255, null=True, unique=True)),
-                ('portfolio', models.CharField(blank=True, max_length=255, null=True, unique=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('remarks', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "student",
+                    models.CharField(
+                        blank=True, max_length=255, null=True, unique=True
+                    ),
+                ),
+                ("school", models.CharField(max_length=255)),
+                (
+                    "committee",
+                    models.CharField(
+                        blank=True, max_length=255, null=True, unique=True
+                    ),
+                ),
+                (
+                    "portfolio",
+                    models.CharField(
+                        blank=True, max_length=255, null=True, unique=True
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                ("remarks", models.TextField()),
             ],
         ),
     ]
