@@ -46,7 +46,11 @@ class SchoolAdmin(admin.ModelAdmin):
         filepath = os.path.join(settings.BASE_DIR, "Media/csv_media")
 
         for school in queryset:
-            file_name = school.name.replace(" ", "_") + ".csv"
+            file_name = (
+                school.name.replace(" ", "_") + ".csv"
+                if " " in school.name
+                else school.name
+            )
             csv_filepath = os.path.join(filepath, file_name)
             with open(csv_filepath, "r") as file:
                 csvreader = csv.DictReader(file)
