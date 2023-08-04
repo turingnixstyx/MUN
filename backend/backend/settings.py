@@ -58,7 +58,7 @@ ROOT_URLCONF = "backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'Templates')],
+        "DIRS": [os.path.join(BASE_DIR, "Templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -130,6 +130,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_URL = '/login/'   # Change '/login/' to your desired login URL.
-LOGOUT_URL = '/logout/' # Change '/logout/' to your desired logout URL.
-LOGIN_REDIRECT_URL = '/' 
+LOGIN_URL = "/login/"  # Change '/login/' to your desired login URL.
+LOGOUT_URL = "/logout/"  # Change '/logout/' to your desired logout URL.
+LOGIN_REDIRECT_URL = "/"
