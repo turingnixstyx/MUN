@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Student',
+    'Core',
+    'Challenge',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +82,19 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mundatabase',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',    # Replace with your MySQL server host if it's not running locally
+        'PORT': '3306',         # Replace with your MySQL server port if different from the default 3306
+    }
+}
+
+
 
 
 # Password validation
