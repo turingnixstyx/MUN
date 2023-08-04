@@ -133,3 +133,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_URL = "/login/"  # Change '/login/' to your desired login URL.
 LOGOUT_URL = "/logout/"  # Change '/logout/' to your desired logout URL.
 LOGIN_REDIRECT_URL = "/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "Media")
+
+MEDIA_URL = "/media/"

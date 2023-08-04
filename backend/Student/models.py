@@ -1,10 +1,19 @@
+import os
+
 from django.db import models
 
 # Create your models here.
 
 
+def upload_to(instance, filename):
+    # Generate the upload path dynamically based on the instance's name
+    filename, extension = os.path.splitext(filename)
+    return f"csv_media/{instance.name}{extension}"
+
+
 class School(models.Model):
     name = models.CharField(max_length=255, unique=True)
+    csv_file = models.FileField(upload_to=upload_to, null=True)
 
     def __str__(self):
         return self.name

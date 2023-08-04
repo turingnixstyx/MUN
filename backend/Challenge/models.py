@@ -21,7 +21,10 @@ class Committee(models.Model):
 class Portfolio(models.Model):
     name = models.CharField(max_length=255, unique=True)
     committee = models.ForeignKey(
-        Committee, on_delete=models.CASCADE, related_name="portfolio_committee"
+        Committee,
+        on_delete=models.CASCADE,
+        related_name="portfolio_committee",
+        null=True,
     )
 
     def __str__(self):
