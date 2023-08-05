@@ -6,6 +6,7 @@ from django.utils.decorators import method_decorator
 from django.views import View
 
 from Challenge.forms import ChallengeForm
+from Student.models import Students
 
 # Create your views here.
 
@@ -19,9 +20,11 @@ class Home(View):
     def post(self, request):
         form = ChallengeForm(request.POST)
         if form.is_valid():
-
             challenge = form.cleaned_data["challenge"]
             print("Got challenge", challenge.name)
+            self.request.session["first_page_data"] = {
+                "challenge": {"name": challenge.name}
+            }
 
             if challenge.name == "Challenge 2":  # Impact Challenge
                 return redirect("committee")
@@ -52,4 +55,4 @@ class Login_View(View):
 
 
 def success(request):
-    return render(request, 'success.html')
+    return render(request, "success.html")
