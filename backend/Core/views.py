@@ -49,3 +49,7 @@ class Login_View(View):
 
         else:
             return HttpResponse("Fuck you Wrong Password")
+
+
+def success(request):
+    return render(request, 'success.html')

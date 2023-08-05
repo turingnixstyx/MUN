@@ -1,1 +1,16 @@
 This is Teams
+
+
+<form method="POST">
+    {% csrf_token %}
+    Select Team Mate
+    {{form.student1}}
+    <br><br>
+    Select Team Mate
+    {{form.student2}}
+    <br><br>
+    Select Team Mate
+    {{form.student3}}
+    <br><br>
+    <input type="submit" value="Submit">
+</form>

@@ -29,6 +29,7 @@ urlpatterns = [
     path("comittee", challenge_views.CommitteeView.as_view(), name="committee"),
     path("teams", challenge_views.TeamView.as_view(), name="teams"),
     path("addons", challenge_views.AddOnView.as_view(), name="addon"),
+    path("success", core_views.success, name="success"),
 ]
 
 if settings.DEBUG:
