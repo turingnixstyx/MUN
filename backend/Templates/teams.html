@@ -1,6 +1,7 @@
-This is Teams
+{% extends 'base.html' %}
 
 
+{% block content %}
 <form method="POST">
     {% csrf_token %}
     Select Team Mate
@@ -12,5 +13,5 @@ This is Teams
     Select Team Mate
     {{form.student3}}
     <br><br>
-    <input type="submit" value="Submit">
 </form>
+{% endblock %}

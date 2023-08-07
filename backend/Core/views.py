@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
@@ -53,6 +53,16 @@ class Login_View(View):
         else:
             return HttpResponse("Fuck you Wrong Password")
 
-
+@login_required
 def success(request):
     return render(request, "success.html")
+
+
+@login_required
+def logout_user(request):
+    logout(request)
+    return redirect("login")
+
+
+def test_view(request):
+    return render(request, 'preferences.html')

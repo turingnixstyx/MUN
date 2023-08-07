@@ -3,6 +3,8 @@ from typing import Any, Dict
 from django.db import transaction
 from django.db.models import Q
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 
@@ -14,7 +16,7 @@ from .models import Committee, Portfolio
 
 # Create your views here.
 
-
+@method_decorator(login_required, name="dispatch")
 class CommitteeView(FormView):
     template_name = "preferences.html"
     form_class = PreferenceForm
@@ -88,7 +90,7 @@ class CommitteeView(FormView):
 
         return False if c else True
 
-
+@method_decorator(login_required, name="dispatch")
 class TeamView(FormView):
     template_name = "teams.html"
     form_class = TeamForm
@@ -154,7 +156,7 @@ class TeamView(FormView):
                 )
                 a.save()
 
-
+@method_decorator(login_required, name="dispatch")
 class AddOnView(FormView):
     template_name = "add_ons.html"
     form_class = AddonForms

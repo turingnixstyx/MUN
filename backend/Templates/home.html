@@ -1,11 +1,14 @@
+{% extends 'base.html' %}
 this is the home page
 
+{% block content %}
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}
 
-    <input type="submit" value="Submit">
+    {% include 'button.html' %}
 </form>
+{% endblock %}
 
 
 Click here to check <a href="{% url 'addon' %}">Add Ons</a>
