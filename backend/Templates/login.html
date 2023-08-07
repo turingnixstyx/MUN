@@ -1,19 +1,242 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <title>Login</title>
-</head>
-<body>
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        <label for="username">Username:</label>
-        <input name="username" required><br><br>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body
+    style="
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #eaeaea;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    "
+  >
+    <div style="position: absolute; right: 0; bottom: 0">
+      <img
+        src="https://i.ibb.co/pzbFBmV/Frame.png"
+        alt="Frame"
+        border="0"
+        style="filter: grayscale(89%)"
+      />
+    </div>
+    <div
+      style="
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        z-index: 1;
+        border-radius: 44px;
+        height: 90%;
+      "
+    >
+      <div style="display: flex; flex-direction: column">
+        <img
+          src="https://i.ibb.co/310Bt1M/MU20-Black-logo-1.png"
+          alt="MU20-Black-logo-1"
+          border="0"
+          style="width: 142px; height: 142px; margin-left: 60px"
+        />
+        <div
+          style="
+            padding: 0px 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <h1
+            style="
+              color: #231f20;
+              font-size: 32px;
+              font-weight: 600;
+              line-height: 30px;
+              margin-bottom: 16px;
+            "
+          >
+            Log in
+          </h1>
+          <div
+            style="
+              width: 89px;
+              height: 2px;
+              background-color: #231f20;
+              align-self: center;
+            "
+          ></div>
+          <div
+            style="
+              margin-top: 100px;
+              display: flex;
+              flex-direction: column;
+              width: 420px;
+            "
+          >
+            <!-- <form method="post">
+                {% csrf_token %}
+                <label for="username">Username:</label>
+                <input name="username" required><br><br>
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" required><br><br>
 
-        <input type="submit" value="Login">
-    </form>
-</body>
+                <input type="submit" value="Login">
+            </form> -->
+            <form method="POST">
+                {% csrf_token %}
+            <label
+              for="username"
+              style="
+                color: #322a2c;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 18px;
+                margin-bottom: 12px;
+              "
+              >Username</label
+            >
+            <input
+              type="name"
+              name="username"
+              id="username"
+              style="
+                border: none;
+                border-bottom: 1px solid #000000;
+                margin-top: 12px;
+                color: #322a2c;
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 18px;
+                outline: none;
+              "
+            />
+            <label
+              for="password"
+              style="
+                color: #322a2c;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 18px;
+                margin-bottom: 12px;
+                margin-top: 48px;
+              "
+              >Password</label
+            >
+            <input
+              type="password"
+              name="password"
+              id="password"
+              style="
+                border: none;
+                border-bottom: 1px solid #000000;
+                margin-top: 12px;
+                color: #322a2c;
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 18px;
+                outline: none;
+              "
+            />
+            <button
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #231f20;
+                margin-top: 36px;
+                border: none;
+                color: white;
+                height: 38px;
+                width: 180px;
+                align-self: center;
+                font-size: 16px;
+                line-height: 14px;
+                cursor: pointer;
+              "
+    
+              type="submit"
+            >
+              Log in
+            </button>
+            </form>
+            <p
+              style="
+                margin-top: 20px;
+                color: #322a2c;
+                font-size: 16px;
+                line-height: 14px;
+                align-self: center;
+              "
+            >
+              <!-- Already have an account?
+              <a
+                href="/"
+                style="
+                  font-weight: bolder;
+                  text-decoration: none;
+                  color: #322a2c;
+                "
+                >Log In Here</a
+              > -->
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: center;
+          height: 100%;
+          width: 100%;
+          background-image: url('https://i.ibb.co/YhRsHVb/Mask-group.png');
+          background-position: center;
+        "
+      >
+        <img
+          src="https://i.ibb.co/WW7ZDs2/Mac-Book-Pro-16.png"
+          alt="Mac-Book-Pro-16"
+          style="height: 461px; position: absolute; z-index: 2; bottom: 20%"
+        />
+        <p
+          style="
+            color: white;
+            font-style: italic;
+            padding-bottom: 16px;
+            background-color: #341a65;
+            width: 461px;
+            height: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            padding: 0px 48px;
+          "
+        >
+          “ Lorem Ipsum dolar sit amet,<br />Lorem Ipsum dolar ”
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
+
