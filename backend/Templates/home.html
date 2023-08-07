@@ -2,6 +2,21 @@
 this is the home page
 
 {% block content %}
+<style>
+    /* Define the custom-dropdown class */
+    #id_challenge {
+      /* Set the height to make the dropdown bigger */
+      height: 30px;
+      width: 100%;
+      border-radius: 5px;
+      margin-top: 20px;
+      text-align: center;
+      /* Add the desired background color (grey) */
+      background-color: #f0f0f0;
+      /* Add any other styles you want, such as font size, font color, etc. */
+    }
+  </style>
+
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}
