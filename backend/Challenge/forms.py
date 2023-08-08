@@ -8,7 +8,7 @@ from .models import Addon, Challenge, Committee, Portfolio
 
 
 class ChallengeForm(forms.Form):
-    challenge = forms.ModelChoiceField(queryset=Challenge.objects.all())
+    challenge = forms.ModelChoiceField(queryset=Challenge.objects.all(), widget=forms.CheckboxSelectMultiple)
 
 
 class PreferenceForm(forms.Form):
