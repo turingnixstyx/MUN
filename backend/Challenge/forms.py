@@ -8,7 +8,9 @@ from .models import Addon, Challenge, Committee, Portfolio
 
 
 class ChallengeForm(forms.Form):
-    challenge = forms.ModelChoiceField(queryset=Challenge.objects.all(), widget=forms.CheckboxSelectMultiple)
+    challenge = forms.ModelChoiceField(
+        queryset=Challenge.objects.all(), widget=forms.CheckboxSelectMultiple
+    )
 
 
 class PreferenceForm(forms.Form):
@@ -16,19 +18,22 @@ class PreferenceForm(forms.Form):
     portfolio = forms.ModelChoiceField(queryset=Portfolio.objects.all())
 
     def clean(self) -> Dict[str, Any]:
-        cleaned_data= super().clean()
+        cleaned_data = super().clean()
         committee = cleaned_data.get("committee")
         portfolio = cleaned_data.get("portfolio")
 
-
         if not committee or not portfolio:
-            raise forms.ValidationError('Both committee and portfolio must be selected.')
+            raise forms.ValidationError(
+                "Both committee and portfolio must be selected."
+            )
 
         if committee and portfolio:
             if portfolio.committee != committee:
-                self.add_error('portfolio', 'Selected portfolio is not valid for the selected committee.')
+                self.add_error(
+                    "portfolio",
+                    "Selected portfolio is not valid for the selected committee.",
+                )
 
-        
         return cleaned_data
 
 
@@ -99,7 +104,6 @@ class ExtendedTeamForm(TeamForm):
             raise forms.ValidationError("Student 1 and Student 4 cannot be the same.")
         if student1 and student5 and student1 == student5:
             raise forms.ValidationError("Student 1 and Student 5 cannot be the same.")
-        
 
         if student2 and student3 and student2 == student3:
             raise forms.ValidationError("Student 2 and Student 3 cannot be the same.")
@@ -117,9 +121,3 @@ class ExtendedTeamForm(TeamForm):
             raise forms.ValidationError("Student 4 and Student 5 cannot be the same.")
 
         return cleaned_data
-
-
-
-
-
-

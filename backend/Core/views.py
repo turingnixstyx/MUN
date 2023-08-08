@@ -6,8 +6,9 @@ from django.utils.decorators import method_decorator
 from django.views import View
 
 from Challenge.forms import ChallengeForm
-from Student.models import Students
 from Challenge.models import Challenge
+from Student.models import Students
+
 # Create your views here.
 
 
@@ -16,17 +17,20 @@ class Home(View):
     def get(self, request):
         form = ChallengeForm()
         challenges_set = Challenge.objects.all()
-        return render(request, "home.html", {"form": form, 'chls' : challenges_set})
+        return render(request, "home.html", {"form": form, "chls": challenges_set})
 
     def post(self, request):
         challenge = request.POST.get("challenge")
         # get challenge name
-        challenge_object= Challenge.objects.get(pk=int(challenge))
+        challenge_object = Challenge.objects.get(pk=int(challenge))
         print("Got challenge", challenge_object.name, challenge_object.id)
         self.request.session["first_page_data"] = {
             "challenge": {"name": challenge_object.name}
         }
-        print('self.request.session["first_page_data"] --------', self.request.session["first_page_data"])
+        print(
+            'self.request.session["first_page_data"] --------',
+            self.request.session["first_page_data"],
+        )
         if challenge_object.id in [1, 4]:
             return redirect("committee")
         else:
@@ -58,6 +62,7 @@ class Login_View(View):
         else:
             return HttpResponse("Fuck you Wrong Password")
 
+
 @login_required
 def success(request):
     return render(request, "success.html")
@@ -70,4 +75,4 @@ def logout_user(request):
 
 
 def test_view(request):
-    return render(request, 'preferences.html')
+    return render(request, "preferences.html")

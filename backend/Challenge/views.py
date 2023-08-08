@@ -1,20 +1,21 @@
 from typing import Any, Dict
 
+from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.db.models import Q
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views.generic import FormView
 
 from Core.models import AllTracker, ImpactChallengeTable, MUNChallengeTable
 from Student.models import Students
 
-from .forms import AddonForms, PreferenceForm, TeamForm, ExtendedTeamForm
+from .forms import AddonForms, ExtendedTeamForm, PreferenceForm, TeamForm
 from .models import Committee, Portfolio
 
 # Create your views here.
+
 
 @method_decorator(login_required, name="dispatch")
 class CommitteeView(FormView):
@@ -90,6 +91,7 @@ class CommitteeView(FormView):
 
         return False if c else True
 
+
 @method_decorator(login_required, name="dispatch")
 class TeamView(FormView):
     template_name = "teams.html"
@@ -162,6 +164,7 @@ class TeamView(FormView):
                     team=team_id,
                 )
                 a.save()
+
 
 @method_decorator(login_required, name="dispatch")
 class AddOnView(FormView):
