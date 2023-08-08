@@ -13,5 +13,16 @@
     Select Team Mate
     {{form.student3}}
     <br><br>
+    {% if form.student4 %}
+    Select Team Mate
+    {{form.student4}}
+    <br><br>
+    {% endif %}
+    {% if form.student5%}
+    Select Team Mate
+    {{form.student5}}
+    <br><br>
+    {% endif %}
+    {% include 'button.html' %}
 </form>
 {% endblock %}

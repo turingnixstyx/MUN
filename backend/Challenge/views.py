@@ -11,7 +11,7 @@ from django.views.generic import FormView
 from Core.models import AllTracker, ImpactChallengeTable, MUNChallengeTable
 from Student.models import Students
 
-from .forms import AddonForms, PreferenceForm, TeamForm
+from .forms import AddonForms, PreferenceForm, TeamForm, ExtendedTeamForm
 from .models import Committee, Portfolio
 
 # Create your views here.
@@ -93,8 +93,15 @@ class CommitteeView(FormView):
 @method_decorator(login_required, name="dispatch")
 class TeamView(FormView):
     template_name = "teams.html"
-    form_class = TeamForm
     success_url = reverse_lazy("success")
+
+    def get_form_class(self):
+        cname = self.request.session["first_page_data"].get("challenge", {}).get("name")
+        if "theatrics" in cname.lower():
+            print("getting here")
+            return ExtendedTeamForm
+        else:
+            return TeamForm
 
     def get_student_and_school(self):
         current_user = self.request.user
