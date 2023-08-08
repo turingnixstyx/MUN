@@ -137,3 +137,7 @@ LOGIN_REDIRECT_URL = "/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "Media")
 
 MEDIA_URL = "/media/"
+
+# settings.py
+
+CSRF_COOKIE_SECURE = False
