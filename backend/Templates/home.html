@@ -19,7 +19,24 @@ this is the home page
 
 <form method="POST">
     {% csrf_token %}
-    {{form.as_p}}
+    
+    {% for choice_value, choice_label in form.challenge.field.choices %}
+      {% for ch in chls%}
+    <label>
+      {% if ch.id == choice_value %}
+      <input type="radio" name="{{ form.challenge.name }}" value="{{ choice_value }}" id="id_{{ form.challenge.id_for_label }}_{{ choice_value }}" {% if form.challenge.value == choice_value %}checked{% endif %}>
+        <p style="font-size: 20px;">{{choice_label}}</p>
+        <p style="font-size: 14px">{{ch.short_description}}</p>
+      {% endif %}
+        <!-- {{ form.challenge.choice.value }}
+        {{ choice.1.name }}
+        {{ form.challenge.choice }} -->
+    </label>
+    {% endfor %}
+{% endfor %}
+
+
+    <!-- Display the short description -->
 
     {% include 'button.html' %}
 </form>

@@ -7,7 +7,7 @@ from django.views import View
 
 from Challenge.forms import ChallengeForm
 from Student.models import Students
-
+from Challenge.models import Challenge
 # Create your views here.
 
 
@@ -15,25 +15,30 @@ from Student.models import Students
 class Home(View):
     def get(self, request):
         form = ChallengeForm()
-        return render(request, "home.html", {"form": form})
+        challenges_set = Challenge.objects.all()
+        return render(request, "home.html", {"form": form, 'chls' : challenges_set})
 
     def post(self, request):
-        form = ChallengeForm(request.POST)
-        if form.is_valid():
-            challenge = form.cleaned_data["challenge"]
-            print("Got challenge", challenge.name)
-            self.request.session["first_page_data"] = {
-                "challenge": {"name": challenge.name}
-            }
+        challenge = request.POST.get("challenge")
+        # get challenge name
+        challenge_object= Challenge.objects.get(pk=int(challenge))
+        print("Got challenge", challenge_object.name, challenge_object.id)
+        self.request.session["first_page_data"] = {
+            "challenge": {"name": challenge_object.name}
+        }
+        print('self.request.session["first_page_data"] --------', self.request.session["first_page_data"])
+        if challenge_object.id in [1, 4]:
+            return redirect("committee")
+        else:
+            return redirect("teams")
 
-            if challenge.name == "Challenge 2":  # Impact Challenge
-                return redirect("committee")
-
-            else:  # All other else
-                return redirect("teams")
         # Add challenge name to session
+        # MUN = 4
+        # IC = 1
 
         # redirect on basis of challenge
+
+        return render(request, "home.html")
 
 
 class Login_View(View):
