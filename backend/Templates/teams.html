@@ -33,9 +33,11 @@ Select Your Team Mates for this Challenge
     {% endif %}
     
     <br>
+    {% if form.student4 %}
     Select Team Mate
     {{form.student3}}
     <br>
+    {% endif %}
     {% if form.student3.errors %}
     <script>
         alert("{{ form.student3.errors|join:", " }}");

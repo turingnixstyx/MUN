@@ -44,9 +44,9 @@ class AllTrackerAdmin(admin.ModelAdmin):
 @admin.register(ImpactChallengeTable)
 class ImpactChallengeAdmin(admin.ModelAdmin):
     form=ImpactModelAdminForm
-    list_display = ["student", "school", 'get_preferences_one', 'get_preferences_two', 'get_preferences_three', "committee", "portfolio", "remarks",]
+    list_display = ["student", "school", 'get_preferences_one', 'get_preferences_two', 'get_preferences_three', "committee", "portfolio", "remarks", "status"]
     list_filter = ["school", "committee", "portfolio"]
-    list_editable = ('committee', 'portfolio',)
+    list_editable = ('committee', 'portfolio', "status")
     actions = ["export_as_csv"]
 
     def get_preferences_one(self, obj):
@@ -92,9 +92,9 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
 @admin.register(MUNChallengeTable)
 class MUNAdmin(admin.ModelAdmin):
     form=MUNModelAdminForm
-    list_display = ["student", "school", 'get_preferences_one', 'get_preferences_two', 'get_preferences_three', "committee", "portfolio", "remarks"]
+    list_display = ["student", "school", 'get_preferences_one', 'get_preferences_two', 'get_preferences_three', "committee", "portfolio", "remarks", 'status']
     list_filter = ["school", "committee", "portfolio"]
-    list_editable = ('committee', 'portfolio',)
+    list_editable = ('committee', 'portfolio', 'status')
     actions = ["export_as_csv"]
 
     def get_preferences_one(self, obj):
