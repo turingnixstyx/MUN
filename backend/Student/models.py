@@ -39,5 +39,7 @@ class Students(models.Model):
     )
     team = models.CharField(max_length=5, unique=False, null=True, blank=True)
 
+    personal_info = models.TextField(null=True)
+
     def __str__(self):
         return f"{self.name} {self.email}"

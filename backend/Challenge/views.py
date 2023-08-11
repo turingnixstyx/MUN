@@ -11,7 +11,7 @@ from django.views.generic import FormView
 from Core.models import AllTracker, ImpactChallengeTable, MUNChallengeTable
 from Student.models import Students
 
-from .forms import AddonForms, ExtendedTeamForm, PreferenceForm, TeamForm
+from .forms import AddonForms, ExtendedTeamForm, PreferenceForm, TeamForm, PersonalInfoForm
 from .models import Committee, Portfolio
 
 # Create your views here.
@@ -36,13 +36,18 @@ class CommitteeView(FormView):
         # Process the form data here (save to database, send an email, etc.)
         committee_list = self.request.POST.getlist("committee")
         portfolio_list = self.request.POST.getlist("portfolio")
+        personal_info = self.request.POST.get("text")
 
-        self.query_runner(committee_list, portfolio_list)
+        self.query_runner(committee_list, portfolio_list, personal_info)
         # Add your processing logic here
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        cname = self.request.session["first_page_data"].get("challenge", {}).get("name")
+        if "model" in cname.lower():
+            info = PersonalInfoForm()
+            context['info'] = info
 
         return context
 
@@ -54,21 +59,29 @@ class CommitteeView(FormView):
         return "".join(random.choice(characters) for _ in range(5))
 
     def query_runner(self, committee_list, portfolio_list, *args, **kwargs):
+        self.get_student_and_school()
         with transaction.atomic():
+            if args:
+                personal_info = args[0]
+                cs = self.current_student
+                cs.personal_info = personal_info
+                cs.save()
+
+                print("Everything ran sucessfully")
+
             preference = 1
             for committees, portfolios in zip(committee_list, portfolio_list):
                 com = Committee.objects.get(pk=int(committees))
                 prt = Portfolio.objects.get(pk=int(portfolios))
 
-                self.get_student_and_school()
 
                 # add to Total Global tracker
                 a = AllTracker.objects.create(
-                    student=self.current_student,
-                    school=self.current_school,
-                    challenge=self.challenge_name,
-                    committee=com.name,
-                    portfolio=prt.name,
+                    student=str(self.current_student),
+                    school=str(self.current_school),
+                    challenge=str(self.challenge_name),
+                    committee=str(com.name),
+                    portfolio=str(prt.name),
                     preference=preference,
                     team=self.random_teamID_generator(),
                 )

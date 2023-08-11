@@ -121,3 +121,8 @@ class ExtendedTeamForm(TeamForm):
             raise forms.ValidationError("Student 4 and Student 5 cannot be the same.")
 
         return cleaned_data
+    
+class PersonalInfoForm(forms.Form):
+    text = text = forms.CharField(
+        widget=forms.TextInput(attrs={"maxlength": 255})
+    )

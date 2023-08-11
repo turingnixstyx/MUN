@@ -37,6 +37,15 @@ Select You top Three preferences for<br> Committees and their respective Portfol
     background-color: #f0f0f0;
     /* Add any other styles you want, such as font size, font color, etc. */
   }
+
+  #id_text {
+    width: 80%;
+    height:100px; /* Full width of div */ /* Center text */
+    padding: 0px; /* Add padding for spacing */
+    border: none;
+    border-radius: 4px; /* Remove border for cleaner appearance */
+    background-color: lightgray; /* Inherit background color from parent */
+}
 </style>
 
 
@@ -181,6 +190,12 @@ Select You top Three preferences for<br> Committees and their respective Portfol
     <p style="font-size:20px; margin-top:20px;">Select Committee {{form.committee}}<br> Select Portfolio {{form.portfolio}}</p><br>
     <p style="font-size:20px; margin-top:5px;">Select Committee {{form.committee}} <br> Select Portfolio {{form.portfolio}}</p><br>
     <p style="font-size:20px; margin-top:5px;">Select Committee {{form.committee}} <br> Select Portfolio {{form.portfolio}}</p><br>
+
+    {% if info %}
+      {{info.text}}
+    {% endif %}
+
+    {% include 'button.html' %}
 
 </form>
 
