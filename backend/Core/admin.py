@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import AllTracker, ImpactChallengeTable, MUNChallengeTable
 import csv
 from django.http import HttpResponse
+from .modelforms import MUNModelAdminForm, ImpactModelAdminForm
 
 
 # Register your models here.
@@ -41,6 +42,7 @@ class AllTrackerAdmin(admin.ModelAdmin):
 
 @admin.register(ImpactChallengeTable)
 class ImpactChallengeAdmin(admin.ModelAdmin):
+    form=ImpactModelAdminForm
     list_display = ["student", "school", "committee", "portfolio"]
     list_filter = ["school", "committee", "portfolio"]
     actions = ["export_as_csv"]
@@ -68,6 +70,7 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
 
 @admin.register(MUNChallengeTable)
 class MUNAdmin(admin.ModelAdmin):
+    form=MUNModelAdminForm
     list_display = ["student", "school", "committee", "portfolio"]
     list_filter = ["school", "committee", "portfolio"]
     actions = ["export_as_csv"]
