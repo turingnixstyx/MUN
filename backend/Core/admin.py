@@ -49,7 +49,7 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
     actions = ["export_as_csv"]
 
     def get_preferences(self, obj):
-        preferences = AllTracker.objects.filter(name=obj.name, school=obj.school, challenge="Impact Challenge").values('committe', 'portfolio', 'preference')
+        preferences = AllTracker.objects.filter(name=obj.student, school=obj.school, challenge="Impact Challenge").values('committe', 'portfolio', 'preference')
         return ''.join(preferences)
 
     def export_as_csv(self, request, queryset):
