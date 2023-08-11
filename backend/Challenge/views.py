@@ -59,6 +59,7 @@ class CommitteeView(FormView):
         return "".join(random.choice(characters) for _ in range(5))
 
     def query_runner(self, committee_list, portfolio_list, *args, **kwargs):
+        team_id = self.random_teamID_generator()
         self.get_student_and_school()
         with transaction.atomic():
             if args:
@@ -83,7 +84,7 @@ class CommitteeView(FormView):
                     committee=str(com.name),
                     portfolio=str(prt.name),
                     preference=preference,
-                    team=self.random_teamID_generator(),
+                    team=team_id,
                 )
                 a.save()
 
