@@ -17,9 +17,9 @@ class PreferenceForm(forms.Form):
     committee = forms.ModelChoiceField(queryset=Committee.objects.all())
     portfolio = forms.ModelChoiceField(queryset=Portfolio.objects.all())
 
-    def __int__(self, com_queryset=None, por_queryset=None, *args, **kwargs):
+    def __init__(self, com_queryset=None, por_queryset=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
+
         if com_queryset:
             self.fields['committee'].queryset = com_queryset
 
