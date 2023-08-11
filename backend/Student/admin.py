@@ -10,7 +10,7 @@ from django.db.models.query import QuerySet
 from django.http import HttpResponse
 
 from .models import School, Students
-
+from django.contrib.auth.hashers import make_password
 # Register your models here.
 
 

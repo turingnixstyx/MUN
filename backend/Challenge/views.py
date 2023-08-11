@@ -95,6 +95,8 @@ class CommitteeView(FormView):
                 cs.save()
 
             preference = 1
+            MODEL = ImpactChallengeTable if "impact" in self.challenge_name.lower() else MUNChallengeTable
+            print(MODEL)
             for committees, portfolios in zip(committee_list, portfolio_list):
                 com = Committee.objects.get(pk=int(committees))
                 prt = Portfolio.objects.get(pk=int(portfolios))
@@ -109,9 +111,17 @@ class CommitteeView(FormView):
                     preference=preference,
                     team=team_id,
                 )
+                
+
+                t = MODEL.objects.create(
+                    student=str(self.current_student),
+                    school=str(self.current_school),
+                )
                 if personal_info:
                     a.remarks = f"Personal achivements and accolades {personal_info}"
+                    t.remarks = f"Personal achivements and accolades {personal_info}"
                 a.save()
+                t.save()
 
                 preference += 1
 
@@ -192,8 +202,11 @@ class TeamView(FormView):
 
     def query_runner(self, team_members, *args, **kwargs):
         with transaction.atomic():
-            team_id = self.random_teamID_generator()
             self.get_student_and_school()
+            team_id = self.current_student.name
+
+            self.current_student.team=team_id
+            self.current_student.save()
 
             print("outside for loop")
             for member in team_members:
