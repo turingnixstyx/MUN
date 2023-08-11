@@ -18,6 +18,7 @@ class AllTrackerAdmin(admin.ModelAdmin):
     ]
     list_filter = ["school", "challenge", "committee", "portfolio"]
     actions = ["export_as_csv"]
+    search_fields = ["student"]
 
     def export_as_csv(self, request, queryset):
         meta = (
