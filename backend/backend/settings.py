@@ -151,10 +151,7 @@ LOGGING = {
             "format": "{levelname} {asctime} {module} {message}",
             "style": "{",
         },
-        "simple": {
-            "format": "{levelname} {message}",
-            "style": "{",
-        },
+        
     },
     "handlers": {
         "file": {
@@ -165,7 +162,7 @@ LOGGING = {
         },
     },
     "loggers": {
-        "django": {
+        "root": {
             "handlers": ["file"],
             "level": "INFO",
             "propagate": True,

@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 this is the home page
+{% block heading%} Challenge Description {% endblock %}
+
+
+{%block desc%} 
+Click on the menu dropdown button<br>
+to select the challenge you participate in
+{% endblock%}
+
 
 {% block content %}
 <style>
@@ -15,31 +23,110 @@ this is the home page
       background-color: #f0f0f0;
       /* Add any other styles you want, such as font size, font color, etc. */
     }
-  </style>
-
-<form method="POST">
-    {% csrf_token %}
+    /* The container */
+    .container {
+      display: block;
+      position: relative;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 22px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
     
-    {% for choice_value, choice_label in form.challenge.field.choices %}
-      {% for ch in chls%}
-    <label>
-      {% if ch.id == choice_value %}
-      <input type="radio" name="{{ form.challenge.name }}" value="{{ choice_value }}" id="id_{{ form.challenge.id_for_label }}_{{ choice_value }}" {% if form.challenge.value == choice_value %}checked{% endif %}>
-        <p style="font-size: 20px;">{{choice_label}}</p>
-        <p style="font-size: 14px">{{ch.short_description}}</p>
-      {% endif %}
-        <!-- {{ form.challenge.choice.value }}
-        {{ choice.1.name }}
-        {{ form.challenge.choice }} -->
-    </label>
-    {% endfor %}
-{% endfor %}
+    /* Hide the browser's default radio button */
+    .container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+    
+    /* Create a custom radio button */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 890px;
+      height: 40px;
+      width: 40px;
+      background-color: lightgray;
+      border-radius: 30%;
+    }
+    
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .checkmark {
+      background-color: #ccc;
+    }
+    
+    /* When the radio button is checked, add a blue background */
+    .container input:checked ~ .checkmark {
+      background-color: #2196F3;
+    }
+    
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    
+    /* Show the indicator (dot/circle) when checked */
+    .container input:checked ~ .checkmark:after {
+      display: block;
+    }
+    
+    /* Style the indicator (dot/circle) */
+    .container .checkmark:after {
+      top: 16px;
+      left: 16px;
+      border-radius: 30%;
+      width: 8px;
+      height: 8px;
+      background: white;
+    }
+</style>
+
+<div 
+  style="
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 80px;
+  overflow: hidden;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  ">
+  <form method="POST">
+      {% csrf_token %}
+      
+        {% for choice_value, choice_label in form.challenge.field.choices %}
+          {% for ch in chls%}
+        <label class="container">
+          {% if ch.id == choice_value %}
+          <input type="radio" name="{{ form.challenge.name }}" value="{{ choice_value }}" id="id_{{ form.challenge.id_for_label }}_{{ choice_value }}" {% if form.challenge.value == choice_value %}checked{% endif %}>
+            <div 
+            style="
+              margin-bottom: 45px;">
+              <p style="font-size: 20px;">{{choice_label}}</p>
+              <p style="font-size: 14px">{{ch.short_description}}</p>
+              <hr style="width:30%; position:absolute; border:1.5px solid black">
+            </div>
+            <div class="checkmark"></div>
+            {% endif %}
+      </label>
+      {% endfor %}
+  {% endfor %}
 
 
-    <!-- Display the short description -->
+      <!-- Display the short description -->
 
-    {% include 'button.html' %}
-</form>
+      {% include 'button.html' %}
+  </form>
+</div>
 {% endblock %}
 
 

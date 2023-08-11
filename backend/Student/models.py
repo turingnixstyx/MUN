@@ -27,7 +27,7 @@ class Students(models.Model):
         max_length=254, unique=True, null=False, default="sample@email.com"
     )
     contact = models.CharField(
-        max_length=10, unique=False, null=False, default="1111111111"
+        max_length=25, unique=False, null=False, default="1111111111"
     )
     standard = models.IntegerField(default=10)
     school = models.ForeignKey(

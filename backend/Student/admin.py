@@ -54,12 +54,26 @@ class SchoolAdmin(admin.ModelAdmin):
             csv_filepath = os.path.join(filepath, file_name)
             with open(csv_filepath, "r") as file:
                 csvreader = csv.DictReader(file)
+                field_names = csvreader.fieldnames
+
+                print(field_names)
                 for row in csvreader:
-                    name = row.get("Name")
-                    email = row.get("Email")
-                    contact = row.get("Contact")
-                    std = row.get("Class")
-                    school_name = school.name
+                    for field in field_names:
+                        if "name" in field.lower():
+                            name = row.get(field)
+                        elif "email" in field.lower():
+                            email = row.get(field)
+
+                        elif "contact" in field.lower():
+                            contact = row.get(field)
+
+                        if "class" in field.lower():
+                            temp = row.get(field)
+                            kclass = "".join(filter(lambda char : not char.isalpha(), temp))
+                            std = int(kclass)
+
+                    
+                    school_name = school.name 
                     create_students_as_users(
                         name=name,
                         email=email,
@@ -79,13 +93,15 @@ def create_password() -> str:
 def create_students_as_users(
     name: str, email: str, contact: str, std: str, school: str
 ) -> None:
-    current_student = Students.objects.get(email=email)
-    current_user = User.objects.get(username=email)
+    
+    print(f"name {name} email {email} contact {contact} ")
+    current_student = Students.objects.filter(email=email)
+    current_user = User.objects.filter(username=email)
     if not current_student and not current_user:
         with transaction.atomic():
             s = Students.objects.create(
-                name=name, email=email, contact=contact, standard=std, school=school
+                name=name, email=email, contact=contact, standard=std, school=School.objects.get(name=school)
             )
-            u = User.objects.create(username=email, password=create_password())
             s.save()
+            u = User.objects.create(username=email, password=create_password())
             u.save()

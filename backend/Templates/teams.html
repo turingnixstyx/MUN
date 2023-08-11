@@ -1,27 +1,69 @@
 {% extends 'base.html' %}
+{%block heading%} Fill The Form {% endblock %}
 
+{% block desc %} 
+Select Your Team Mates for this Challenge
+
+{% endblock %}
 
 {% block content %}
 <form method="POST">
+    <br>
+    <br>
+    <br>
     {% csrf_token %}
     Select Team Mate
     {{form.student1}}
-    <br><br>
+    <br>
+    
+    {% if form.student1.errors %}
+    <script>
+        alert("{{ form.student1.errors|join:", " }}");
+    </script>
+    {% endif %}
+    <br>
     Select Team Mate
     {{form.student2}}
-    <br><br>
+    <br>
+    
+    {% if form.student2.errors %}
+    <script>
+        alert("{{ form.student2.errors|join:", " }}");
+    </script>
+    {% endif %}
+    
+    <br>
     Select Team Mate
     {{form.student3}}
-    <br><br>
+    <br>
+    {% if form.student3.errors %}
+    <script>
+        alert("{{ form.student3.errors|join:", " }}");
+    </script>
+    {% endif %}
+    <br>
     {% if form.student4 %}
     Select Team Mate
     {{form.student4}}
-    <br><br>
+    <br>
+    {% if form.student4.errors %}
+    <script>
+        alert("{{ form.student4.errors|join:", " }}");
+    </script>
+    {% endif %}
+    <br>
     {% endif %}
     {% if form.student5%}
     Select Team Mate
     {{form.student5}}
-    <br><br>
+    <br>
+    {% if form.student5.errors %}
+    <script>
+        alert("{{ form.student5.errors|join:", " }}");
+    </script>
+    {% endif %}
+    
+    <br>
     {% endif %}
     {% include 'button.html' %}
 </form>

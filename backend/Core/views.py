@@ -8,11 +8,16 @@ from django.views import View
 from Challenge.forms import ChallengeForm
 from Challenge.models import Challenge
 from Student.models import Students
+from Core.logger_util import MUNLogger
+
+
+logger = MUNLogger()
 
 # Create your views here.
 
 
 @method_decorator(login_required, name="dispatch")
+@logger.handle_exceptions_class
 class Home(View):
     def get(self, request):
         form = ChallengeForm()

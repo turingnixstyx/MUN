@@ -27,14 +27,14 @@ class PreferenceForm(forms.Form):
                 "Both committee and portfolio must be selected."
             )
 
-        if committee and portfolio:
-            if portfolio.committee != committee:
-                self.add_error(
-                    "portfolio",
-                    "Selected portfolio is not valid for the selected committee.",
-                )
+        # if committee and portfolio:
+        #     if portfolio.committee != committee:
+        #         self.add_error(
+        #             "portfolio",
+        #             "Selected portfolio is not valid for the selected committee.",
+        #         )
 
-        return cleaned_data
+        # return cleaned_data
 
 
 class AddonForms(forms.Form):
@@ -81,11 +81,11 @@ class ExtendedTeamForm(TeamForm):
     student4 = forms.ModelChoiceField(queryset=Students.objects.all())
     student5 = forms.ModelChoiceField(queryset=Students.objects.all())
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, queryset=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        queryset = Students.objects.all()
-        self.fields["student4"].queryset = queryset
-        self.fields["student5"].queryset = queryset
+        if queryset:
+            self.fields["student4"].queryset = queryset
+            self.fields["student5"].queryset = queryset
 
     def clean(self):
         cleaned_data = super().clean()
