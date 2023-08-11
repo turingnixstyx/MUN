@@ -45,6 +45,7 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
     form=ImpactModelAdminForm
     list_display = ["student", "school", "committee", "portfolio"]
     list_filter = ["school", "committee", "portfolio"]
+    list_editable = ('committee', 'portfolio',)
     actions = ["export_as_csv"]
 
     def export_as_csv(self, request, queryset):
