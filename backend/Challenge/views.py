@@ -45,7 +45,7 @@ class CommitteeView(FormView):
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
         cname = self.request.session["first_page_data"].get("challenge", {}).get("name")
-        if "model" in cname.lower():
+        if "model" in cname.lower() or "united" in cname.lower():
             info = PersonalInfoForm()
             context['info'] = info
 
@@ -61,7 +61,7 @@ class CommitteeView(FormView):
     def get_form_kwargs(self) -> Dict[str, Any]:
         kwargs= super().get_form_kwargs()
         cname = self.request.session["first_page_data"].get("challenge", {}).get("name")
-        MODEL = MUNChallengeTable if "model" in cname else ImpactChallengeTable
+        MODEL = MUNChallengeTable if "united" in cname or "model" in cname else ImpactChallengeTable
 
         committee_queryset = Committee.objects.exclude(id__in=MODEL.objects.values('id'))
         portfolio_querset = Portfolio.objects.exclude(id__in=MODEL.objects.values('id'))
@@ -114,7 +114,7 @@ class CommitteeView(FormView):
                 committee=committee, portfolio=portfolio
             )
 
-        elif "mun" in challenge.lower():
+        elif "mun" in challenge.lower() or "united" in challenge.lower():
             c = MUNChallengeTable.objects.filter(
                 committee=committee, portfolio=portfolio
             )
