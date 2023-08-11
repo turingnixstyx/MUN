@@ -57,6 +57,20 @@ class CommitteeView(FormView):
 
         characters = string.ascii_letters + string.digits
         return "".join(random.choice(characters) for _ in range(5))
+    
+    def get_form_kwargs(self) -> Dict[str, Any]:
+        kwargs= super().get_form_kwargs()
+        cname = self.request.session["first_page_data"].get("challenge", {}).get("name")
+        MODEL = MUNChallengeTable if "model" in cname else ImpactChallengeTable
+
+        committee_queryset = Committee.objects.exclude(id__in=MODEL.objects.values('id'))
+        portfolio_querset = Portfolio.objects.exclude(id__in=MODEL.objects.values('id'))
+
+        kwargs['com_queryset'] = committee_queryset
+        kwargs['por_queryset'] = portfolio_querset
+
+        return  kwargs
+        
 
     def query_runner(self, committee_list, portfolio_list, *args, **kwargs):
         team_id = self.random_teamID_generator()

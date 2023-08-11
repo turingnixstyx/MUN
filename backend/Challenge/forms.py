@@ -17,6 +17,13 @@ class PreferenceForm(forms.Form):
     committee = forms.ModelChoiceField(queryset=Committee.objects.all())
     portfolio = forms.ModelChoiceField(queryset=Portfolio.objects.all())
 
+    def __int__(self, com_queryset=None, por_queryset=None, *args, **kwargs):
+        if com_queryset:
+            self.fields['committee'].queryset = com_queryset
+
+        if por_queryset:
+            self.fields['portfolio'].queryset = por_queryset
+
     def clean(self) -> Dict[str, Any]:
         cleaned_data = super().clean()
         committee = cleaned_data.get("committee")
