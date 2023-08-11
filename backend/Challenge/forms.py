@@ -84,6 +84,9 @@ class ExtendedTeamForm(TeamForm):
     def __init__(self, queryset=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if queryset:
+            self.fields["student1"].queryset = queryset
+            self.fields["student2"].queryset = queryset
+            self.fields["student3"].queryset = queryset
             self.fields["student4"].queryset = queryset
             self.fields["student5"].queryset = queryset
 

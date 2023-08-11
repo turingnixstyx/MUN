@@ -139,7 +139,11 @@ class TeamView(FormView):
 
     def form_valid(self, form):
         # Process the form data here (save to database, send an email, etc.)
-        members = self.request.POST.getlist("student")
+        members =  []
+        for idx in range(5):
+            key = "student" + str(idx+1)
+            members.append(self.request.POST.get(key))
+
         print(members)
         self.query_runner(members)
         # Add your processing logic here
@@ -167,10 +171,13 @@ class TeamView(FormView):
             team_id = self.random_teamID_generator()
             self.get_student_and_school()
 
+            print("outside for loop")
             for member in team_members:
                 # get team leader from user
+                print("inside for loop")
 
                 member_name = Students.objects.get(pk=member)
+                member_name.team = team_id
 
                 # add all team members to
                 a = AllTracker.objects.create(
@@ -180,6 +187,7 @@ class TeamView(FormView):
                     team=team_id,
                 )
                 a.save()
+                member_name.save()
 
 
 @method_decorator(login_required, name="dispatch")
