@@ -62,7 +62,7 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
         print(f"main string---------{main_string}")
 
         
-        return ''.join(preferences)
+        return main_string
 
     def export_as_csv(self, request, queryset):
         meta = (
