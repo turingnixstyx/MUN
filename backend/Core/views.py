@@ -9,6 +9,7 @@ from Challenge.forms import ChallengeForm
 from Challenge.models import Challenge
 from Student.models import Students
 from Core.logger_util import MUNLogger
+from django.db.models import Q
 
 
 logger = MUNLogger()
@@ -62,11 +63,28 @@ class Login_View(View):
         username = request.POST.get("username")
         password = request.POST.get("password")
 
+        # Check whether this User has teams as None
+
         user = authenticate(request, username=username, password=password)
 
+
         if user is not None:
-            login(request, user)
-            return redirect("home")
+            # Remove this when going for production
+            q_filter = Q()
+            q_filter &= Q(Q(email=username) | Q(name=username))
+            q_filter &= ~Q(name="naman")
+            current_student = Students.objects.filter(q_filter).values('name', 'team')
+            student_name , team_id= "", None
+            if current_student:
+                student_name = current_student[0].get('name')
+                team_id = current_student[0].get('team')
+
+            if not team_id:
+                login(request, user)
+                return redirect("home")
+            
+            else:
+                return render(request, 'returning_user.html', {'user' : student_name})
 
         else:
             return HttpResponse("Fuck you Wrong Password")

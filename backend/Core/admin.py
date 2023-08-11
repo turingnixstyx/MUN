@@ -45,7 +45,7 @@ class AllTrackerAdmin(admin.ModelAdmin):
 class ImpactChallengeAdmin(admin.ModelAdmin):
     form=ImpactModelAdminForm
     list_display = ["student", "school", 'get_preferences_one', 'get_preferences_two', 'get_preferences_three', "committee", "portfolio", "remarks", "status"]
-    list_filter = ["school", "committee", "portfolio"]
+    list_filter = ["school", "committee", "portfolio", "status"]
     list_editable = ('committee', 'portfolio', "status")
     actions = ["export_as_csv"]
 
@@ -93,7 +93,7 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
 class MUNAdmin(admin.ModelAdmin):
     form=MUNModelAdminForm
     list_display = ["student", "school", 'get_preferences_one', 'get_preferences_two', 'get_preferences_three', "committee", "portfolio", "remarks", 'status']
-    list_filter = ["school", "committee", "portfolio"]
+    list_filter = ["school", "committee", "portfolio", "status"]
     list_editable = ('committee', 'portfolio', 'status')
     actions = ["export_as_csv"]
 
