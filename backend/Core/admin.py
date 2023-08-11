@@ -43,26 +43,26 @@ class AllTrackerAdmin(admin.ModelAdmin):
 @admin.register(ImpactChallengeTable)
 class ImpactChallengeAdmin(admin.ModelAdmin):
     form=ImpactModelAdminForm
-    list_display = ["student", "school", "committee", "portfolio", "remarks", 'get_preferences']
+    list_display = ["student", "school", "committee", "portfolio", "remarks", 'get_preferences_one', 'get_preferences_two', 'get_preferences_three']
     list_filter = ["school", "committee", "portfolio"]
     list_editable = ('committee', 'portfolio',)
     actions = ["export_as_csv"]
 
-    def get_preferences(self, obj):
-        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge").values('committee', 'portfolio', 'preference')
-        # <QuerySet [{'committee': 'UNESCO', 'portfolio': 'Congo', 'preference': 1}, {'committee': 'UNEP (6-8)', 'portfolio': 'Bangladesh', 'preference': 2}, {'committee': 'UNCTAD (United Nations Conference on Trade and Development )', 'portfolio': 'Ukraine', 'preference': 3}]
-        main_list = []
-        for item in preferences:
-            pref = f"{item.get('preference')} {item.get('committee')} {item.get('portfolio')}"
-            print(pref)
-            main_list.append(pref)
+    def get_preferences_one(self, obj):
+        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge", preferences=1).values('committee', 'portfolio')
+        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
+        return pref_list
+    
+    def get_preferences_two(self, obj):
+        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge", preferences=2).values('committee', 'portfolio')
+        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
+        return pref_list
+    
+    def get_preferences_three(self, obj):
+        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge", preferences=3).values('committee', 'portfolio')
+        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
+        return pref_list
 
-
-        main_string = "\n".join(main_list)
-        print(f"main string---------{main_string}")
-
-        
-        return main_string
 
     def export_as_csv(self, request, queryset):
         meta = (
@@ -83,7 +83,9 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
         return response
 
     export_as_csv.short_description = "Export csv"
-    get_preferences.short_description = "get_preferences"
+    get_preferences_one.short_description = "Preference 1"
+    get_preferences_two.short_description = "Preference 2"
+    get_preferences_three.short_description = "Preference 3"
 
 
 @admin.register(MUNChallengeTable)
