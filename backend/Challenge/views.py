@@ -61,6 +61,7 @@ class CommitteeView(FormView):
     def query_runner(self, committee_list, portfolio_list, *args, **kwargs):
         team_id = self.random_teamID_generator()
         self.get_student_and_school()
+        personal_info = ""
         with transaction.atomic():
             if args:
                 personal_info = args[0]
@@ -68,7 +69,6 @@ class CommitteeView(FormView):
                 cs.personal_info = personal_info
                 cs.save()
 
-                print("Everything ran sucessfully")
 
             preference = 1
             for committees, portfolios in zip(committee_list, portfolio_list):
@@ -86,6 +86,8 @@ class CommitteeView(FormView):
                     preference=preference,
                     team=team_id,
                 )
+                if personal_info:
+                    a.remarks = f"Personal achivements and accolades {personal_info}"
                 a.save()
 
                 preference += 1
