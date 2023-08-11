@@ -43,7 +43,7 @@ class AllTrackerAdmin(admin.ModelAdmin):
 @admin.register(ImpactChallengeTable)
 class ImpactChallengeAdmin(admin.ModelAdmin):
     form=ImpactModelAdminForm
-    list_display = ["student", "school", "committee", "portfolio", "remarks", 'get_preferences_one', 'get_preferences_two', 'get_preferences_three']
+    list_display = ["student", "school", 'get_preferences_one', 'get_preferences_two', 'get_preferences_three', "committee", "portfolio", "remarks",]
     list_filter = ["school", "committee", "portfolio"]
     list_editable = ('committee', 'portfolio',)
     actions = ["export_as_csv"]
