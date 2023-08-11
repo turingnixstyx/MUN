@@ -14,7 +14,7 @@ from .models import School, Students
 
 @admin.register(Students)
 class StudentAdmin(admin.ModelAdmin):
-    pass
+    list_display=["name", "standard", "school"]
 
 
 @admin.register(School)
@@ -47,10 +47,11 @@ class SchoolAdmin(admin.ModelAdmin):
 
         for school in queryset:
             file_name = (
-                school.name.replace(" ", "_") + ".csv"
+                school.name.replace(" ", "_")
                 if " " in school.name
                 else school.name
             )
+            file_name = str(file_name) + ".csv"
             csv_filepath = os.path.join(filepath, file_name)
             with open(csv_filepath, "r") as file:
                 csvreader = csv.DictReader(file)
