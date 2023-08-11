@@ -44,7 +44,7 @@ class AllTrackerAdmin(admin.ModelAdmin):
 @admin.register(ImpactChallengeTable)
 class ImpactChallengeAdmin(admin.ModelAdmin):
     form=ImpactModelAdminForm
-    list_display = ["student", "school", 'get_preferences_one', 'get_preferences_two', 'get_preferences_three', "committee", "portfolio", "remarks", "status"]
+    list_display = ["student", "school", 'get_preferences_one', 'get_preferences_two', "committee", "portfolio", "remarks", "status"]
     list_filter = ["school", "committee", "portfolio", "status"]
     list_editable = ('committee', 'portfolio', "status")
     actions = ["export_as_csv"]
@@ -59,10 +59,6 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
         pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
         return pref_list
     
-    def get_preferences_three(self, obj):
-        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge", preference=3).values('committee', 'portfolio')
-        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        return pref_list
 
 
     def export_as_csv(self, request, queryset):
@@ -86,7 +82,6 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
     export_as_csv.short_description = "Export csv"
     get_preferences_one.short_description = "Preference 1"
     get_preferences_two.short_description = "Preference 2"
-    get_preferences_three.short_description = "Preference 3"
 
 
 @admin.register(MUNChallengeTable)

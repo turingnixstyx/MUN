@@ -187,10 +187,9 @@ Select You top Three preferences for<br> Committees and their respective Portfol
 
     </style>
     {% csrf_token %}
-    <p style="font-size:20px; margin-top:20px;">Select Committee {{form.committee}}<br> Select Portfolio {{form.portfolio}}</p><br>
-    <p style="font-size:20px; margin-top:5px;">Select Committee {{form.committee}} <br> Select Portfolio {{form.portfolio}}</p><br>
-    <p style="font-size:20px; margin-top:5px;">Select Committee {{form.committee}} <br> Select Portfolio {{form.portfolio}}</p><br>
-
+    {% for i in iterations %}
+      <p style="font-size:20px; margin-top:20px;">Select Committee {{form.committee}}<br> Select Portfolio {{form.portfolio}}</p><br>
+    {% endfor %}
     {% if info %}
       {{info.text}}
     {% endif %}

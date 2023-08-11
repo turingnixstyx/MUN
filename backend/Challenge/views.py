@@ -53,7 +53,11 @@ class CommitteeView(FormView):
         cname = self.request.session["first_page_data"].get("challenge", {}).get("name")
         if "model" in cname.lower() or "united" in cname.lower():
             info = PersonalInfoForm()
+            context['iterations'] = range(3)
             context["info"] = info
+
+        else:
+            context['iterations'] = range(2)
 
         return context
 
