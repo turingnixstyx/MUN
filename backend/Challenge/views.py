@@ -112,18 +112,21 @@ class CommitteeView(FormView):
                     team=team_id,
                 )
                 
+                if personal_info:
+                    a.remarks = f"Personal achivements and accolades {personal_info}"
+                a.save()
 
-                t = MODEL.objects.create(
+                preference += 1
+
+            t = MODEL.objects.create(
                     student=str(self.current_student),
                     school=str(self.current_school),
                 )
-                if personal_info:
-                    a.remarks = f"Personal achivements and accolades {personal_info}"
-                    t.remarks = f"Personal achivements and accolades {personal_info}"
-                a.save()
-                t.save()
+            
+            if personal_info:
+                t.remarks = f"Personal achivements and accolades {personal_info}"
 
-                preference += 1
+            t.save()
 
     def check_validity(self, committee, portfolio, challenge):
         c = None
