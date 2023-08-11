@@ -142,7 +142,8 @@ class TeamView(FormView):
         members =  []
         for idx in range(5):
             key = "student" + str(idx+1)
-            members.append(self.request.POST.get(key))
+            if self.request.POST.get(key):
+                members.append(self.request.POST.get(key))
 
         print(members)
         self.query_runner(members)
