@@ -53,7 +53,7 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
         # <QuerySet [{'committee': 'UNESCO', 'portfolio': 'Congo', 'preference': 1}, {'committee': 'UNEP (6-8)', 'portfolio': 'Bangladesh', 'preference': 2}, {'committee': 'UNCTAD (United Nations Conference on Trade and Development )', 'portfolio': 'Ukraine', 'preference': 3}]
         main_list = []
         for item in preferences:
-            pref = f"{item.get('preferences')} {item.get('committee')} {item.get('portfolio')}"
+            pref = f"{item.get('preference')} {item.get('committee')} {item.get('portfolio')}"
             print(pref)
             main_list.append(pref)
 
