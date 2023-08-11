@@ -49,7 +49,19 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
     actions = ["export_as_csv"]
 
     def get_preferences(self, obj):
-        preferences = AllTracker.objects.filter(name=obj.student, school=obj.school, challenge="Impact Challenge").values('committe', 'portfolio', 'preference')
+        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge").values('committee', 'portfolio', 'preference')
+        # <QuerySet [{'committee': 'UNESCO', 'portfolio': 'Congo', 'preference': 1}, {'committee': 'UNEP (6-8)', 'portfolio': 'Bangladesh', 'preference': 2}, {'committee': 'UNCTAD (United Nations Conference on Trade and Development )', 'portfolio': 'Ukraine', 'preference': 3}]
+        main_list = []
+        for item in preferences:
+            pref = f"{item.get('preferences')} {item.get('committee')} {item.get('portfolio')}"
+            print(pref)
+            main_list.append(pref)
+
+
+        main_string = "\n".join(main_list)
+        print(f"main string---------{main_string}")
+
+        
         return ''.join(preferences)
 
     def export_as_csv(self, request, queryset):
@@ -71,6 +83,7 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
         return response
 
     export_as_csv.short_description = "Export csv"
+    get_preferences.short_description = "get_preferences"
 
 
 @admin.register(MUNChallengeTable)
