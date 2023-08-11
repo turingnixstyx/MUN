@@ -91,9 +91,26 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
 @admin.register(MUNChallengeTable)
 class MUNAdmin(admin.ModelAdmin):
     form=MUNModelAdminForm
-    list_display = ["student", "school", "committee", "portfolio"]
+    list_display = ["student", "school", 'get_preferences_one', 'get_preferences_two', 'get_preferences_three', "committee", "portfolio", "remarks"]
     list_filter = ["school", "committee", "portfolio"]
+    list_editable = ('committee', 'portfolio',)
     actions = ["export_as_csv"]
+
+    def get_preferences_one(self, obj):
+        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="United Simulation Challenge", preference=1).values('committee', 'portfolio')
+        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
+        return pref_list
+    
+    def get_preferences_two(self, obj):
+        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="United Simulation Challenge", preference=2).values('committee', 'portfolio')
+        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
+        return pref_list
+    
+    def get_preferences_three(self, obj):
+        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="United Simulation Challenge", preference=3).values('committee', 'portfolio')
+        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
+        return pref_list
+
 
     def export_as_csv(self, request, queryset):
         meta = (
@@ -114,3 +131,6 @@ class MUNAdmin(admin.ModelAdmin):
         return response
 
     export_as_csv.short_description = "Export csv"
+    get_preferences_one.short_description = "Preference 1"
+    get_preferences_two.short_description = "Preference 2"
+    get_preferences_three.short_description = "Preference 3"
