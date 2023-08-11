@@ -213,7 +213,7 @@ class TeamView(FormView):
             
             a = AllTracker.objects.create(
                     student=self.current_student.name,
-                    school=member_name.school.name,
+                    school=self.current_school.name,
                     challenge=self.challenge_name,
                     team=team_id,
             )
