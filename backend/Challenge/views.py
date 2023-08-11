@@ -206,7 +206,7 @@ class TeamView(FormView):
     def query_runner(self, team_members, *args, **kwargs):
         with transaction.atomic():
             self.get_student_and_school()
-            team_id = self.current_student.name
+            team_id = self.random_teamID_generator()
 
             self.current_student.team=team_id
             self.current_student.save()
