@@ -36,7 +36,11 @@ class Home(View):
             'self.request.session["first_page_data"] --------',
             self.request.session["first_page_data"],
         )
-        if challenge_object.id in [1, 4]:
+        if (
+            "united" in challenge_object.name.lower()
+            or "impact" in challenge_object.name.lower()
+            or "model" in challenge_object.name.lower()
+        ):
             return redirect("committee")
         else:
             return redirect("teams")

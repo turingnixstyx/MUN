@@ -1,13 +1,15 @@
 import logging
 from functools import wraps
 
-class MUNLogger():
+
+class MUNLogger:
     def __init__(self) -> None:
         self.debug = "*********************************"
 
         # Configure logging
         logging.basicConfig(
-            level=logging.DEBUG, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+            level=logging.DEBUG,
+            format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
         )
 
         # Create a logger instance
@@ -20,10 +22,6 @@ class MUNLogger():
         self.logger.error("This is an error message")
         self.logger.critical("This is a critical message")
 
-
-    
-
-
     def handle_exceptions_class(self, kclass):
         print("reaching inside try block class" + self.debug)
         for attr_name in dir(kclass):
@@ -34,18 +32,17 @@ class MUNLogger():
                 setattr(kclass, attr_name, self.handle_exceptions(attr))
 
         return kclass
-    
-
 
     def handle_exceptions(self, method):
         print("reaching inside handle exception", self.debug)
+
         @wraps(method)
         def wrapper(*args, **kwargs):
             try:
                 print("Reaching Inside Try Block", self.debug)
                 result = method(*args, **kwargs)
                 self.logger.info("Success in %s", method.__name__)
-                print("Sucess in %s ", method.__name__,self.debug)
+                print("Sucess in %s ", method.__name__, self.debug)
                 return result
             except Exception as e:
                 self.logger.error("Error in %s: %s", method.__name__, e)

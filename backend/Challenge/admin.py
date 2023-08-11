@@ -9,8 +9,9 @@ from django.http import HttpResponse
 
 @admin.register(Challenge)
 class ChallengeAdmin(admin.ModelAdmin):
-    actions = ['export_as_csv']
+    actions = ["export_as_csv"]
     search_fields = ("name",)
+
     def export_as_csv(self, request, queryset):
         meta = (
             self.model._meta
@@ -28,13 +29,13 @@ class ChallengeAdmin(admin.ModelAdmin):
                 [getattr(obj, field) for field in field_names]
             )  # write the attribute values ​​of the current object to the csv
         return response
-    
+
     export_as_csv.short_description = "Export csv"
 
 
 @admin.register(Committee)
 class CommitteeAdmin(admin.ModelAdmin):
-    actions = ['export_as_csv']
+    actions = ["export_as_csv"]
     search_fields = ("name",)
 
     def export_as_csv(self, request, queryset):
@@ -54,14 +55,14 @@ class CommitteeAdmin(admin.ModelAdmin):
                 [getattr(obj, field) for field in field_names]
             )  # write the attribute values ​​of the current object to the csv
         return response
-    
+
     export_as_csv.short_description = "Export csv"
 
 
 @admin.register(Portfolio)
 class PortfolioAdmin(admin.ModelAdmin):
-    actions = ['export_as_csv']
-    search_fields = ("name", )
+    actions = ["export_as_csv"]
+    search_fields = ("name",)
 
     def export_as_csv(self, request, queryset):
         meta = (
@@ -80,13 +81,13 @@ class PortfolioAdmin(admin.ModelAdmin):
                 [getattr(obj, field) for field in field_names]
             )  # write the attribute values ​​of the current object to the csv
         return response
-    
+
     export_as_csv.short_description = "Export csv"
 
 
 @admin.register(Addon)
 class AddOnAdmin(admin.ModelAdmin):
-    actions = ['export_as_csv']
+    actions = ["export_as_csv"]
 
     def export_as_csv(self, request, queryset):
         meta = (
@@ -105,5 +106,5 @@ class AddOnAdmin(admin.ModelAdmin):
                 [getattr(obj, field) for field in field_names]
             )  # write the attribute values ​​of the current object to the csv
         return response
-    
+
     export_as_csv.short_description = "Export csv"

@@ -3,12 +3,20 @@ from .models import AllTracker, ImpactChallengeTable, MUNChallengeTable
 import csv
 from django.http import HttpResponse
 
+
 # Register your models here.
 @admin.register(AllTracker)
 class AllTrackerAdmin(admin.ModelAdmin):
-    list_display = ['student', 'school', 'challenge', 'committee', 'portfolio', 'preference']
-    list_filter = ['school', 'challenge', 'committee', 'portfolio']
-    actions = ['export_as_csv']
+    list_display = [
+        "student",
+        "school",
+        "challenge",
+        "committee",
+        "portfolio",
+        "preference",
+    ]
+    list_filter = ["school", "challenge", "committee", "portfolio"]
+    actions = ["export_as_csv"]
 
     def export_as_csv(self, request, queryset):
         meta = (
@@ -27,15 +35,15 @@ class AllTrackerAdmin(admin.ModelAdmin):
                 [getattr(obj, field) for field in field_names]
             )  # write the attribute values ​​of the current object to the csv
         return response
-    
+
     export_as_csv.short_description = "Export csv"
 
 
 @admin.register(ImpactChallengeTable)
 class ImpactChallengeAdmin(admin.ModelAdmin):
-    list_display = ['student', 'school', 'committee', 'portfolio']
-    list_filter = ['school', 'committee', 'portfolio']
-    actions = ['export_as_csv']
+    list_display = ["student", "school", "committee", "portfolio"]
+    list_filter = ["school", "committee", "portfolio"]
+    actions = ["export_as_csv"]
 
     def export_as_csv(self, request, queryset):
         meta = (
@@ -54,16 +62,15 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
                 [getattr(obj, field) for field in field_names]
             )  # write the attribute values ​​of the current object to the csv
         return response
-    
-    export_as_csv.short_description = "Export csv"
 
+    export_as_csv.short_description = "Export csv"
 
 
 @admin.register(MUNChallengeTable)
 class MUNAdmin(admin.ModelAdmin):
-    list_display = ['student', 'school', 'committee', 'portfolio']
-    list_filter = ['school', 'committee', 'portfolio']
-    actions = ['export_as_csv']
+    list_display = ["student", "school", "committee", "portfolio"]
+    list_filter = ["school", "committee", "portfolio"]
+    actions = ["export_as_csv"]
 
     def export_as_csv(self, request, queryset):
         meta = (
@@ -82,5 +89,5 @@ class MUNAdmin(admin.ModelAdmin):
                 [getattr(obj, field) for field in field_names]
             )  # write the attribute values ​​of the current object to the csv
         return response
-    
+
     export_as_csv.short_description = "Export csv"

@@ -21,10 +21,10 @@ class PreferenceForm(forms.Form):
         super().__init__(*args, **kwargs)
 
         if com_queryset:
-            self.fields['committee'].queryset = com_queryset
+            self.fields["committee"].queryset = com_queryset
 
         if por_queryset:
-            self.fields['portfolio'].queryset = por_queryset
+            self.fields["portfolio"].queryset = por_queryset
 
     def clean(self) -> Dict[str, Any]:
         cleaned_data = super().clean()
@@ -133,8 +133,7 @@ class ExtendedTeamForm(TeamForm):
             raise forms.ValidationError("Student 4 and Student 5 cannot be the same.")
 
         return cleaned_data
-    
+
+
 class PersonalInfoForm(forms.Form):
-    text = text = forms.CharField(
-        widget=forms.TextInput(attrs={"maxlength": 255})
-    )
+    text = text = forms.CharField(widget=forms.TextInput(attrs={"maxlength": 255}))

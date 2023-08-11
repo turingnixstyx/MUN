@@ -13,16 +13,17 @@ from .models import School, Students
 
 # Register your models here.
 
+
 class TeamFilter(admin.SimpleListFilter):
     title = "engagment"
     parameter_name = "has_teams"
 
     def lookups(self, request, model_admin):
         return (
-            ('yes', 'With Teams'),
-            ('no', 'Without Teams'),
+            ("yes", "With Teams"),
+            ("no", "Without Teams"),
         )
-    
+
     def queryset(self, request: Any, queryset):
         if self.value() == "yes":
             return queryset.exclude(team__isnull=True)
@@ -32,10 +33,10 @@ class TeamFilter(admin.SimpleListFilter):
 
 @admin.register(Students)
 class StudentAdmin(admin.ModelAdmin):
-    list_display=["name", "standard", "school"]
+    list_display = ["name", "standard", "school"]
     list_filter = ["standard", "school", TeamFilter]
-    search_fields = ['name', 'contact', 'email']
-    actions = ['export_as_csv']
+    search_fields = ["name", "contact", "email"]
+    actions = ["export_as_csv"]
 
     def export_as_csv(self, request, queryset):
         meta = (
@@ -54,10 +55,8 @@ class StudentAdmin(admin.ModelAdmin):
                 [getattr(obj, field) for field in field_names]
             )  # write the attribute values ​​of the current object to the csv
         return response
-    
+
     export_as_csv.short_description = "Export csv"
-
-
 
 
 @admin.register(School)
@@ -90,9 +89,7 @@ class SchoolAdmin(admin.ModelAdmin):
 
         for school in queryset:
             file_name = (
-                school.name.replace(" ", "_")
-                if " " in school.name
-                else school.name
+                school.name.replace(" ", "_") if " " in school.name else school.name
             )
             file_name = str(file_name) + ".csv"
             csv_filepath = os.path.join(filepath, file_name)
@@ -113,11 +110,12 @@ class SchoolAdmin(admin.ModelAdmin):
 
                         if "class" in field.lower():
                             temp = row.get(field)
-                            kclass = "".join(filter(lambda char : not char.isalpha(), temp))
+                            kclass = "".join(
+                                filter(lambda char: not char.isalpha(), temp)
+                            )
                             std = int(kclass)
 
-                    
-                    school_name = school.name 
+                    school_name = school.name
                     create_students_as_users(
                         name=name,
                         email=email,
@@ -137,14 +135,17 @@ def create_password() -> str:
 def create_students_as_users(
     name: str, email: str, contact: str, std: str, school: str
 ) -> None:
-    
     print(f"name {name} email {email} contact {contact} ")
     current_student = Students.objects.filter(email=email)
     current_user = User.objects.filter(username=email)
     if not current_student and not current_user:
         with transaction.atomic():
             s = Students.objects.create(
-                name=name, email=email, contact=contact, standard=std, school=School.objects.get(name=school)
+                name=name,
+                email=email,
+                contact=contact,
+                standard=std,
+                school=School.objects.get(name=school),
             )
             s.save()
             u = User.objects.create(username=email, password=create_password())

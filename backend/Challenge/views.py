@@ -11,7 +11,13 @@ from django.views.generic import FormView
 from Core.models import AllTracker, ImpactChallengeTable, MUNChallengeTable
 from Student.models import Students
 
-from .forms import AddonForms, ExtendedTeamForm, PreferenceForm, TeamForm, PersonalInfoForm
+from .forms import (
+    AddonForms,
+    ExtendedTeamForm,
+    PreferenceForm,
+    TeamForm,
+    PersonalInfoForm,
+)
 from .models import Committee, Portfolio
 
 # Create your views here.
@@ -47,7 +53,7 @@ class CommitteeView(FormView):
         cname = self.request.session["first_page_data"].get("challenge", {}).get("name")
         if "model" in cname.lower() or "united" in cname.lower():
             info = PersonalInfoForm()
-            context['info'] = info
+            context["info"] = info
 
         return context
 
@@ -57,20 +63,25 @@ class CommitteeView(FormView):
 
         characters = string.ascii_letters + string.digits
         return "".join(random.choice(characters) for _ in range(5))
-    
+
     def get_form_kwargs(self) -> Dict[str, Any]:
-        kwargs= super().get_form_kwargs()
+        kwargs = super().get_form_kwargs()
         cname = self.request.session["first_page_data"].get("challenge", {}).get("name")
-        MODEL = MUNChallengeTable if "united" in cname or "model" in cname else ImpactChallengeTable
+        MODEL = (
+            MUNChallengeTable
+            if "united" in cname or "model" in cname
+            else ImpactChallengeTable
+        )
 
-        committee_queryset = Committee.objects.exclude(id__in=MODEL.objects.values('id'))
-        portfolio_querset = Portfolio.objects.exclude(id__in=MODEL.objects.values('id'))
+        committee_queryset = Committee.objects.exclude(
+            id__in=MODEL.objects.values("id")
+        )
+        portfolio_querset = Portfolio.objects.exclude(id__in=MODEL.objects.values("id"))
 
-        kwargs['com_queryset'] = committee_queryset
-        kwargs['por_queryset'] = portfolio_querset
+        kwargs["com_queryset"] = committee_queryset
+        kwargs["por_queryset"] = portfolio_querset
 
-        return  kwargs
-        
+        return kwargs
 
     def query_runner(self, committee_list, portfolio_list, *args, **kwargs):
         team_id = self.random_teamID_generator()
@@ -83,12 +94,10 @@ class CommitteeView(FormView):
                 cs.personal_info = personal_info
                 cs.save()
 
-
             preference = 1
             for committees, portfolios in zip(committee_list, portfolio_list):
                 com = Committee.objects.get(pk=int(committees))
                 prt = Portfolio.objects.get(pk=int(portfolios))
-
 
                 # add to Total Global tracker
                 a = AllTracker.objects.create(
@@ -153,9 +162,9 @@ class TeamView(FormView):
 
     def form_valid(self, form):
         # Process the form data here (save to database, send an email, etc.)
-        members =  []
+        members = []
         for idx in range(5):
-            key = "student" + str(idx+1)
+            key = "student" + str(idx + 1)
             if self.request.POST.get(key):
                 members.append(self.request.POST.get(key))
 

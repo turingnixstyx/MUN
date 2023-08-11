@@ -151,7 +151,6 @@ LOGGING = {
             "format": "{levelname} {asctime} {module} {message}",
             "style": "{",
         },
-        
     },
     "handlers": {
         "file": {
@@ -170,7 +169,7 @@ LOGGING = {
     },
 }
 STATICFILES_DIR = [
-        os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static"),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
