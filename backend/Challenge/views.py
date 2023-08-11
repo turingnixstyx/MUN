@@ -210,19 +210,20 @@ class TeamView(FormView):
 
             self.current_student.team=team_id
             self.current_student.save()
+            
+            a = AllTracker.objects.create(
+                    student=self.current_student.name,
+                    school=member_name.school.name,
+                    challenge=self.challenge_name,
+                    team=team_id,
+            )
+            a.save()
 
 
             print("outside for loop")
             for member in team_members:
                 # get team leader from user
                 print("inside for loop")
-
-                a = AllTracker.objects.create(
-                    student=self.current_student.name,
-                    challenge=self.challenge_name,
-                    team=team_id,
-                )
-                a.save()
 
                 member_name = Students.objects.get(pk=member)
                 member_name.team = team_id
