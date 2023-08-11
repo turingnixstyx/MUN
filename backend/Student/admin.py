@@ -1,21 +1,39 @@
 import csv
 import os
+from typing import Any, Optional
 
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.models import User
 from django.db import transaction
+from django.db.models.query import QuerySet
 from django.http import HttpResponse
 
 from .models import School, Students
 
 # Register your models here.
 
+class TeamFilter(admin.SimpleListFilter):
+    title = "engagment"
+    parameter_name = "has_teams"
+
+    def lookups(self, request, model_admin):
+        return (
+            ('yes', 'With Teams'),
+            ('no', 'Without Teams'),
+        )
+    
+    def queryset(self, request: Any, queryset):
+        if self.value() == "yes":
+            return queryset.exclude(team__isnull=True)
+        if self.value() == "no":
+            return queryset.exclude(team__isnull=False)
+
 
 @admin.register(Students)
 class StudentAdmin(admin.ModelAdmin):
     list_display=["name", "standard", "school"]
-    list_filter = ["name", "standard", "school"]
+    list_filter = ["standard", "school", TeamFilter]
     search_fields = ['name', 'contact', 'email']
     actions = ['export_as_csv']
 
