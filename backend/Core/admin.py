@@ -49,17 +49,17 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
     actions = ["export_as_csv"]
 
     def get_preferences_one(self, obj):
-        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge", preferences=1).values('committee', 'portfolio')
+        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge", preference=1).values('committee', 'portfolio')
         pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
         return pref_list
     
     def get_preferences_two(self, obj):
-        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge", preferences=2).values('committee', 'portfolio')
+        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge", preference=2).values('committee', 'portfolio')
         pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
         return pref_list
     
     def get_preferences_three(self, obj):
-        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge", preferences=3).values('committee', 'portfolio')
+        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge", preference=3).values('committee', 'portfolio')
         pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
         return pref_list
 
