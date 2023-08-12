@@ -85,6 +85,12 @@ to select the challenge you participate in
       height: 8px;
       background: white;
     }
+
+    .custom-radio {
+      opacity: 1 !important;
+      right: 0;
+      accent-color: red;
+    }
 </style>
 
 <div 
@@ -107,7 +113,7 @@ to select the challenge you participate in
           {% for ch in chls%}
         <label class="container">
           {% if ch.id == choice_value %}
-          <input type="radio" name="{{ form.challenge.name }}" value="{{ choice_value }}" id="id_{{ form.challenge.id_for_label }}_{{ choice_value }}" {% if form.challenge.value == choice_value %}checked{% endif %}>
+          <input class="custom-radio" type="radio" name="{{ form.challenge.name }}" value="{{ choice_value }}" id="id_{{ form.challenge.id_for_label }}_{{ choice_value }}" {% if form.challenge.value == choice_value %}checked{% endif %}>
             <div 
             style="
               margin-bottom: 45px;">

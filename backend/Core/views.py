@@ -87,7 +87,7 @@ class Login_View(View):
                 return render(request, 'returning_user.html', {'user' : student_name})
 
         else:
-            return HttpResponse("Fuck you Wrong Password")
+            return redirect('login')
 
 
 @login_required
