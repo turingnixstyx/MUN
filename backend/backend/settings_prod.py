@@ -5,7 +5,7 @@ initial_globals = set(globals().keys())
 print("This is prod config")
 DEBUG = False
 
-ALLOWED_HOSTS = ["45.79.127.173"]
+ALLOWED_HOSTS = ["45.79.127.173", "summit.mu20.co"]
 
 INSTALLED_APPS = ["whitenoise.runserver_nostatic"] + INSTALLED_APPS
 
