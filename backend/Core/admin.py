@@ -49,6 +49,20 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
     list_editable = ('committee', 'portfolio', "status")
     actions = ["export_as_csv"]
 
+    def save_model(self, request, obj, form, change):
+        com = form.cleaned_data['committee']
+        por = form.cleaned_data['portfolio']
+
+        combination = ImpactChallengeTable.objects.filter(committee=com, portfolio=por, status='AL')
+        if combination:
+            raise ValueError('This combination of committee and portfolio is already alloted')
+        else:
+            print("This logic is working atleast")
+        
+        obj.save()
+
+
+
     def get_preferences_one(self, obj):
         preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge", preference=1).values('committee', 'portfolio')
         pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
