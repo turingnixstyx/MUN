@@ -1,7 +1,20 @@
 {% extends 'base.html'%}
 
 
-{% block heading %} CONGRATULATIONS {% endblock %}
+{% block heading %} 
+{% load static %}
+
+<div style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1vh; /* Set the desired height of the div */
+    ">
+        <img src="{% static 'verified_account.png' %}" style="max-width: 100%; max-height: 10%; width: auto; height: auto;">
+    </div>
+CONGRATULATIONS 
+
+{% endblock %}
 {% block content %}
 <h3 style="text-align : center;">Well Done, You Have Successfully Registered to Our Program.</h3>
 
