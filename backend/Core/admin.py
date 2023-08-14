@@ -56,7 +56,8 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
 
         combination = ImpactChallengeTable.objects.filter(committee=com, portfolio=por)
         if combination:
-            raise forms.ValidationError('This combination of committee and portfolio is already alloted')
+            error_message = 'This combination of committee and portfolio is already allotted'
+            form.add_error(None, forms.ValidationError(error_message))
         else:
             print("This logic is working atleast")
         
@@ -113,7 +114,8 @@ class MUNAdmin(admin.ModelAdmin):
 
         combination = MUNChallengeTable.objects.filter(committee=com, portfolio=por)
         if combination:
-            raise forms.ValidationError('This combination of committee and portfolio is already alloted')
+            error_message = 'This combination of committee and portfolio is already allotted'
+            form.add_error(None, forms.ValidationError(error_message))
         else:
             print("This logic is working atleast")
         
