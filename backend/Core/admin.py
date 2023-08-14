@@ -53,7 +53,7 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
         com = form.cleaned_data['committee']
         por = form.cleaned_data['portfolio']
 
-        combination = ImpactChallengeTable.objects.filter(committee=com, portfolio=por, status='AL')
+        combination = ImpactChallengeTable.objects.filter(committee=com, portfolio=por)
         if combination:
             raise ValueError('This combination of committee and portfolio is already alloted')
         else:
@@ -105,6 +105,18 @@ class MUNAdmin(admin.ModelAdmin):
     list_filter = ["school", "committee", "portfolio", "status"]
     list_editable = ('committee', 'portfolio', 'status')
     actions = ["export_as_csv"]
+
+    def save_model(self, request, obj, form, change):
+        com = form.cleaned_data['committee']
+        por = form.cleaned_data['portfolio']
+
+        combination = MUNChallengeTable.objects.filter(committee=com, portfolio=por)
+        if combination:
+            raise ValueError('This combination of committee and portfolio is already alloted')
+        else:
+            print("This logic is working atleast")
+        
+        obj.save()
 
     def get_preferences_one(self, obj):
         preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="United Nations Simulation", preference=1).values('committee', 'portfolio')
