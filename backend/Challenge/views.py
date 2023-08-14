@@ -163,8 +163,7 @@ class TeamView(FormView):
 
     def get_student_and_school(self):
         current_user = self.request.user
-        print(current_user)
-        self.current_student = Students.objects.get(Q(email=current_user.username) | Q(email=current_user.email))
+        self.current_student = Students.objects.get(Q(email=current_user.username) | Q(email=current_user.email))[0]
         self.current_school = self.current_student.school
         self.challenge_name = (
             self.request.session["first_page_data"].get("challenge", {}).get("name")

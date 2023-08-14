@@ -92,6 +92,7 @@ class Login_View(View):
 
 @login_required
 def success(request):
+    logout(request)
     return render(request, "success.html")
 
 
