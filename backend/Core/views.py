@@ -87,7 +87,8 @@ class Login_View(View):
                 return render(request, 'returning_user.html', {'user' : student_name})
 
         else:
-            return redirect('login')
+            error_message = "Incorrect username or password. Please try again."
+            return render(request, "login.html", {'error_message': error_message})
 
 
 @login_required

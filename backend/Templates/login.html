@@ -156,6 +156,10 @@
                 outline: none;
               "
             />
+
+            {% if error_message %}
+            <p style="color: red; margin-top: 8px;">{{ error_message }}</p>
+            {% endif %}
             <button
               style="
                 display: flex;
