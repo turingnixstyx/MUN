@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django import forms
 from .models import AllTracker, ImpactChallengeTable, MUNChallengeTable
 import csv
 from django.http import HttpResponse
@@ -55,7 +56,7 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
 
         combination = ImpactChallengeTable.objects.filter(committee=com, portfolio=por)
         if combination:
-            raise ValueError('This combination of committee and portfolio is already alloted')
+            raise forms.ValidationError('This combination of committee and portfolio is already alloted')
         else:
             print("This logic is working atleast")
         
@@ -112,7 +113,7 @@ class MUNAdmin(admin.ModelAdmin):
 
         combination = MUNChallengeTable.objects.filter(committee=com, portfolio=por)
         if combination:
-            raise ValueError('This combination of committee and portfolio is already alloted')
+            raise forms.ValidationError('This combination of committee and portfolio is already alloted')
         else:
             print("This logic is working atleast")
         
