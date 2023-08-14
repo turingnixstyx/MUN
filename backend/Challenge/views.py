@@ -96,6 +96,7 @@ class CommitteeView(FormView):
                 personal_info = args[0]
                 cs = self.current_student
                 cs.personal_info = personal_info
+                cs.team = team_id
                 cs.save()
 
             preference = 1
@@ -156,7 +157,6 @@ class TeamView(FormView):
     def get_form_class(self):
         cname = self.request.session["first_page_data"].get("challenge", {}).get("name")
         if "theatrics" in cname.lower():
-            print("getting here")
             return ExtendedTeamForm
         else:
             return TeamForm
