@@ -16,56 +16,30 @@ Select Your Team Mates for this Challenge
     {{form.student1}}
     <br>
     
-    {% if form.student1.errors %}
-    <script>
-        alert("{{ form.student1.errors|join:", " }}");
-    </script>
-    {% endif %}
     <br>
     Select Team Mate
     {{form.student2}}
     <br>
     
-    {% if form.student2.errors %}
-    <script>
-        alert("{{ form.student2.errors|join:", " }}");
-    </script>
-    {% endif %}
     
     <br>
-    {% if form.student4 %}
+    {% if form.student3 %}
     Select Team Mate
     {{form.student3}}
     <br>
     {% endif %}
-    {% if form.student3.errors %}
-    <script>
-        alert("{{ form.student3.errors|join:", " }}");
-    </script>
-    {% endif %}
+
     <br>
     {% if form.student4 %}
     Select Team Mate
     {{form.student4}}
     <br>
-    {% if form.student4.errors %}
-    <script>
-        alert("{{ form.student4.errors|join:", " }}");
-    </script>
     {% endif %}
-    <br>
-    {% endif %}
-    {% if form.student5%}
-    Select Team Mate
-    {{form.student5}}
-    <br>
-    {% if form.student5.errors %}
-    <script>
-        alert("{{ form.student5.errors|join:", " }}");
-    </script>
-    {% endif %}
-    
-    <br>
+    <br><br>
+    {% if messages %}
+        {% for message in messages %}
+            <span style="color: red;">{{message}} !!</span>
+        {% endfor %}
     {% endif %}
     {% include 'button.html' %}
 </form>

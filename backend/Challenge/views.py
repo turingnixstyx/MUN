@@ -1,8 +1,11 @@
 from typing import Any, Dict
+from django.contrib import messages
+
 
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.db.models import Q
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
@@ -188,6 +191,15 @@ class TeamView(FormView):
         self.query_runner(members)
         # Add your processing logic here
         return super().form_valid(form)
+    
+    def form_invalid(self, form: Any) -> HttpResponse:
+        invalid_form = super().form_invalid(form)
+
+        # Add a custom error message
+        error_message = "Team mates cannot be the same, Please select different teammates"
+        messages.error(self.request, error_message)
+
+        return invalid_form
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
