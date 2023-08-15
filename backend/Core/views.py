@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
@@ -7,10 +8,8 @@ from django.views import View
 
 from Challenge.forms import ChallengeForm
 from Challenge.models import Challenge
-from Student.models import Students
 from Core.logger_util import MUNLogger
-from django.db.models import Q
-
+from Student.models import Students
 
 logger = MUNLogger()
 
@@ -67,28 +66,27 @@ class Login_View(View):
 
         user = authenticate(request, username=username, password=password)
 
-
         if user is not None:
             # Remove this when going for production
             q_filter = Q()
             q_filter &= Q(Q(email=username) | Q(name=username))
             q_filter &= ~Q(name="naman")
-            current_student = Students.objects.filter(q_filter).values('name', 'team')
-            student_name , team_id= "", None
+            current_student = Students.objects.filter(q_filter).values("name", "team")
+            student_name, team_id = "", None
             if current_student:
-                student_name = current_student[0].get('name')
-                team_id = current_student[0].get('team')
+                student_name = current_student[0].get("name")
+                team_id = current_student[0].get("team")
 
             if not team_id:
                 login(request, user)
                 return redirect("home")
-            
+
             else:
-                return render(request, 'returning_user.html', {'user' : student_name})
+                return render(request, "returning_user.html", {"user": student_name})
 
         else:
             error_message = "Incorrect username or password. Please try again."
-            return render(request, "login.html", {'error_message': error_message})
+            return render(request, "login.html", {"error_message": error_message})
 
 
 @login_required
@@ -101,7 +99,3 @@ def success(request):
 def logout_user(request):
     logout(request)
     return redirect("login")
-
-
-def test_view(request):
-    return render(request, "preferences.html")

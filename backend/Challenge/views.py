@@ -1,7 +1,6 @@
 from typing import Any, Dict
+
 from django.contrib import messages
-
-
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.db.models import Q
@@ -14,13 +13,8 @@ from django.views.generic import FormView
 from Core.models import AllTracker, ImpactChallengeTable, MUNChallengeTable
 from Student.models import Students
 
-from .forms import (
-    AddonForms,
-    ExtendedTeamForm,
-    PreferenceForm,
-    TeamForm,
-    PersonalInfoForm,
-)
+from .forms import (AddonForms, ExtendedTeamForm, PersonalInfoForm,
+                    PreferenceForm, TeamForm)
 from .models import Committee, Portfolio
 
 # Create your views here.
@@ -35,7 +29,9 @@ class CommitteeView(FormView):
     def get_student_and_school(self):
         current_user = self.request.user
         print(current_user)
-        self.current_student = Students.objects.get(Q(email=current_user.username) | Q(email=current_user.email))
+        self.current_student = Students.objects.get(
+            Q(email=current_user.username) | Q(email=current_user.email)
+        )
         self.current_school = self.current_student.school
         self.challenge_name = (
             self.request.session["first_page_data"].get("challenge", {}).get("name")
@@ -56,11 +52,11 @@ class CommitteeView(FormView):
         cname = self.request.session["first_page_data"].get("challenge", {}).get("name")
         if "model" in cname.lower() or "united" in cname.lower():
             info = PersonalInfoForm()
-            context['iterations'] = range(3)
+            context["iterations"] = range(3)
             context["info"] = info
 
         else:
-            context['iterations'] = range(2)
+            context["iterations"] = range(2)
 
         return context
 
@@ -103,7 +99,11 @@ class CommitteeView(FormView):
                 cs.save()
 
             preference = 1
-            MODEL = ImpactChallengeTable if "impact" in self.challenge_name.lower() else MUNChallengeTable
+            MODEL = (
+                ImpactChallengeTable
+                if "impact" in self.challenge_name.lower()
+                else MUNChallengeTable
+            )
             print(MODEL)
             for committees, portfolios in zip(committee_list, portfolio_list):
                 com = Committee.objects.get(pk=int(committees))
@@ -119,7 +119,7 @@ class CommitteeView(FormView):
                     preference=preference,
                     team=team_id,
                 )
-                
+
                 if personal_info:
                     a.remarks = f"Personal achivements and accolades {personal_info}"
                 a.save()
@@ -127,10 +127,10 @@ class CommitteeView(FormView):
                 preference += 1
 
             t = MODEL.objects.create(
-                    student=str(self.current_student),
-                    school=str(self.current_school),
-                )
-            
+                student=str(self.current_student),
+                school=str(self.current_school),
+            )
+
             if personal_info:
                 t.remarks = f"Personal achivements and accolades {personal_info}"
 
@@ -166,7 +166,9 @@ class TeamView(FormView):
 
     def get_student_and_school(self):
         current_user = self.request.user
-        self.current_student = Students.objects.get(Q(email=current_user.username) | Q(email=current_user.email))
+        self.current_student = Students.objects.get(
+            Q(email=current_user.username) | Q(email=current_user.email)
+        )
         self.current_school = self.current_student.school
         self.challenge_name = (
             self.request.session["first_page_data"].get("challenge", {}).get("name")
@@ -191,12 +193,14 @@ class TeamView(FormView):
         self.query_runner(members)
         # Add your processing logic here
         return super().form_valid(form)
-    
+
     def form_invalid(self, form: Any) -> HttpResponse:
         invalid_form = super().form_invalid(form)
 
         # Add a custom error message
-        error_message = "Team mates cannot be the same, Please select different teammates"
+        error_message = (
+            "Team mates cannot be the same, Please select different teammates"
+        )
         messages.error(self.request, error_message)
 
         return invalid_form
@@ -223,19 +227,17 @@ class TeamView(FormView):
             self.get_student_and_school()
             team_id = self.random_teamID_generator()
 
-            self.current_student.team=team_id
+            self.current_student.team = team_id
             self.current_student.save()
-            
+
             a = AllTracker.objects.create(
-                    student=self.current_student.name,
-                    school=self.current_school.name,
-                    challenge=self.challenge_name,
-                    team=team_id,
+                student=self.current_student.name,
+                school=self.current_school.name,
+                challenge=self.challenge_name,
+                team=team_id,
             )
             a.save()
 
-
-            print("outside for loop")
             for member in team_members:
                 # get team leader from user
                 print("inside for loop")

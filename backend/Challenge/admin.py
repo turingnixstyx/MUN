@@ -1,8 +1,9 @@
+import csv
+
 from django.contrib import admin
+from django.http import HttpResponse
 
 from .models import Addon, Challenge, Committee, Portfolio
-import csv
-from django.http import HttpResponse
 
 # Register your models here.
 

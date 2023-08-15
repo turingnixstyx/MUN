@@ -36,15 +36,6 @@ class PreferenceForm(forms.Form):
                 "Both committee and portfolio must be selected."
             )
 
-        # if committee and portfolio:
-        #     if portfolio.committee != committee:
-        #         self.add_error(
-        #             "portfolio",
-        #             "Selected portfolio is not valid for the selected committee.",
-        #         )
-
-        # return cleaned_data
-
 
 class AddonForms(forms.Form):
     add_on = forms.ModelMultipleChoiceField(

@@ -4,13 +4,14 @@ from typing import Any, Optional
 
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from django.db import transaction
 from django.db.models.query import QuerySet
 from django.http import HttpResponse
 
 from .models import School, Students
-from django.contrib.auth.hashers import make_password
+
 # Register your models here.
 
 
