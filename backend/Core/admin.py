@@ -4,6 +4,7 @@ from .models import AllTracker, ImpactChallengeTable, MUNChallengeTable
 import csv
 from django.http import HttpResponse
 from .modelforms import MUNModelAdminForm, ImpactModelAdminForm
+from django.contrib import messages
 
 
 # Register your models here.
@@ -44,38 +45,58 @@ class AllTrackerAdmin(admin.ModelAdmin):
 
 @admin.register(ImpactChallengeTable)
 class ImpactChallengeAdmin(admin.ModelAdmin):
-    form=ImpactModelAdminForm
-    list_display = ["student", "school", 'get_preferences_one', 'get_preferences_two', "committee", "portfolio", "remarks", "status"]
+    form = ImpactModelAdminForm
+    list_display = [
+        "student",
+        "school",
+        "get_preferences_one",
+        "get_preferences_two",
+        "committee",
+        "portfolio",
+        "remarks",
+        "status",
+    ]
     list_filter = ["school", "committee", "portfolio", "status"]
-    list_editable = ('committee', 'portfolio', "status")
+    list_editable = ("committee", "portfolio", "status")
     actions = ["export_as_csv"]
 
     def save_model(self, request, obj, form, change):
-        com = form.cleaned_data['committee']
-        por = form.cleaned_data['portfolio']
+        com = form.cleaned_data["committee"]
+        por = form.cleaned_data["portfolio"]
 
         combination = ImpactChallengeTable.objects.filter(committee=com, portfolio=por)
         if combination:
-            error_message = 'This combination of committee and portfolio is already allotted'
-            form.add_error(None, forms.ValidationError(error_message))
+            error_message = (
+                "This combination of committee and portfolio is already allotted"
+            )
+            messages.set_level(request, messages.ERROR)
+            messages.error(request, error_message)
         else:
-            print("This logic is working atleast")
-        
-        obj.save()
-
-
+            obj.save()
 
     def get_preferences_one(self, obj):
-        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge", preference=1).values('committee', 'portfolio')
-        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
+        preferences = AllTracker.objects.filter(
+            student=obj.student,
+            school=obj.school,
+            challenge="Impact Challenge",
+            preference=1,
+        ).values("committee", "portfolio")
+        pref_list = (
+            f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
+        )
         return pref_list
-    
-    def get_preferences_two(self, obj):
-        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="Impact Challenge", preference=2).values('committee', 'portfolio')
-        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        return pref_list
-    
 
+    def get_preferences_two(self, obj):
+        preferences = AllTracker.objects.filter(
+            student=obj.student,
+            school=obj.school,
+            challenge="Impact Challenge",
+            preference=2,
+        ).values("committee", "portfolio")
+        pref_list = (
+            f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
+        )
+        return pref_list
 
     def export_as_csv(self, request, queryset):
         meta = (
@@ -102,40 +123,72 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
 
 @admin.register(MUNChallengeTable)
 class MUNAdmin(admin.ModelAdmin):
-    form=MUNModelAdminForm
-    list_display = ["student", "school", 'get_preferences_one', 'get_preferences_two', 'get_preferences_three', "committee", "portfolio", "remarks", 'status']
+    form = MUNModelAdminForm
+    list_display = [
+        "student",
+        "school",
+        "get_preferences_one",
+        "get_preferences_two",
+        "get_preferences_three",
+        "committee",
+        "portfolio",
+        "remarks",
+        "status",
+    ]
     list_filter = ["school", "committee", "portfolio", "status"]
-    list_editable = ('committee', 'portfolio', 'status')
+    list_editable = ("committee", "portfolio", "status")
     actions = ["export_as_csv"]
 
     def save_model(self, request, obj, form, change):
-        com = form.cleaned_data['committee']
-        por = form.cleaned_data['portfolio']
+        com = form.cleaned_data["committee"]
+        por = form.cleaned_data["portfolio"]
 
         combination = MUNChallengeTable.objects.filter(committee=com, portfolio=por)
         if combination:
-            error_message = 'This combination of committee and portfolio is already allotted'
-            form.add_error(None, forms.ValidationError(error_message))
+            error_message = (
+                "This combination of committee and portfolio is already allotted"
+            )
+            messages.set_level(request, messages.ERROR)
+            messages.error(request, error_message)
         else:
             print("This logic is working atleast")
-        
-        obj.save()
+            obj.save()
 
     def get_preferences_one(self, obj):
-        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="United Nations Simulation", preference=1).values('committee', 'portfolio')
-        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        return pref_list
-    
-    def get_preferences_two(self, obj):
-        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="United Nations Simulation", preference=2).values('committee', 'portfolio')
-        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        return pref_list
-    
-    def get_preferences_three(self, obj):
-        preferences = AllTracker.objects.filter(student=obj.student, school=obj.school, challenge="United Nations Simulation", preference=3).values('committee', 'portfolio')
-        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
+        preferences = AllTracker.objects.filter(
+            student=obj.student,
+            school=obj.school,
+            challenge="United Nations Simulation",
+            preference=1,
+        ).values("committee", "portfolio")
+        pref_list = (
+            f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
+        )
         return pref_list
 
+    def get_preferences_two(self, obj):
+        preferences = AllTracker.objects.filter(
+            student=obj.student,
+            school=obj.school,
+            challenge="United Nations Simulation",
+            preference=2,
+        ).values("committee", "portfolio")
+        pref_list = (
+            f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
+        )
+        return pref_list
+
+    def get_preferences_three(self, obj):
+        preferences = AllTracker.objects.filter(
+            student=obj.student,
+            school=obj.school,
+            challenge="United Nations Simulation",
+            preference=3,
+        ).values("committee", "portfolio")
+        pref_list = (
+            f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
+        )
+        return pref_list
 
     def export_as_csv(self, request, queryset):
         meta = (
