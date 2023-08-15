@@ -1,5 +1,6 @@
 import logging
 from functools import wraps
+import traceback
 
 
 class MUNLogger:
@@ -45,6 +46,7 @@ class MUNLogger:
                 print("Sucess in %s ", method.__name__, self.debug)
                 return result
             except Exception as e:
+                traceback.print_exc()
                 self.logger.error("Error in %s: %s", method.__name__, e)
 
         return wrapper
