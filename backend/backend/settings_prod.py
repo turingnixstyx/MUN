@@ -17,6 +17,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MIDDLEWARE = ["whitenoise.middleware.WhiteNoiseMiddleware"] + MIDDLEWARE
 
+ASGI_APPLICATION = "backend.asgi.application"
 
 # Store the changed global variables
 changed_globals = set(globals().keys())
