@@ -56,6 +56,7 @@ class Home(View):
 
 class Login_View(View):
     def get(self, request):
+        print("Inside Login View")
         return render(request, "login.html")
 
     def post(self, request):
