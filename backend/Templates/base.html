@@ -16,6 +16,16 @@
       p {
         margin: 0;
       }
+      body {
+        margin: 0;
+        width: 50vw;
+        height: 100vh;
+    }
+
+    div{
+      overflow: scroll;
+    }
+    
     </style>
   </head>
   <body
@@ -87,7 +97,7 @@
           <div>
             {% block desc %} {% endblock %}
           </div>
-        </div>
+        <div>
           {% block content %} {% endblock %}
       </div>
       <img

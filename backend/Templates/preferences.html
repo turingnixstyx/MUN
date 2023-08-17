@@ -39,7 +39,7 @@ Select You top Three preferences for<br> Committees and their respective Portfol
   }
 
   #id_text {
-    width: 80%;
+    width: 200%;
     height:100px; /* Full width of div */ /* Center text */
     padding: 0px; /* Add padding for spacing */
     border: none;
@@ -185,10 +185,12 @@ Select You top Three preferences for<br> Committees and their respective Portfol
         width : 200px;
       }
 
+      
+
     </style>
     {% csrf_token %}
     {% for i in iterations %}
-      <p style="font-size:20px; margin-top:20px;">Select Committee {{form.committee}}<br> Select Portfolio {{form.portfolio}}</p><br>
+      <p style="font-size:20px; margin-top:20px;">Select Committee {{form.committee}}<br> Select Portfolio <br>{{form.portfolio}}</p><br>
     {% endfor %}
     {% if info %}
       {{info.text}}
