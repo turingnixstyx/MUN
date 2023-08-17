@@ -99,3 +99,7 @@ def success(request):
 def logout_user(request):
     logout(request)
     return redirect("login")
+
+
+def test(request):
+    return HttpResponse("Site is working fine")
