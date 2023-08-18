@@ -20,26 +20,19 @@
         margin: 0;
         width: 50vw;
         height: 100vh;
-    }
-
-    div{
-      overflow: scroll;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #eaeaea;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+        padding: 16px 64px 16px 48px;
     }
     
     </style>
   </head>
-  <body
-    style="
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #eaeaea;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-      padding: 16px 64px 16px 48px;
-    "
-  >
+  <body>
     <div style="position: absolute; right: 0; bottom: 0">
       <img
         src="https://i.ibb.co/pzbFBmV/Frame.png"
@@ -48,6 +41,7 @@
         style="filter: grayscale(89%)"
       />
     </div>
+    
     <div
       style="
         background-color: white;
@@ -55,12 +49,11 @@
         flex-direction: row;
         justify-content: center;
         overflow: hidden;
-        z-index: 0;
         border-radius: 44px;
         height: 100%;
         width: 100%;
         position: relative;
-        z-index : 1;
+        overflow:auto;
       "
     >
       <div
@@ -69,7 +62,6 @@
           width: 50%;
           height: 100%;
           padding: 120px 60px;
-          z-index : 0ƒ;
         "
       >
         <div
@@ -79,7 +71,6 @@
               align-items: center;
               flex-direction: column;
               margin-top: 40px;
-              z-index : 1;
             ">
           <div
             style="
@@ -89,15 +80,27 @@
               font-weight: bold;
               line-height: 30px;
               margin-bottom: 16px;
+              z-index: 10;
             "
           >
             {% block heading %} {% endblock %}
           </div>
-          <hr style="width:12%;border:1.5px solid black">
-          <div>
+          <hr style="width:15%;border:1.5px solid black">
+          <div
+            style="
+            position:relative;
+            z-index:10;
+            "
+          >
+          <!-- This is for description -->
             {% block desc %} {% endblock %}
           </div>
-        <div>
+        <div
+          style="
+          position: relative;
+          z-index: 10;
+          "
+        >
           {% block content %} {% endblock %}
       </div>
       <img
@@ -111,7 +114,7 @@
           position: absolute;
           top: 0;
           left: 0;
-          z-index: 2;
+          z-index: 20;
         "
       />
       <div>
