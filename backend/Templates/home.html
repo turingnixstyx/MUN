@@ -106,7 +106,7 @@ to select the challenge you participate in
   width: 100%;
   position: relative;
   ">
-  <form method="POST">
+  <form method="POST" required>
       {% csrf_token %}
       
         {% for choice_value, choice_label in form.challenge.field.choices %}
