@@ -4,19 +4,23 @@
 {% block heading %} 
 {% load static %}
 
+CONGRATULATIONS 
+{% endblock %}
+{% block content %}
+
 <div style="
         display: flex;
         justify-content: center;
         align-items: center;
         height: 1vh; /* Set the desired height of the div */
-    ">
-        <img src="{% static 'verified_account.png' %}" style="max-width: 100%; max-height: 10%; width: auto; height: auto;">
-    </div>
-CONGRATULATIONS 
+        margin-top:100px
+        ">
+        <img src="{% static 'verified_account.png' %}" style="max-width: 150px; max-height: 150px; width: auto; height: auto;">
+</div>
 
-{% endblock %}
-{% block content %}
-<h3 style="text-align : center;">Well Done, You Have Successfully Registered to Our Program.</h3>
+
+
+<h3 style="text-align : center; margin-top: 100px; margin-left:20px">Well Done, You Have Successfully Registered to Our Program.</h3>
 
 <a href="{% url 'login' %}">
 <button
