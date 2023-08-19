@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+
+
+{% block heading %}Error!! {% endblock %}
+
+{% block content%}
+    {% load static %}
+    <img src="{% static 'error.png' %}" style="margin-top: 5%; margin-left: 39%; margin-bottom: 5%; max-width: 100px; max-height: 100px; width: auto; height: auto;">
+    <h3 style="margin-left: 32%;">An error occurred</h3>
+    <p>We apologize for the inconvenience. Please try again later.</p>
+{% endblock %}
