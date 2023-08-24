@@ -15,7 +15,10 @@ CSRF_COOKIE_HTTPONLY = True
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
-MIDDLEWARE = ["whitenoise.middleware.WhiteNoiseMiddleware"] + MIDDLEWARE
+MIDDLEWARE = [
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "Core.custom_error_middleware.CustomErrorMiddleware",
+] + MIDDLEWARE
 
 ASGI_APPLICATION = "backend.asgi.application"
 

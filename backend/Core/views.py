@@ -11,7 +11,9 @@ from Challenge.models import Challenge
 from Core.logger_util import MUNLogger
 from Student.models import Students
 
-logger = MUNLogger()
+from .models import AllTracker, ImpactChallengeTable, MUNChallengeTable
+
+logger = MUNLogger(__name__)
 
 # Create your views here.
 
@@ -45,16 +47,77 @@ class Home(View):
         else:
             return redirect("teams")
 
-        # Add challenge name to session
-        # MUN = 4
-        # IC = 1
-
-        # redirect on basis of challenge
-
-        return render(request, "home.html")
-
 
 class Login_View(View):
+    def check_team_and_return_response(self, request, user, username):
+        q_filter = Q()
+        q_filter &= Q(Q(email=username) | Q(name=username))
+        # q_filter &= ~Q(name="naman")
+        current_student = Students.objects.filter(q_filter).values("name", "team")
+        print(current_student)
+        print("-----------------------------------------")
+        print(current_student[0].get("team"))
+
+        if len(current_student) == 1 and current_student[0].get("team"):
+            student_name = current_student[0].get("name")
+            team_id = current_student[0].get("team")
+            return self.create_response_for_team(request, student_name, team_id)
+
+        else:
+            login(request, user)
+            return redirect("home")
+
+    def create_response_for_team(self, request, student_name, team_id):
+        challenge_name, members, status = None, None, None
+
+        challenge = AllTracker.objects.filter(team=team_id)
+        print(challenge)
+        if challenge:
+            challenge_name = challenge[0].challenge
+            if challenge.count() > 1 and challenge[0].student != challenge[1].student:
+                print("getting members")
+                members = [c.student for c in challenge]
+            else:
+                student_name = challenge[0].student
+                print("getting IC/MUN")
+                print(f"studentname------{student_name}")
+                status = self.get_challenge_status(student_name)
+
+        return render(
+            request,
+            "returning_user.html",
+            {
+                "user": student_name,
+                "cname": challenge_name,
+                "members": members,
+                "status": status,
+            },
+        )
+
+    def get_challenge_status(self, student_name):
+        mun_status = MUNChallengeTable.objects.filter(student=student_name).values(
+            "committee", "portfolio", "status"
+        )
+        if len(mun_status) > 0:
+            if mun_status[0].status == "AL":
+                return mun_status
+            else:
+                return None
+        ic_status = ImpactChallengeTable.objects.filter(student=student_name).values(
+            "committee", "portfolio", "status"
+        )
+
+        if len(ic_status) > 0:
+            if ic_status[0].status == "AL":
+                return ic_status
+            else:
+                return None
+
+    def login_failed_response(self, request):
+        print("login_failed_response")
+        error_message = "Incorrect username or password. Please try again."
+        return render(request, "login.html", {"error_message": error_message})
+
     def get(self, request):
         print("Inside Login View")
         return render(request, "login.html")
@@ -68,35 +131,20 @@ class Login_View(View):
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            # Remove this when going for production
-            q_filter = Q()
-            q_filter &= Q(Q(email=username) | Q(name=username))
-            q_filter &= ~Q(name="naman")
-            current_student = Students.objects.filter(q_filter).values("name", "team")
-            student_name, team_id = "", None
-            if current_student:
-                student_name = current_student[0].get("name")
-                team_id = current_student[0].get("team")
-
-            if not team_id:
-                login(request, user)
-                return redirect("home")
-
-            else:
-                return render(request, "returning_user.html", {"user": student_name})
-
+            return self.check_team_and_return_response(request, user, username)
         else:
-            error_message = "Incorrect username or password. Please try again."
-            return render(request, "login.html", {"error_message": error_message})
+            return self.login_failed_response(request)
 
 
 @login_required
+@logger.handle_exceptions_class
 def success(request):
     logout(request)
     return render(request, "success.html")
 
 
 @login_required
+@logger.handle_exceptions_class
 def logout_user(request):
     logout(request)
     return redirect("login")

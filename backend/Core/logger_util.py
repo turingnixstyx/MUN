@@ -1,10 +1,10 @@
 import logging
-from functools import wraps
 import traceback
+from functools import wraps
 
 
 class MUNLogger:
-    def __init__(self) -> None:
+    def __init__(self, name) -> None:
         self.debug = "*********************************"
 
         # Configure logging
@@ -14,18 +14,10 @@ class MUNLogger:
         )
 
         # Create a logger instance
-        self.logger = logging.getLogger(__name__)
-
-        # Define log levels
-        self.logger.debug("This is a debug message")
-        self.logger.info("This is an informational message")
-        self.logger.warning("This is a warning message")
-        self.logger.error("This is an error message")
-        self.logger.critical("This is a critical message")
+        self.logger = logging.getLogger(name)
 
     def handle_exceptions_class(self, kclass):
         for attr_name in dir(kclass):
-            print(attr_name)
             attr = getattr(kclass, attr_name)
             if callable(attr) and not attr_name.startswith("__"):
                 setattr(kclass, attr_name, self.handle_exceptions(attr))
@@ -33,17 +25,15 @@ class MUNLogger:
         return kclass
 
     def handle_exceptions(self, method):
-
         @wraps(method)
         def wrapper(*args, **kwargs):
             try:
                 result = method(*args, **kwargs)
                 self.logger.info("Success in %s", method.__name__)
-                print("Sucess in %s ", method.__name__, self.debug)
+                # print("Sucess in %s ", method.__name__, self.debug)
                 return result
             except Exception as e:
                 traceback.print_exc()
-                print("Naman")
                 self.logger.error("Error in %s: %s", method.__name__, e)
 
         return wrapper

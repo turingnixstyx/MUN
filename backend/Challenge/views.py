@@ -10,6 +10,7 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import FormView
 
+from Core.logger_util import MUNLogger
 from Core.models import AllTracker, ImpactChallengeTable, MUNChallengeTable
 from Student.models import Students
 
@@ -23,6 +24,7 @@ from .forms import (
 from .models import Committee, Portfolio
 
 # Create your views here.
+logger = MUNLogger(__name__)
 
 
 @method_decorator(login_required, name="dispatch")
