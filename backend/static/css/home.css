@@ -1,0 +1,18 @@
+.choice-label{
+    font-size: 20px;
+}
+
+.choice-desc{
+    font-size: 14px;
+}
+
+@media screen and (max-width: 600px){
+    .choice-desc{
+        font-size: 12px;
+        margin-bottom: 2px;
+    }
+
+    .choice-label{
+        font-size: 18px;
+    }
+}

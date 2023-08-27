@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-this is the home page
+{% load static %}
+
+
 {% block heading%} Challenge Description {% endblock %}
 
 
@@ -117,8 +119,8 @@ to select the challenge you participate in
             <div 
             style="
               margin-bottom: 45px;">
-              <p style="font-size: 20px;">{{choice_label}}</p>
-              <p style="font-size: 14px">{{ch.short_description}}</p>
+              <p class="choice-label">{{choice_label}}</p>
+              <p class ="choice-desc">{{ch.short_description}}</p>
               <hr style="width:30%; position:absolute; border:1.5px solid black">
             </div>
             <div class="checkmark"></div>

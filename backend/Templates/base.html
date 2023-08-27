@@ -1,56 +1,15 @@
+{% load static %}
+
 <html>
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/base_body.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/image.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home.css'%}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p {
-        margin: 0;
-      }
-      body {
-        margin: 0;
-        width: 50vw;
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #eaeaea;
-        box-sizing: border-box;
-        font-family: 'Montserrat', sans-serif;
-        padding: 16px 64px 16px 48px;
-    }
 
-    .test-class{
-      background-color: white;
-      width: 50%;
-      height: 100%;
-      padding: 120px 60px;
-    }
-
-    @media screen and (max-width: 600px) {
-      .test-class {
-        width: 80%;
-      }
-    }
-
-    @media screen and (max-width: 300px) {
-      .test-class {
-        width: 100%;
-      }
-    }
-    
-    </style>
   </head>
   <body>
     <div style="position: absolute; right: 0; bottom: 0">
@@ -62,116 +21,54 @@
       />
     </div>
     
-    <div
-      style="
-        background-color: white;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        overflow: hidden;
-        border-radius: 44px;
-        height: 100%;
-        width: 100%;
-        position: relative;
-        overflow:auto;
-      "
-    >
-      <div
-        class="test-class"
-      >
-        <div
-          style="
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              flex-direction: column;
-              margin-top: 40px;
-            ">
-          <div
-            style="
-              color: #231f20;
-              font-size: 32px;
-              font-family: Arial, Helvetica, sans-serif;
-              font-weight: bold;
-              line-height: 30px;
-              margin-bottom: 16px;
-              z-index: 10;
-            "
-          >
+    <div class="container-parent-class">
+
+      <div class="test-class">
+
+        <div class="container-child-class">
+
+          <div class = "heading-class">
             {% block heading %} {% endblock %}
           </div>
+
           <hr style="width:15%;border:1.5px solid black">
-          <div
-            style="
-            position:relative;
-            z-index:10;
-            "
-          >
-          <!-- This is for description -->
+
+          <div class="desc-class">
             {% block desc %} {% endblock %}
           </div>
-        <div
-          style="
-          position: relative;
-          z-index: 10;
-          "
-        >
-          {% block content %} {% endblock %}
-      </div>
+        
+          <div class="content-class">
+            {% block content %} {% endblock %}
+          </div>
+    
       <img
         src="https://i.ibb.co/310Bt1M/MU20-Black-logo-1.png"
         alt="MU20-Black-logo-1"
         border="0"
-        style="
-          width: 142px;
-          height: 142px;
-          margin-left: 60px;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 20;
-        "
+        class = "logo-class"
       />
+      
       <div>
         <a href="https://ibb.co/8mxc8WW"
           ><img
             src="https://i.ibb.co/K5swyMM/Group-44.png"
             alt="Group-44"
-            style="
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              height: 540px;
-              width: 256px;
-              pointer-events: none;
-            "
+            class="img-class-one"
         /></a>
       </div>
+      
       <a href="https://ibb.co/pPDgqC2"
         ><img
           src="https://i.ibb.co/rtPg9nk/Group-42.png"
           alt="Group-42"
-          style="
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            height: 94px;
-            width: 306px;
-            pointer-events: none;
-          "
+          class="img-class-two"
       /></a>
+      
       <a href="https://ibb.co/2KKSHWr"
         ><img
           src="https://i.ibb.co/nkkBt6y/Group-38.png"
           alt="Group-38"
-          style="
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 300px;
-            width: 270px;
-            pointer-events: none;
-          "
+          class="img-class-three"
       /></a>
     </div>
   </body>

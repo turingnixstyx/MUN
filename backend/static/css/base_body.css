@@ -1,0 +1,108 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  width: 50vw;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eaeaea;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  padding: 16px 64px 16px 48px;
+}
+
+.test-class{
+background-color: white;
+width: 50%;
+height: 100%;
+padding: 120px 60px;
+}
+
+.container-parent-class{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 44px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow:auto;
+}
+
+.container-child-class{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.heading-class{
+    color: #231f20;
+    font-size: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    line-height: 30px;
+    margin-bottom: 16px;
+    z-index: 10;
+            
+}
+
+.desc-class{
+    position:relative;
+    z-index:10;
+}
+
+.content-class{
+    position: relative;
+    z-index: 10;
+}
+
+@media screen and (max-width: 600px) {
+.test-class {
+  width: 80%;
+  margin-right:5%;
+  /* background-color: blue; */
+}
+
+body{
+    padding: 0px;
+}
+
+.heading-class{
+    font-size: 26px;
+}
+
+.content-class{
+    font-size:20px;
+    padding-left: 10%;
+}
+
+
+
+}
+
+@media screen and (max-width: 300px) {
+.test-class {
+  width: 100%;
+  background-color: red;
+}
+
+body{
+    padding: 0px;
+}
+}
+
