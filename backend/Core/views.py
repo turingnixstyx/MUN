@@ -7,7 +7,7 @@ from django.utils.decorators import method_decorator
 from django.views import View
 
 from Challenge.forms import ChallengeForm
-from Challenge.models import Challenge
+from Challenge.models import Challenge, Committee, Portfolio
 from Core.logger_util import MUNLogger
 from Student.models import Students
 
@@ -54,9 +54,6 @@ class Login_View(View):
         q_filter &= Q(Q(email=username) | Q(name=username))
         # q_filter &= ~Q(name="naman")
         current_student = Students.objects.filter(q_filter).values("name", "team")
-        print(current_student)
-        print("-----------------------------------------")
-        print(current_student[0].get("team"))
 
         if len(current_student) == 1 and current_student[0].get("team"):
             student_name = current_student[0].get("name")
@@ -75,12 +72,9 @@ class Login_View(View):
         if challenge:
             challenge_name = challenge[0].challenge
             if challenge.count() > 1 and challenge[0].student != challenge[1].student:
-                print("getting members")
                 members = [c.student for c in challenge]
             else:
                 student_name = challenge[0].student
-                print("getting IC/MUN")
-                print(f"studentname------{student_name}")
                 status = self.get_challenge_status(student_name)
 
         return render(
@@ -99,8 +93,14 @@ class Login_View(View):
             "committee", "portfolio", "status"
         )
         if len(mun_status) > 0:
-            if mun_status[0].status == "AL":
-                return mun_status
+            if mun_status[0].get("status") == "AL":
+                cid = mun_status[0].get("committee")
+                pid = mun_status[0].get("portfolio")
+
+                committee = Committee.objects.get(pk=cid)
+                portfolio = Portfolio.objects.get(pk=pid)
+
+                return {"committee": committee, "portfolio": portfolio}
             else:
                 return None
         ic_status = ImpactChallengeTable.objects.filter(student=student_name).values(
@@ -108,8 +108,14 @@ class Login_View(View):
         )
 
         if len(ic_status) > 0:
-            if ic_status[0].status == "AL":
-                return ic_status
+            if ic_status[0].get("status") == "AL":
+                cid = ic_status[0].get("committee")
+                pid = ic_status[0].get("portfolio")
+
+                committee = Committee.objects.get(pk=cid)
+                portfolio = Portfolio.objects.get(pk=pid)
+
+                return {"committee": committee, "portfolio": portfolio}
             else:
                 return None
 

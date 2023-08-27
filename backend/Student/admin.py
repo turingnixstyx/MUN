@@ -1,5 +1,6 @@
 import csv
 import os
+import random
 from typing import Any, Optional
 
 from django.conf import settings
@@ -129,8 +130,21 @@ class SchoolAdmin(admin.ModelAdmin):
     import_students_from_csv.short_description = "Import Students"
 
 
-def create_password() -> str:
-    return "password"
+def create_password(school_name: str, student_name: str) -> str:
+    try:
+        uiq = str(random.randint(100, 10000))
+
+        if " " in school_name:
+            school_name.replace(" ", "").upper().strip()
+        if " " in student_name:
+            student_name.replace(" ", "").strip()
+
+        password = f"MU{student_name}@{school_name}{str(uiq)}"
+
+    except Exception as e:
+        print(str(e))
+        password = "password"
+    return password
 
 
 def create_students_as_users(
@@ -139,6 +153,7 @@ def create_students_as_users(
     print(f"name {name} email {email} contact {contact} ")
     current_student = Students.objects.filter(email=email)
     current_user = User.objects.filter(username=email)
+    my_pass = create_password(school_name=school, student_name=name)
     if not current_student and not current_user:
         with transaction.atomic():
             s = Students.objects.create(
@@ -147,7 +162,8 @@ def create_students_as_users(
                 contact=contact,
                 standard=std,
                 school=School.objects.get(name=school),
+                password=my_pass,
             )
             s.save()
-            u = User.objects.create(username=email, password=create_password())
+            u = User.objects.create(username=email, password=my_pass)
             u.save()

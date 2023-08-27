@@ -36,11 +36,26 @@
         {% endif %}
 
     {% endfor %}
-    <i><h4>All the material will be available to you in the month of October</h4></i>
     {% else%}
     {% load static %}
         {% if status %}
             <h1>You have Been Allotted !</h1>
+             
+            <div style="display: flex; justify-content: space-around; align-items: center;">
+                <div style="">
+                  <h3 style="margin-top:0px; margin-left:0px; margin-bottom: 0.3em; font-family: Arial, Helvetica, sans-serif;">Your</h3>
+                  <h3 style="margin-top:0px; margin-left:0px; margin-bottom:10px; font-family: Arial, Helvetica, sans-serif;">Committee</h3>
+                  <h1>{{status.committee}}</h1>
+                  <!-- <span style="position: absolute; height: 100%; width: 10px; background-color: #f0f0f0; left: 240;"></span> -->
+                </div>
+                <div style="height: 8em; background-color: grey; width: 0.2em; border-radius: 2em"></div>
+                <div>
+                  <h3 style="margin-top:0px; margin-left:0px; margin-bottom: 0.3em; font-family: Arial, Helvetica, sans-serif;">Your</h3>
+                  <h3 style="margin-top:0px; margin-left:0px; margin-bottom:10px; font-family: Arial, Helvetica, sans-serif;">Committee</h3>
+                  <h1>{{status.portfolio}}</h1>
+                </div>
+              </div>
+
             
         {% else %}
         <img src="{% static 'verified_account.png' %}" 
@@ -59,6 +74,8 @@
         {% endif %}
 
     {% endif %}
+
+    <i><h4>All the material will be available to you in the month of October</h4></i>
 
     <!-- {'user': 'naman', 'cname': 'Theatrics Challenge', 'members': ['naman', 'Test Name 1', 'Test Name 8', 'Test Name 4', 'Test Name 3'], 'status': None} -->
 

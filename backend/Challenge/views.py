@@ -14,13 +14,8 @@ from Core.logger_util import MUNLogger
 from Core.models import AllTracker, ImpactChallengeTable, MUNChallengeTable
 from Student.models import Students
 
-from .forms import (
-    AddonForms,
-    ExtendedTeamForm,
-    PersonalInfoForm,
-    PreferenceForm,
-    TeamForm,
-)
+from .forms import (AddonForms, ExtendedTeamForm, PersonalInfoForm,
+                    PreferenceForm, TeamForm)
 from .models import Committee, Portfolio
 
 # Create your views here.

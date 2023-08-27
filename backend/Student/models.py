@@ -38,6 +38,9 @@ class Students(models.Model):
         null=True,
     )
     team = models.CharField(max_length=5, unique=False, null=True, blank=True)
+    password = models.CharField(
+        max_length=100, unique=False, null=False, blank=False, default="password"
+    )
 
     personal_info = models.TextField(null=True)
 

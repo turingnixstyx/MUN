@@ -2,7 +2,6 @@ from unittest.mock import Mock, patch
 
 from django.contrib.auth.models import User
 from django.http import HttpRequest
-
 # Create your tests here.
 from django.test import TestCase
 from django.test.client import RequestFactory
