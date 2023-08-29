@@ -5,6 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/button.css' %}" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
@@ -19,9 +20,6 @@
       border="0"
       class = "login-img"
     />
-    1. Parent element -> box -> flex 
-    2. child left div -> form
-    3. child right div -> photo
     </div>
     <div
       style="
@@ -88,22 +86,7 @@
             <p style="color: red; margin-top: 8px;">{{ error_message }}</p>
             {% endif %}
             <button
-              style="
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: #231f20;
-                margin-top: 36px;
-                border: none;
-                color: white;
-                height: 38px;
-                width: 180px;
-                align-self: center;
-                font-size: 16px;
-                line-height: 14px;
-                cursor: pointer;
-              "
-    
+              class="login-button"
               type="submit"
             >
               Log in
@@ -133,7 +116,16 @@
         </div>
       </div>
       <div
-        class = "login-div-parent-2"
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: center;
+          height: 100%;
+          width: 100%;
+          background-image: url('https://i.ibb.co/YhRsHVb/Mask-group.png');
+          background-position: center;
+        "
       >
         <img
           src="https://i.ibb.co/WW7ZDs2/Mac-Book-Pro-16.png"

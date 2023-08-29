@@ -16,6 +16,22 @@
     cursor: pointer;
 }
 
+.login-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #231f20;
+    margin-top: 36px;
+    border: none;
+    color: white;
+    height: 38px;
+    width: 180px;
+    align-self: center;
+    font-size: 16px;
+    line-height: 14px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 600px){
     .button{
         margin-top: 1%;
@@ -23,6 +39,12 @@
         height: 30px;
         width: 120px;
         border-radius: 2px;
+    }
+
+    .login-button{
+        margin-top: 75px;
+        margin-left: 14%;
+        border-radius: 6px;
     }
 }
 

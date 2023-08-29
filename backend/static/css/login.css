@@ -107,7 +107,8 @@ body{
     }
 
     .login-div-parent-1{
-        padding: 0px 18px;
+        padding: 18px 18px;
+        background-image: linear-gradient(to right, #DA70D6, yellow);
     }
 
     .login-div-parent-2{
@@ -127,15 +128,15 @@ body{
         font-weight: 600;
         line-height: 20px;
         margin-bottom: 12px;
-        padding-left: 12px;
+        padding-left: 0px;
     }
 
     .login-line{
-        width: 89px;
+        width: 90px;
         height: 2px;
         background-color: #231f20;
         align-self: center;
-        margin-right: 25%;
+        margin-right: 29%;
     }
 
     .input-div{
