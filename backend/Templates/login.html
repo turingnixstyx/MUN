@@ -6,6 +6,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       h1,
       h2,
@@ -15,6 +16,20 @@
       h6,
       p {
         margin: 0;
+      }
+
+      .laptop-class{
+        height: 461px; 
+        position: absolute; 
+        z-index: 2; 
+        bottom: 20%
+      }
+
+      @media screen and (max-width: 600px){
+        .laptop-class{
+          display: none;
+        }
+        
       }
     </style>
   </head>
@@ -220,7 +235,7 @@
         <img
           src="https://i.ibb.co/WW7ZDs2/Mac-Book-Pro-16.png"
           alt="Mac-Book-Pro-16"
-          style="height: 461px; position: absolute; z-index: 2; bottom: 20%"
+          class="laptop-class"
         />
         <p
           style="
