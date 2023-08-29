@@ -1,0 +1,145 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+margin: 0;
+}
+body{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eaeaea;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.login-img{
+    filter: grayscale(89%)
+}
+
+.laptop-class{
+    height: 461px; 
+    position: absolute; 
+    z-index: 2; 
+    bottom: 20%
+}
+
+.login-logo{
+    width: 142px; 
+    height: 142px; 
+    margin-left: 60px
+}
+
+.login-div-parent-1{
+    padding: 0px 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-header{
+    padding: 0px 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-div{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 420px;
+}
+
+.username-input{
+    color: #322a2c;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 18px;
+    margin-bottom: 12px;
+}
+
+.password-input{
+    color: #322a2c;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 18px;
+    margin-bottom: 12px;
+    margin-top: 48px;
+}
+
+@media screen and (max-width: 900px){
+    .laptop-class{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .laptop-class{
+        display: none;
+    }
+
+    .login-img{
+        display: none;
+    }
+
+    .login-logo{
+        width: 100px;
+        height: 100px;
+        margin-left: 10px
+    }
+
+    .login-div-parent-1{
+        padding: 0px 18px;
+    }
+
+    .login-header{
+        color: #231f20;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 20px;
+        margin-bottom: 12px;
+        margin-right: 25%;
+    }
+
+    .login-line{
+        width: 89px;
+        height: 2px;
+        background-color: #231f20;
+        align-self: center;
+        margin-right: 25%;
+    }
+
+    .input-div{
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        width: 420px;
+    }
+
+    .username-input{
+        font-family: 'Montserrat', sans-serif;
+        color: #322a2c;
+        font-size: 16;
+        font-weight: 600;
+        line-height: 18px;
+        margin-bottom: 14px;
+    }
+
+    .password-input{
+        font-family: 'Montserrat', sans-serif;
+        color: #322a2c;
+        font-size: 16;
+        font-weight: 600;
+        line-height: 18px;
+        margin-bottom: 12px;
+        margin-top: 48px;
+    }
+}

@@ -1,56 +1,27 @@
+{% load static %}
+
 <html>
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p {
-        margin: 0;
-      }
-
-      .laptop-class{
-        height: 461px; 
-        position: absolute; 
-        z-index: 2; 
-        bottom: 20%
-      }
-
-      @media screen and (max-width: 600px){
-        .laptop-class{
-          display: none;
-        }
-        
-      }
-    </style>
   </head>
-  <body
-    style="
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #eaeaea;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    "
-  >
-    <div style="position: absolute; right: 0; bottom: 0">
-      <img
-        src="https://i.ibb.co/pzbFBmV/Frame.png"
-        alt="Frame"
-        border="0"
-        style="filter: grayscale(89%)"
-      />
+  <body>
+  <div style="position: absolute; right: 0; bottom: 0">
+    <img
+      src="https://i.ibb.co/pzbFBmV/Frame.png"
+      alt="Frame"
+      border="0"
+      class = "login-img"
+    />
+    1. Parent element -> box -> flex 
+    2. child left div -> form
+    3. child right div -> photo
     </div>
     <div
       style="
@@ -60,7 +31,7 @@
         overflow: hidden;
         z-index: 1;
         border-radius: 44px;
-        height: 90%;
+        height: 100%;
       "
     >
       <div style="display: flex; flex-direction: column">
@@ -68,65 +39,27 @@
           src="https://i.ibb.co/310Bt1M/MU20-Black-logo-1.png"
           alt="MU20-Black-logo-1"
           border="0"
-          style="width: 142px; height: 142px; margin-left: 60px"
+          class="login-logo"
         />
         <div
-          style="
-            padding: 0px 120px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-          "
+          class = "login-div-parent-1"
         >
           <h1
-            style="
-              color: #231f20;
-              font-size: 32px;
-              font-weight: 600;
-              line-height: 30px;
-              margin-bottom: 16px;
-            "
+            class="login-header"
           >
             Log in
           </h1>
           <div
-            style="
-              width: 89px;
-              height: 2px;
-              background-color: #231f20;
-              align-self: center;
-            "
+            class="login-line"
           ></div>
           <div
-            style="
-              margin-top: 100px;
-              display: flex;
-              flex-direction: column;
-              width: 420px;
-            "
+            class="input-div"
           >
-            <!-- <form method="post">
-                {% csrf_token %}
-                <label for="username">Username:</label>
-                <input name="username" required><br><br>
-
-                <label for="password">Password:</label>
-                <input type="password" name="password" required><br><br>
-
-                <input type="submit" value="Login">
-            </form> -->
             <form method="POST">
                 {% csrf_token %}
             <label
               for="username"
-              style="
-                color: #322a2c;
-                font-size: 20px;
-                font-weight: 600;
-                line-height: 18px;
-                margin-bottom: 12px;
-              "
+              class="username-input"
               >Username</label
             >
             <input
@@ -144,16 +77,11 @@
                 outline: none;
               "
             />
+            <br>
             <label
               for="password"
-              style="
-                color: #322a2c;
-                font-size: 20px;
-                font-weight: 600;
-                line-height: 18px;
-                margin-bottom: 12px;
-                margin-top: 48px;
-              "
+              class="password-input"
+              
               >Password</label
             >
             <input
