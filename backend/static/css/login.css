@@ -74,6 +74,17 @@ body{
     margin-top: 48px;
 }
 
+.input{
+    border: none;
+    border-bottom: 1px solid #000000;
+    margin-top: 12px;
+    color: #322a2c;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 18px;
+    outline: none;
+}
+
 @media screen and (max-width: 900px){
     .laptop-class{
         display: none;
@@ -141,5 +152,9 @@ body{
         line-height: 18px;
         margin-bottom: 12px;
         margin-top: 48px;
+    }
+
+    .input{
+        width: 40%;
     }
 }
