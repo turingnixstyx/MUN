@@ -110,13 +110,24 @@ body{
         padding: 0px 18px;
     }
 
+    .login-div-parent-2{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        background-image: url('https://i.ibb.co/YhRsHVb/Mask-group.png');
+        background-position: center;
+    }
+
     .login-header{
         color: #231f20;
         font-size: 24px;
         font-weight: 600;
         line-height: 20px;
         margin-bottom: 12px;
-        margin-right: 25%;
+        padding-left: 12px;
     }
 
     .login-line{
