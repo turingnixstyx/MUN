@@ -1,5 +1,6 @@
 
 {% extends 'base.html' %}
+{% load static %}
 
 {%block heading%} Fill The Form {% endblock %}
 
@@ -10,56 +11,11 @@ Select You top Three preferences for<br> Committees and their respective Portfol
 
 {% block content %}
 
-<style>
-  /* Define the custom-dropdown class */
-  #id_committee {
-    /* Set the height to make the dropdown bigger */
-    height: 20px;
-    width: 80%;
-    border-radius: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    text-align: center;
-    /* Add the desired background color (grey) */
-    background-color: #f0f0f0;
-    /* Add any other styles you want, such as font size, font color, etc. */
-  }
-
-  #id_portfolio {
-    /* Set the height to make the dropdown bigger */
-    height: 20px;
-    width: 80%;
-    border-radius: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    text-align: center;
-    /* Add the desired background color (grey) */
-    background-color: #f0f0f0;
-    /* Add any other styles you want, such as font size, font color, etc. */
-  }
-
-  #id_text {
-    width: 80%;
-    height:100px; /* Full width of div */ /* Center text */
-    padding: 0px; /* Add padding for spacing */
-    border: none;
-    border-radius: 4px; /* Remove border for cleaner appearance */
-    background-color: lightgray; /* Inherit background color from parent */
-}
-</style>
-
 
 <form method="POST" required>
-    <style> 
-      #id_comitee_seleted{
-        padding : 10px;
-        background-color: #ccc;
-        width : 200px;
-      }
-    </style>
     {% csrf_token %}
     {% for i in iterations %}
-      <p style="font-size:20px; margin-top:20px;">Select Committee {{form.committee}}<br> Select Portfolio <br>{{form.portfolio}}</p><br>
+      <p style="font-size:20px; margin-top:20px;text-align:left;">Select Committee {{form.committee}}<br> Select Portfolio <br>{{form.portfolio}}</p><br>
     {% endfor %}
     {% if info %}
       {{info.text}}
