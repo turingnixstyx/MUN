@@ -19,3 +19,14 @@
 .teammate{
     text-align: center;
 }
+
+.form-error{
+    color: red;
+    font-family: Roboto;
+}
+
+@media screen and (max-width: 600px) {
+    .form-error{
+        font-size: 14px;
+    }
+}

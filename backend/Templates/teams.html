@@ -8,11 +8,14 @@ Select Your Team Mates for this Challenge
 {% endblock %}
 
 {% block content %}
-<style>
 
-
-    
-</style>
+{% if messages %}
+<br>
+<br>
+        {% for message in messages %}
+            <span class="form-error">{{message}} !!</span>
+        {% endfor %}
+{% endif %}
 <form method="POST" required>
     <br>
     <br>
@@ -42,11 +45,6 @@ Select Your Team Mates for this Challenge
     <br>
     {% endif %}
     <br><br>
-    {% if messages %}
-        {% for message in messages %}
-            <span style="color: red;">{{message}} !!</span>
-        {% endfor %}
-    {% endif %}
     {% include 'button.html' %}
 </form>
 {% endblock %}
