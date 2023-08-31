@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {%block heading%} Fill The Form {% endblock %}
 
 {% block desc %} 
@@ -10,71 +11,33 @@ Select Your Team Mates for this Challenge
 <style>
 
 
-    #id_student1{
-        height: 20px;
-        width: 80%;
-        border-radius: 5px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        text-align: center;
-        background-color: #f0f0f0;
-    }
-
-    #id_student2{
-        height: 20px;
-        width: 80%;
-        border-radius: 5px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        text-align: center;
-        background-color: #f0f0f0;
-    }
-
-    #id_student3{
-        height: 20px;
-        width: 80%;
-        border-radius: 5px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        text-align: center;
-        background-color: #f0f0f0;
-    }
-
-    #id_student4{
-        height: 20px;
-        width: 80%;
-        border-radius: 5px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        text-align: center;
-        background-color: #f0f0f0;
-    }
+    
 </style>
 <form method="POST" required>
     <br>
     <br>
     <br>
     {% csrf_token %}
-    Select Team Mate
+    <p class="teammate">Select Team Mate</p>
     {{form.student1}}
     <br>
     
     <br>
-    Select Team Mate
+    <p class="teammate">Select Team Mate</p>
     {{form.student2}}
     <br>
     
     
     <br>
     {% if form.student3 %}
-    Select Team Mate
+    <p class="teammate">Select Team Mate</p>
     {{form.student3}}
     <br>
     {% endif %}
 
     <br>
     {% if form.student4 %}
-    Select Team Mate
+    <p class="teammate">Select Team Mate</p>
     {{form.student4}}
     <br>
     {% endif %}

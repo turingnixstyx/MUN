@@ -1,0 +1,21 @@
+#id_student1,
+#id_student2,
+#id_student3,
+#id_student4
+{
+    height: 20px;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f0f0f0;
+}
+
+
+
+.teammate{
+    text-align: center;
+}
