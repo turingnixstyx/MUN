@@ -43,19 +43,23 @@
     }
 
     .img-class-one{
+        display: none;
         height: 270px;
         width:128px;
         left:4;
     }
 
     .img-class-two{
+        display: none;
         height: 47px;
         width: 153px;
         right: 8;
     }
 
     .img-class-three{
-        height: 150px;
-        width: 135px;
+        height: 120px;
+        width: 100px;
+        right: 5;
+        top: 5;
     }
 }
