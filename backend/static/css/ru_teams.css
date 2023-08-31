@@ -1,0 +1,39 @@
+.heading-css{
+    margin-top: 30px;
+    margin-left: 15%;
+    font-family: Arial;
+    margin-bottom: 20px;
+}
+
+.members-css{
+    text-align: center; 
+    margin-right:10%; 
+    margin-top:10px;
+}
+
+.tick-ec{
+    align-content: center;
+    margin-left: 5%; 
+    margin-top:10px; 
+    max-width: 150px; 
+    max-height: 150px; 
+    width: auto; 
+    height: auto;
+}
+
+@media screen and (max-width:600px) {
+    .heading-css{
+        font-family: math;
+        font-size: 24px;
+    }
+
+    .members-css{
+        font-family: Apple Chancery, cursive;
+        font-size: 22px;
+        margin-right: 22%;
+    }
+
+    .tick-ec{
+        margin-left: 21%;
+    }
+}
