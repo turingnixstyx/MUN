@@ -52,7 +52,7 @@ class Login_View(View):
     def check_team_and_return_response(self, request, user, username):
         q_filter = Q()
         q_filter &= Q(Q(email=username) | Q(name=username))
-        # q_filter &= ~Q(name="naman")
+        q_filter &= ~Q(name="naman")
         current_student = Students.objects.filter(q_filter).values("name", "team")
 
         if len(current_student) == 1 and current_student[0].get("team"):
@@ -145,7 +145,7 @@ class Login_View(View):
 @login_required
 @logger.handle_exceptions_class
 def success(request):
-    logout(request)
+    # logout(request)
     return render(request, "success.html")
 
 

@@ -21,6 +21,31 @@ body{
     filter: grayscale(89%)
 }
 
+.bottom-img-txt-css{
+    color: white;
+    font-style: italic;
+    padding-bottom: 16px;
+    background-color: #341a65;
+    width: 461px;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    padding: 0px 48px;
+}
+
+.main-container{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 44px;
+    height: 100%;
+    margin-right:15px;
+}
+
 .laptop-class{
     height: 461px; 
     position: absolute; 
@@ -43,11 +68,12 @@ body{
 }
 
 .login-header{
-    padding: 0px 120px;
+    padding: -1px 120px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: math;
 }
 
 .input-div{
@@ -87,13 +113,16 @@ body{
 
 @media screen and (max-width: 900px){
     .laptop-class{
-        display: none;
+        max-width: 50px;
+        max-height: 50px;
     }
 }
 
 @media screen and (max-width: 600px){
     .laptop-class{
-        display: none;
+        max-width: 150px;
+        max-height: 150px;
+        bottom: 5%;
     }
 
     .login-img{
@@ -108,7 +137,6 @@ body{
 
     .login-div-parent-1{
         padding: 18px 18px;
-        background-image: linear-gradient(to right, #DA70D6, yellow);
     }
 
     .login-div-parent-2{
@@ -122,13 +150,17 @@ body{
         background-position: center;
     }
 
+    .main-container{
+        flex-direction: column;
+    }
+
     .login-header{
         color: #231f20;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 600;
-        line-height: 20px;
-        margin-bottom: 12px;
-        padding-left: 0px;
+        line-height:20px;
+        margin-bottom: 8px;
+        margin-right: 13%;
     }
 
     .login-line{
@@ -136,7 +168,7 @@ body{
         height: 2px;
         background-color: #231f20;
         align-self: center;
-        margin-right: 29%;
+        margin-right: 13%;
     }
 
     .input-div{
@@ -154,6 +186,7 @@ body{
         font-weight: 600;
         line-height: 18px;
         margin-bottom: 14px;
+        margin-left: 18%;
     }
 
     .password-input{
@@ -164,6 +197,11 @@ body{
         line-height: 18px;
         margin-bottom: 12px;
         margin-top: 48px;
+        margin-left: 18%;
+    }
+
+    .bottom-img-txt-css{
+        font-size: 13px;
     }
 
     .input{

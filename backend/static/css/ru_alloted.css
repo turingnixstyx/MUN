@@ -1,0 +1,95 @@
+.you-have-been-alloted{
+    margin-top: 40px;
+    margin-left: 4%;
+    font-family: math;
+    margin-bottom: 45px;
+}
+
+.parent-div{
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center;
+}
+
+.confetti{
+    max-width: 130px;
+    max-height: 130px;
+    margin-top: 10px;
+    margin-left: 30%;
+    margin-bottom: 10px;
+    width: auto;
+    height: auto;
+    align-content: center;
+}
+
+.container{
+    display: flex; justify-content: space-around; align-items: center;
+}
+
+.por-comm{
+    font-family: Apple Chancery, cursive;
+    font-size: 36px;
+    margin-right: 30px;
+}
+
+.por-comm-text{
+    margin-top:0px; 
+    margin-left:0px; 
+    margin-bottom:10px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .you-have-been-alloted{
+        font-family: math; 
+        margin-top:10px; 
+        margin-bottom:16px; 
+        /* text-align: center; */
+        font-size: 28px;
+    }
+    .container{
+        flex-direction: column;
+    }
+
+    .parent-div{
+        flex-direction:column; 
+    }
+    .confetti{
+        margin-left: 18%;
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    .por-comm{
+        margin-top:0px; 
+        margin-left: 20px;
+        margin-bottom: 0.3em; 
+        text-align:center;
+    }
+
+    .your-text{
+        font-size: 18px;
+    }
+
+    .por-comm-text{
+        font-size: 16px;
+        text-align: center;
+        text-decoration: underline;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .you-have-been-alloted{
+        margin-left: 16%;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .confetti{
+        margin-left: 25%;
+        max-width: 90px;
+        max-height: 90px;
+    }
+    
+}
