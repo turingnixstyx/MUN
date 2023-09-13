@@ -103,19 +103,19 @@ class SchoolAdmin(admin.ModelAdmin):
                 for row in csvreader:
                     for field in field_names:
                         if "name" in field.lower():
-                            name = row.get(field)
+                            name = row.get(field, None)
                         elif "email" in field.lower():
-                            email = row.get(field)
+                            email = row.get(field, None)
 
                         elif "contact" in field.lower():
-                            contact = row.get(field)
+                            contact = row.get(field, None)
 
-                        if "class" in field.lower():
-                            temp = row.get(field)
-                            kclass = "".join(
-                                filter(lambda char: not char.isalpha(), temp)
-                            )
-                            std = int(kclass)
+                        if ( # noqa
+                            "class" in field.lower()
+                            or "grade" in field.lower()
+                            or "standard" in field.lower()
+                        ):
+                            std = row.get(field, None)
 
                     school_name = school.name
                     create_students_as_users(

@@ -21,15 +21,15 @@ class School(models.Model):
 
 class Students(models.Model):
     name = models.CharField(
-        max_length=255, unique=False, null=False, default="Test Name"
+        max_length=255, unique=False, null=True, blank=False, default="Test Name"
     )
     email = models.EmailField(
         max_length=254, unique=True, null=False, default="sample@email.com"
     )
     contact = models.CharField(
-        max_length=25, unique=False, null=False, default="1111111111"
+        max_length=25, unique=False, null=True, default="1111111111", blank=True
     )
-    standard = models.IntegerField(default=10)
+    standard = models.CharField(max_length=255, unique=False, blank=True, null=True)
     school = models.ForeignKey(
         School,
         on_delete=models.CASCADE,
