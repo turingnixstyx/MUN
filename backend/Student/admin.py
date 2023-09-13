@@ -1,14 +1,13 @@
 import csv
 import os
 import random
-from typing import Any, Optional
+from typing import Any
 
 from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from django.db import transaction
-from django.db.models.query import QuerySet
 from django.http import HttpResponse
 
 from .models import School, Students
@@ -90,10 +89,8 @@ class SchoolAdmin(admin.ModelAdmin):
         filepath = os.path.join(settings.BASE_DIR, "Media/csv_media")
 
         for school in queryset:
-            file_name = (
-                school.name.replace(" ", "_") if " " in school.name else school.name
-            )
-            file_name = str(file_name) + ".csv"
+            csv_file_name = School.objects.get(name=school.name).csv_file
+            file_name = str(csv_file_name).split('/')[1]
             csv_filepath = os.path.join(filepath, file_name)
             with open(csv_filepath, "r") as file:
                 csvreader = csv.DictReader(file)
@@ -139,7 +136,7 @@ def create_password(school_name: str, student_name: str) -> str:
         if " " in student_name:
             student_name.replace(" ", "").strip()
 
-        password = f"MU{student_name}@{school_name}{str(uiq)}"
+        password = f"MU{student_name}@{school_name}{str(uiq)}".replace(" ", "")
 
     except Exception as e:
         print(str(e))
@@ -165,5 +162,8 @@ def create_students_as_users(
                 password=my_pass,
             )
             s.save()
-            u = User.objects.create(username=email, password=my_pass)
+            u = User.objects.create(
+                username=email,
+                password=make_password(my_pass)
+            )
             u.save()
