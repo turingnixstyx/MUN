@@ -66,6 +66,8 @@ class CommitteeAdmin(admin.ModelAdmin):
 
 @admin.register(Portfolio)
 class PortfolioAdmin(admin.ModelAdmin):
+    list_display = ['name', 'committee']
+    list_filter = ['committee']
     actions = ["export_as_csv"]
     search_fields = ("name",)
 

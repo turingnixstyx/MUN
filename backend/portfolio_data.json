@@ -1,487 +1,7 @@
 [
 {
   "model": "Challenge.portfolio",
-  "pk": 15,
-  "fields": {
-    "name": "Shri Piyush Goyal BJP Maharashtra ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 16,
-  "fields": {
-    "name": "Shri S. Jaishankar BJP Gujrat ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 17,
-  "fields": {
-    "name": "Smt. Nirmala Sitharaman BJP Karnataka ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 18,
-  "fields": {
-    "name": "Shri Jyotiraditya Scindia BJP Madhya Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 19,
-  "fields": {
-    "name": "Shri Ashvini Vaishnav  BJP Orissa",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 20,
-  "fields": {
-    "name": "Shri Jagat Prakash Nadda BJP Himachal Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 21,
-  "fields": {
-    "name": "Shri Mansukh Mandaviya  BJP Gujrat ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 22,
-  "fields": {
-    "name": "Shri Prakash Javedekar  BJP Maharashtra ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 23,
-  "fields": {
-    "name": "Shri Hardeep Singh Puri  BJP Uttar Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 24,
-  "fields": {
-    "name": "Shri Bhupendra Yadav BJP Rajasthan",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 25,
-  "fields": {
-    "name": "Shri Sudhanshu Trivedi  BJP Uttar Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 26,
-  "fields": {
-    "name": "Shri Sarbananda Sonowal BJP Assam",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 27,
-  "fields": {
-    "name": "Shri Dharmendra Pradhan BJP Madhya Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 28,
-  "fields": {
-    "name": "Shri Dr. Anil Jain BJP Uttar Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 29,
-  "fields": {
-    "name": "Shri Rajeev Chandrashekhar BJP Karnataka ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 30,
-  "fields": {
-    "name": "Smt. Seema Dwivedi BJP Uttar Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 31,
-  "fields": {
-    "name": "Shri Mahesh Jethmalani BJP (Nominated)",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 32,
-  "fields": {
-    "name": "Shri Arun Singh BJP Uttar Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 33,
-  "fields": {
-    "name": "Shri Sushsil Kumar Modi BJP Bihar",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 34,
-  "fields": {
-    "name": "Shri Neeraj Shekhar  BJP Uttar Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 35,
-  "fields": {
-    "name": "Shri Gulam Ali BJP  Nominated",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 36,
-  "fields": {
-    "name": "Shir Satish Chandra Dubey BJP Bihar ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 37,
-  "fields": {
-    "name": "Shri Bhubaneswar Kalita BJP Assam",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 38,
-  "fields": {
-    "name": "Shri Surendra Singh Nagar BJP  Uttar Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 39,
-  "fields": {
-    "name": "Shri Dr. CM Ramesh  BJP Andra Pradesh ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 40,
-  "fields": {
-    "name": "Shri Narhari Amim BJP Gujrat ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 41,
-  "fields": {
-    "name": "Shri Nabam Rebia BJP Arunachal Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 42,
-  "fields": {
-    "name": "Dr. Ashok Bajpai BJP Uttar Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 43,
-  "fields": {
-    "name": "Shri Rajendra Gehlot BJP Rajasthan",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 44,
-  "fields": {
-    "name": "Shri G.V.L. Narsimha Rao BJP Uttar Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 45,
-  "fields": {
-    "name": "Shri Rakesh Sinha BJP Nominated",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 46,
-  "fields": {
-    "name": "Shri B.L. Verma  BJP Uttar Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 47,
-  "fields": {
-    "name": "Shri Dr. Sasmit Patra  BJD Orissa",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 48,
-  "fields": {
-    "name": "Shri H.D. Deve Gowda  JDS Karnatak ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 49,
-  "fields": {
-    "name": "Shri Parimal Nanthwani  YSRCP Andra Pradesh ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 50,
-  "fields": {
-    "name": "Shri Mallikarjun Kharge  INC Karnataka",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 51,
-  "fields": {
-    "name": "Shir Jairam Ramesh INC Karnataka",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 52,
-  "fields": {
-    "name": "Dr. Manmohan Singh INC Rajasthan ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 53,
-  "fields": {
-    "name": "Shri Digvijay Singh INC Madhya Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 54,
-  "fields": {
-    "name": "Shri P. Chidambaram INC Tamil Nadu",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 55,
-  "fields": {
-    "name": "Shri Deepender Singh Hooda  INC  Haryana",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 56,
-  "fields": {
-    "name": "Shri Shakti Singh Gohil  INC Gujrat",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 57,
-  "fields": {
-    "name": "Shri KTS Tulsi INC Chattisgarh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 58,
-  "fields": {
-    "name": "Shri K.C. Venugopal INC Rajasthan ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 59,
-  "fields": {
-    "name": "Shri Randeep Singh Surjewala INC Rajasthan ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 60,
-  "fields": {
-    "name": "Smt. Rajani Ashokrao Patil  INC Maharastra ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 61,
-  "fields": {
-    "name": "Shri P.Wilson DMK Tamil Nadu",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 62,
-  "fields": {
-    "name": "Shir Tiruchi Siva  DMK Tamil Nadu",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 63,
-  "fields": {
-    "name": "Shri R. Girirajan DMK Tamil Nadu",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 64,
-  "fields": {
-    "name": "Dr. John Brittas  CPI(M)  Kerela ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 65,
-  "fields": {
-    "name": "Shri Derek O'Brien  AITMC West Bengal",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 66,
-  "fields": {
-    "name": "Shri Jawhar Sircar  AITMC West Bengal",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 67,
-  "fields": {
-    "name": "Shri Raghav Chadha AAP Punjab",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 68,
-  "fields": {
-    "name": "Shri Sanjay Singh AAP NCT Delhi",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 69,
-  "fields": {
-    "name": "Shri Bashistha Narain Singh JD(U)  Bihar",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 70,
-  "fields": {
-    "name": "Shri Sharad Pawar NCP Maharastra ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 71,
-  "fields": {
-    "name": "Shri Prof. Manoj Kumar Jha RJD Bihar",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 72,
-  "fields": {
-    "name": "Smt. Jaya Bacchan SP Uttar Pradesh",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 73,
-  "fields": {
-    "name": "Smt. Priyanaka Chaturvedi SS Maharastra ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 74,
-  "fields": {
-    "name": "Shri Abdul Wahab  AIUML  Kerela ",
-    "committee": 9
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 75,
+  "pk": 316,
   "fields": {
     "name": "Shri Narendra Modi BJP Varanasi ",
     "committee": 8
@@ -489,7 +9,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 76,
+  "pk": 317,
   "fields": {
     "name": "Shri Amit Shah  BJP Gandhinagar",
     "committee": 8
@@ -497,7 +17,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 77,
+  "pk": 318,
   "fields": {
     "name": "Shri Rajnath Singh BJP Lucknow",
     "committee": 8
@@ -505,15 +25,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 78,
+  "pk": 319,
   "fields": {
-    "name": "Shri Pralahad Joshi BJP Dharwad",
+    "name": "Shri Pralhad Joshi BJP Dharwad",
     "committee": 8
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 79,
+  "pk": 320,
   "fields": {
     "name": " Shri Arjun Ram Meghwal BJP Bikaner",
     "committee": 8
@@ -521,7 +41,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 80,
+  "pk": 321,
   "fields": {
     "name": "Shri Narendra Singh Tomar BJP Morena",
     "committee": 8
@@ -529,7 +49,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 81,
+  "pk": 322,
   "fields": {
     "name": "Shri Nityanand Rai BJP Ujiarpur",
     "committee": 8
@@ -537,7 +57,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 82,
+  "pk": 323,
   "fields": {
     "name": "Shri Giriraj Singh BJP Begusarai",
     "committee": 8
@@ -545,7 +65,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 83,
+  "pk": 324,
   "fields": {
     "name": "Smt. Meenakshi Lekhi BJP New Delhi",
     "committee": 8
@@ -553,7 +73,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 84,
+  "pk": 325,
   "fields": {
     "name": "Smt. Anupriya Patel Apna Dal Mirzapur",
     "committee": 8
@@ -561,7 +81,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 85,
+  "pk": 326,
   "fields": {
     "name": "Shri Gajendra Singh Shekhawat BJP Jodhpur",
     "committee": 8
@@ -569,7 +89,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 86,
+  "pk": 327,
   "fields": {
     "name": "Shri Nitin Jairam Gadkari  BJP Nagpur ",
     "committee": 8
@@ -577,7 +97,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 87,
+  "pk": 328,
   "fields": {
     "name": "Shri Kiren Rijiju BJP Arunachal West",
     "committee": 8
@@ -585,7 +105,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 88,
+  "pk": 329,
   "fields": {
     "name": "Shri Shripad Naik  BJP North Goa",
     "committee": 8
@@ -593,7 +113,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 89,
+  "pk": 330,
   "fields": {
     "name": "Shri Anurag Singh Thakur BJP Hamirpur",
     "committee": 8
@@ -601,15 +121,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 90,
+  "pk": 331,
   "fields": {
-    "name": "Smt. Smriti Zubain Irani BJP Amethi",
+    "name": "Smt. Smriti Zubin Irani BJP Amethi",
     "committee": 8
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 91,
+  "pk": 332,
   "fields": {
     "name": "Shri Rao Inderjit Singh BJP Gurgaon ",
     "committee": 8
@@ -617,7 +137,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 92,
+  "pk": 333,
   "fields": {
     "name": "Shri Arjun Munda BJP Khunti",
     "committee": 8
@@ -625,15 +145,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 93,
+  "pk": 334,
   "fields": {
-    "name": "Smt. Renuka Singh BJP Surgua",
+    "name": "Smt. Renuka Singh BJP Surguja",
     "committee": 8
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 94,
+  "pk": 335,
   "fields": {
     "name": "Smt. Rama Devi  BJP Sheohar",
     "committee": 8
@@ -641,7 +161,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 95,
+  "pk": 336,
   "fields": {
     "name": "Shri Sunny Deol  BJP Gurdaspur",
     "committee": 8
@@ -649,7 +169,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 96,
+  "pk": 337,
   "fields": {
     "name": "Shri Nishikant Dubey BJP Godda",
     "committee": 8
@@ -657,7 +177,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 97,
+  "pk": 338,
   "fields": {
     "name": "Smt. Sunita Duggal  BJP Sirsa",
     "committee": 8
@@ -665,7 +185,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 98,
+  "pk": 339,
   "fields": {
     "name": "Shri Gautam Gambhir  BJP East Delhi",
     "committee": 8
@@ -673,7 +193,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 99,
+  "pk": 340,
   "fields": {
     "name": "Shir Feroze Varun Gandhi  BJP Pilibhit",
     "committee": 8
@@ -681,7 +201,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 100,
+  "pk": 341,
   "fields": {
     "name": "Smt. Maneka Sanjay Gandhi  BJP Sultanpur",
     "committee": 8
@@ -689,7 +209,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 101,
+  "pk": 342,
   "fields": {
     "name": "Shri Santosh Kumar Gangwar BJP Bareilly",
     "committee": 8
@@ -697,7 +217,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 102,
+  "pk": 343,
   "fields": {
     "name": "Shri Hans Raj Hans  BJP NorthWest Delhi",
     "committee": 8
@@ -705,7 +225,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 103,
+  "pk": 344,
   "fields": {
     "name": "Dr. Harsh Vardhan  BJP Chandni Chowk",
     "committee": 8
@@ -713,7 +233,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 104,
+  "pk": 345,
   "fields": {
     "name": "Shri Ananth Kumar Hegde  BJP Uttara Kannada",
     "committee": 8
@@ -721,7 +241,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 105,
+  "pk": 346,
   "fields": {
     "name": "Smt. Hema Malini  BJP Mathura",
     "committee": 8
@@ -729,7 +249,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 106,
+  "pk": 347,
   "fields": {
     "name": "Shri Shankar Lalwani  BJP Indore",
     "committee": 8
@@ -737,7 +257,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 107,
+  "pk": 348,
   "fields": {
     "name": "Shri Ravishankar Prasad BJP Patna Sahib",
     "committee": 8
@@ -745,7 +265,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 108,
+  "pk": 349,
   "fields": {
     "name": "Shri Virendra Singh BJP Ballia",
     "committee": 8
@@ -753,15 +273,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 109,
+  "pk": 350,
   "fields": {
-    "name": "Shri Brijbhushan Sharan Singh  BJP Kaisergang",
+    "name": "Shri Brijbhushan Sharan Singh  BJP Kaiserganj",
     "committee": 8
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 110,
+  "pk": 351,
   "fields": {
     "name": "Shri Sushil Kumar Singh  BJP Aurangabad",
     "committee": 8
@@ -769,7 +289,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 111,
+  "pk": 352,
   "fields": {
     "name": "Smt. Sadhvi Pragya Singh Thakur  BJP Bhopal",
     "committee": 8
@@ -777,15 +297,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 112,
+  "pk": 353,
   "fields": {
-    "name": "Shri Manoj Tiwari  BJP NorthEast Delhi",
+    "name": "Shri Manoj Tiwari  BJP North East Delhi",
     "committee": 8
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 113,
+  "pk": 354,
   "fields": {
     "name": "Shri Pinaki Misra BJD Puri",
     "committee": 8
@@ -793,7 +313,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 114,
+  "pk": 355,
   "fields": {
     "name": "Shri Chirag Paswan LJSP Jamui",
     "committee": 8
@@ -801,7 +321,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 115,
+  "pk": 356,
   "fields": {
     "name": "Shri P.V. Midhun Reddy  YSRCP Rajampet",
     "committee": 8
@@ -809,7 +329,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 116,
+  "pk": 357,
   "fields": {
     "name": "Shri Nandigam Suresh  YSRCP Bapatla",
     "committee": 8
@@ -817,7 +337,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 117,
+  "pk": 358,
   "fields": {
     "name": "Shri Asaduddin Owaisi  AIMIM Hyderabad ",
     "committee": 8
@@ -825,7 +345,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 118,
+  "pk": 359,
   "fields": {
     "name": "Smt. Mahua Moitra AITMC Krishnanagar",
     "committee": 8
@@ -833,7 +353,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 119,
+  "pk": 360,
   "fields": {
     "name": "Smt. Mimi Chakraborty AITMC Jadavpur",
     "committee": 8
@@ -841,15 +361,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 120,
+  "pk": 361,
   "fields": {
-    "name": "Shri P.R. Natrajan CPI(M) Coimbatore ",
+    "name": "Shri P.R. Natarajan CPI(M) Coimbatore ",
     "committee": 8
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 121,
+  "pk": 362,
   "fields": {
     "name": "Shri Thiru Dayanidhi Maran DMK Chennai Central",
     "committee": 8
@@ -857,7 +377,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 122,
+  "pk": 363,
   "fields": {
     "name": "Smt. Kanimozhi Karunanidhi  DMK Thoothukkudi",
     "committee": 8
@@ -865,7 +385,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 123,
+  "pk": 364,
   "fields": {
     "name": "Shri Adhir Ranjan Chowdhury INC Baharampur",
     "committee": 8
@@ -873,15 +393,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 124,
+  "pk": 365,
   "fields": {
-    "name": "Shri Rahul Gandhi INC Waynad",
+    "name": "Shri Rahul Gandhi INC Wayanad",
     "committee": 8
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 125,
+  "pk": 366,
   "fields": {
     "name": "Smt. Sonia Gandhi  INC Rae Bareli",
     "committee": 8
@@ -889,7 +409,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 126,
+  "pk": 367,
   "fields": {
     "name": "Shri Gaurav Gogoi INC Kaliabor",
     "committee": 8
@@ -897,7 +417,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 127,
+  "pk": 368,
   "fields": {
     "name": "Shri Manish Tewari INC Anandpur Sahib",
     "committee": 8
@@ -905,23 +425,23 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 128,
+  "pk": 369,
   "fields": {
-    "name": "Dr. Shashi Tharoor INC Thiruvananthpuram",
+    "name": "Dr. Shashi Tharoor INC Thiruvananthapuram",
     "committee": 8
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 129,
+  "pk": 370,
   "fields": {
-    "name": "Shri Suresh Koddikunil INC Mavelikkara",
+    "name": "Shri Suresh Koddikunnil INC Mavelikkara",
     "committee": 8
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 130,
+  "pk": 371,
   "fields": {
     "name": "Shri Nakul K. Nath INC Chhindwara",
     "committee": 8
@@ -929,23 +449,23 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 131,
+  "pk": 372,
   "fields": {
-    "name": "Shri M.K. Raghvan INC Kozhikode",
+    "name": "Shri M.K. Raghavan INC Kozhikode",
     "committee": 8
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 132,
+  "pk": 373,
   "fields": {
-    "name": "Smt. Prathibha Singh INC Mandi",
+    "name": "Smt. Pratibha Singh INC Mandi",
     "committee": 8
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 133,
+  "pk": 374,
   "fields": {
     "name": "Shri Abu Hasem Khan Choudhury INC Maldaha Dakshin",
     "committee": 8
@@ -953,7 +473,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 134,
+  "pk": 375,
   "fields": {
     "name": "Shri Dinesh Chandra Yadav JD(U) Madhepura",
     "committee": 8
@@ -961,7 +481,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 135,
+  "pk": 376,
   "fields": {
     "name": "Shri Sushil Kumar Rinku AAP Jalandhar",
     "committee": 8
@@ -969,7 +489,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 136,
+  "pk": 377,
   "fields": {
     "name": "Shri E. T. Mohammed Basheer IUML Ponnani",
     "committee": 8
@@ -977,7 +497,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 137,
+  "pk": 378,
   "fields": {
     "name": "Dr. Farooq Abdullah J&KNC Srinagar",
     "committee": 8
@@ -985,7 +505,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 138,
+  "pk": 379,
   "fields": {
     "name": "Smt. Supriya Sule NCP Baramati",
     "committee": 8
@@ -993,15 +513,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 139,
+  "pk": 380,
   "fields": {
-    "name": "Shri N.K. Premchandra RSP Kollam",
+    "name": "Shri N.K. Premachandram RSP Kollam",
     "committee": 8
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 140,
+  "pk": 381,
   "fields": {
     "name": "Smt. Dimple Yadav SP Mainpuri",
     "committee": 8
@@ -1009,7 +529,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 141,
+  "pk": 382,
   "fields": {
     "name": "Smt. Harsimrat Kaur Badal SAD Bathinda",
     "committee": 8
@@ -1017,7 +537,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 142,
+  "pk": 383,
   "fields": {
     "name": "Shri Arvind Ganpat Sawant SS Mumbai South",
     "committee": 8
@@ -1025,15 +545,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 143,
+  "pk": 384,
   "fields": {
-    "name": "Shri Vinak Raut SS Ratnagiri",
+    "name": "Shri Vinayak Raut SS Ratnagiri - Sindhudurg",
     "committee": 8
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 144,
+  "pk": 385,
   "fields": {
     "name": "Shri Nama Nageshwar Rao TRS Khammam",
     "committee": 8
@@ -1041,7 +561,487 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 145,
+  "pk": 386,
+  "fields": {
+    "name": "Shri Piyush Goyal BJP Maharashtra ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 387,
+  "fields": {
+    "name": "Shri S. Jaishankar BJP Gujarat",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 388,
+  "fields": {
+    "name": "Smt. Nirmala Sitharaman BJP Karnataka ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 389,
+  "fields": {
+    "name": "Shri Jyotiraditya Scindia BJP Madhya Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 390,
+  "fields": {
+    "name": "Shri Ashvini Vaishnaw BJP Odisha",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 391,
+  "fields": {
+    "name": "Shri Jagat Prakash Nadda BJP Himachal Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 392,
+  "fields": {
+    "name": "Shri Mansukh Mandaviya  BJP Gujarat",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 393,
+  "fields": {
+    "name": "Shri Prakash Javadekar  BJP Maharashtra ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 394,
+  "fields": {
+    "name": "Shri Hardeep Singh Puri  BJP Uttar Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 395,
+  "fields": {
+    "name": "Shri Bhupender Yadav BJP Rajasthan",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 396,
+  "fields": {
+    "name": "Dr. Sudhanshu Trivedi  BJP Uttar Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 397,
+  "fields": {
+    "name": "Shri Sarbananda Sonowal BJP Assam",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 398,
+  "fields": {
+    "name": "Shri Dharmendra Pradhan BJP Madhya Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 399,
+  "fields": {
+    "name": " Dr. Anil Jain BJP Uttar Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 400,
+  "fields": {
+    "name": "Shri Rajeev Chandrasekhar BJP Karnataka ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 401,
+  "fields": {
+    "name": "Smt. Seema Dwivedi BJP Uttar Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 402,
+  "fields": {
+    "name": "Shri Mahesh Jethmalani BJP Nominated",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 403,
+  "fields": {
+    "name": "Shri Arun Singh BJP Uttar Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 404,
+  "fields": {
+    "name": "Shri Sushsil Kumar Modi BJP Bihar",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 405,
+  "fields": {
+    "name": "Shri Neeraj Shekhar  BJP Uttar Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 406,
+  "fields": {
+    "name": "Shri Gulam Ali BJP  Nominated",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 407,
+  "fields": {
+    "name": "Shir Satish Chandra Dubey BJP Bihar ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 408,
+  "fields": {
+    "name": "Shri Bhubaneswar Kalita BJP Assam",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 409,
+  "fields": {
+    "name": "Shri Surendra Singh Nagar BJP  Uttar Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 410,
+  "fields": {
+    "name": " Dr. CM Ramesh  BJP Andhra Pradesh ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 411,
+  "fields": {
+    "name": "Shri Narhari Amin BJP Gujarat ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 412,
+  "fields": {
+    "name": "Shri Nabam Rebia BJP Arunachal Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 413,
+  "fields": {
+    "name": "Dr. Ashok Bajpai BJP Uttar Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 414,
+  "fields": {
+    "name": "Shri Rajendra Gehlot BJP Rajasthan",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 415,
+  "fields": {
+    "name": "Shri G.V.L. Narasimha Rao BJP Uttar Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 416,
+  "fields": {
+    "name": "Shri Rakesh Sinha BJP Nominated",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 417,
+  "fields": {
+    "name": "Shri B.L. Verma  BJP Uttar Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 418,
+  "fields": {
+    "name": "Dr. Sasmit Patra  BJD Odisha",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 419,
+  "fields": {
+    "name": "Shri H.D. Devegowda  JD(S) Karnataka",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 420,
+  "fields": {
+    "name": "Shri Parimal Nathwani  YSRCP Andhra Pradesh ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 421,
+  "fields": {
+    "name": "Shri Mallikarjun Kharge  INC Karnataka",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 422,
+  "fields": {
+    "name": "Shir Jairam Ramesh INC Karnataka",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 423,
+  "fields": {
+    "name": "Dr. Manmohan Singh INC Rajasthan ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 424,
+  "fields": {
+    "name": "Shri Digvijaya Singh INC Madhya Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 425,
+  "fields": {
+    "name": "Shri P. Chidambaram INC Tamil Nadu",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 426,
+  "fields": {
+    "name": "Shri Deepender Singh Hooda  INC  Haryana",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 427,
+  "fields": {
+    "name": "Shri Shaktisinh Gohil  INC Gujarat",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 428,
+  "fields": {
+    "name": "Shri K.T.S. Tulsi INC Chhattisgarh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 429,
+  "fields": {
+    "name": "Shri K.C. Venugopal INC Rajasthan ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 430,
+  "fields": {
+    "name": "Shri Randeep Singh Surjewala INC Rajasthan ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 431,
+  "fields": {
+    "name": "Smt. Rajani Ashokrao Patil  INC Maharashtra ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 432,
+  "fields": {
+    "name": "Shri P. Wilson DMK Tamil Nadu",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 433,
+  "fields": {
+    "name": "Shir Tiruchi Siva  DMK Tamil Nadu",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 434,
+  "fields": {
+    "name": "Shri R. Girirajan DMK Tamil Nadu",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 435,
+  "fields": {
+    "name": "Dr. John Brittas  CPI(M)  Kerala",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 436,
+  "fields": {
+    "name": "Shri Derek O'Brien  AITC West Bengal",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 437,
+  "fields": {
+    "name": "Shri Jawhar Sircar  AITC West Bengal",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 438,
+  "fields": {
+    "name": "Shri Raghav Chadha AAP Punjab",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 439,
+  "fields": {
+    "name": "Shri Sanjay Singh AAP NCT Delhi",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 440,
+  "fields": {
+    "name": "Shri Bashistha Narain Singh JD(U)  Bihar",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 441,
+  "fields": {
+    "name": "Shri Sharad Pawar NCP Maharashtra ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 442,
+  "fields": {
+    "name": "Prof. Manoj Kumar Jha RJD Bihar",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 443,
+  "fields": {
+    "name": "Smt. Jaya Bachchan SP Uttar Pradesh",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 444,
+  "fields": {
+    "name": "Smt. Priyanka Chaturvedi SS Maharashtra ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 445,
+  "fields": {
+    "name": "Shri Abdul Wahab  IUML  Kerala ",
+    "committee": 9
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 447,
   "fields": {
     "name": "Shri Narendra Modi BJP",
     "committee": 10
@@ -1049,7 +1049,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 146,
+  "pk": 448,
   "fields": {
     "name": "Shri Amit Shah  BJP",
     "committee": 10
@@ -1057,7 +1057,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 147,
+  "pk": 449,
   "fields": {
     "name": "Shri J.P. Nadda BJP",
     "committee": 10
@@ -1065,7 +1065,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 148,
+  "pk": 450,
   "fields": {
     "name": "Shri Rajnath Singh BJP",
     "committee": 10
@@ -1073,7 +1073,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 149,
+  "pk": 451,
   "fields": {
     "name": "Smt. Smriti Irani BJP",
     "committee": 10
@@ -1081,7 +1081,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 150,
+  "pk": 452,
   "fields": {
     "name": "Shri Jyotiraditya Scindia BJP",
     "committee": 10
@@ -1089,7 +1089,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 151,
+  "pk": 453,
   "fields": {
     "name": "Shri Anurag Singh Thakur BJP",
     "committee": 10
@@ -1097,7 +1097,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 152,
+  "pk": 454,
   "fields": {
     "name": "Shri Piyush Goyal BJP",
     "committee": 10
@@ -1105,7 +1105,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 153,
+  "pk": 455,
   "fields": {
     "name": "Shri L.K. Advani  BJP",
     "committee": 10
@@ -1113,7 +1113,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 154,
+  "pk": 456,
   "fields": {
     "name": "Shri Yogi Adityanath BJP",
     "committee": 10
@@ -1121,7 +1121,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 155,
+  "pk": 457,
   "fields": {
     "name": "Shri Shivraj Singh Chauhan BJP",
     "committee": 10
@@ -1129,23 +1129,23 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 156,
+  "pk": 458,
   "fields": {
-    "name": "Shri Himanta Biswa Sharma BJP",
+    "name": "Shri Himanta Biswa Sarma BJP",
     "committee": 10
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 157,
+  "pk": 459,
   "fields": {
-    "name": "Shri Pramodh Sawant BJP",
+    "name": "Shri Pramod Sawant BJP",
     "committee": 10
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 158,
+  "pk": 460,
   "fields": {
     "name": "Shri Manoharlal Khattar BJP",
     "committee": 10
@@ -1153,7 +1153,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 159,
+  "pk": 461,
   "fields": {
     "name": "Shri N. Biren Singh BJP",
     "committee": 10
@@ -1161,7 +1161,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 160,
+  "pk": 462,
   "fields": {
     "name": "Shri Pushkar Singh Dhami BJP",
     "committee": 10
@@ -1169,7 +1169,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 161,
+  "pk": 463,
   "fields": {
     "name": "Smt. Sadhvi Pragya  BJP",
     "committee": 10
@@ -1177,7 +1177,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 162,
+  "pk": 464,
   "fields": {
     "name": "Shri Sambit Patra BJP",
     "committee": 10
@@ -1185,7 +1185,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 163,
+  "pk": 465,
   "fields": {
     "name": "Smt. Uma Bharti BJP",
     "committee": 10
@@ -1193,7 +1193,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 164,
+  "pk": 466,
   "fields": {
     "name": "Shri K. Annamalai  BJP",
     "committee": 10
@@ -1201,7 +1201,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 165,
+  "pk": 467,
   "fields": {
     "name": "Shri Shahnawaz Hussain BJP",
     "committee": 10
@@ -1209,15 +1209,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 166,
+  "pk": 468,
   "fields": {
-    "name": "Shri Shezad Poonawala BJP",
+    "name": "Shri Shehzad Poonawalla BJP",
     "committee": 10
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 167,
+  "pk": 469,
   "fields": {
     "name": "Shri Gaurav Bhatia  BJP",
     "committee": 10
@@ -1225,7 +1225,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 168,
+  "pk": 470,
   "fields": {
     "name": "Shri Murli Manohar Joshi  BJP",
     "committee": 10
@@ -1233,7 +1233,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 169,
+  "pk": 471,
   "fields": {
     "name": "Shri Eknath Shinde  SS",
     "committee": 10
@@ -1241,7 +1241,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 170,
+  "pk": 472,
   "fields": {
     "name": "Shri Arvind Sawant  SS",
     "committee": 10
@@ -1249,7 +1249,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 171,
+  "pk": 473,
   "fields": {
     "name": "Shri Naveen Patnaik BJD",
     "committee": 10
@@ -1257,15 +1257,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 172,
+  "pk": 474,
   "fields": {
-    "name": "Shri Pinaki Mishra BJD",
+    "name": "Shri Pinaki Misra BJD",
     "committee": 10
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 173,
+  "pk": 475,
   "fields": {
     "name": "Shri K. Palaniswami  AIADMK",
     "committee": 10
@@ -1273,7 +1273,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 174,
+  "pk": 476,
   "fields": {
     "name": "Shri H.D. Deve Gowda JDS",
     "committee": 10
@@ -1281,7 +1281,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 175,
+  "pk": 477,
   "fields": {
     "name": "Shri Chirag Paswan LJSP",
     "committee": 10
@@ -1289,7 +1289,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 177,
+  "pk": 478,
   "fields": {
     "name": "Shri Mallikarajun Kharge  INC",
     "committee": 10
@@ -1297,7 +1297,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 178,
+  "pk": 479,
   "fields": {
     "name": "Smt. Sonia Gandhi  INC",
     "committee": 10
@@ -1305,7 +1305,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 179,
+  "pk": 480,
   "fields": {
     "name": "Shri Rahul Gandhi INC",
     "committee": 10
@@ -1313,7 +1313,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 180,
+  "pk": 481,
   "fields": {
     "name": "Shri Kamalnath INC",
     "committee": 10
@@ -1321,15 +1321,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 181,
+  "pk": 482,
   "fields": {
-    "name": "Shri Dr. Shashi Tharoor  INC",
+    "name": " Dr. Shashi Tharoor  INC",
     "committee": 10
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 182,
+  "pk": 483,
   "fields": {
     "name": "Shri Ashok Gehlot INC",
     "committee": 10
@@ -1337,7 +1337,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 183,
+  "pk": 484,
   "fields": {
     "name": "Smt. Priyanka Gandhi Vadra INC",
     "committee": 10
@@ -1345,7 +1345,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 184,
+  "pk": 485,
   "fields": {
     "name": "Shri Sachin Pilot  INC",
     "committee": 10
@@ -1353,7 +1353,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 185,
+  "pk": 486,
   "fields": {
     "name": "Shri K.C. Venugopal INC",
     "committee": 10
@@ -1361,7 +1361,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 186,
+  "pk": 487,
   "fields": {
     "name": "Shri Randeep Singh Surjewala INC",
     "committee": 10
@@ -1369,7 +1369,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 187,
+  "pk": 488,
   "fields": {
     "name": "Shri Kanhaiya Kumar INC",
     "committee": 10
@@ -1377,7 +1377,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 188,
+  "pk": 489,
   "fields": {
     "name": "Shri Pawan Khera  INC",
     "committee": 10
@@ -1385,15 +1385,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 189,
+  "pk": 490,
   "fields": {
-    "name": "Smt. Supriya Srinathe INC",
+    "name": "Smt. Supriya Srinate INC",
     "committee": 10
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 190,
+  "pk": 491,
   "fields": {
     "name": "Shri Gaurabh Vallabh INC",
     "committee": 10
@@ -1401,7 +1401,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 191,
+  "pk": 492,
   "fields": {
     "name": "Shri Salman Khurshid  INC",
     "committee": 10
@@ -1409,7 +1409,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 192,
+  "pk": 493,
   "fields": {
     "name": "Shri M.K. Stalin DMK",
     "committee": 10
@@ -1417,15 +1417,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 193,
+  "pk": 494,
   "fields": {
-    "name": "Shri Udhyanidhi Stalin  DMK",
+    "name": "Shri Udhayanidhi Stalin  DMK",
     "committee": 10
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 194,
+  "pk": 495,
   "fields": {
     "name": "Smt. Kanimozhi Karunanidhi DMK",
     "committee": 10
@@ -1433,7 +1433,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 195,
+  "pk": 496,
   "fields": {
     "name": "Shri Sharad Pawar  NCP",
     "committee": 10
@@ -1441,7 +1441,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 196,
+  "pk": 497,
   "fields": {
     "name": "Shri Ajith Pawar NCP (Ajith Faction)",
     "committee": 10
@@ -1449,7 +1449,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 197,
+  "pk": 498,
   "fields": {
     "name": "Smt. Supriya Sule NCP",
     "committee": 10
@@ -1457,7 +1457,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 198,
+  "pk": 499,
   "fields": {
     "name": "Smt. Mamta Banerjee TMC",
     "committee": 10
@@ -1465,7 +1465,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 199,
+  "pk": 500,
   "fields": {
     "name": "Shri Abhishek Banerjee TMC",
     "committee": 10
@@ -1473,7 +1473,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 200,
+  "pk": 501,
   "fields": {
     "name": "Smt. Mahua Moitra TMC",
     "committee": 10
@@ -1481,7 +1481,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 201,
+  "pk": 502,
   "fields": {
     "name": "Shri Uddhav Thackrey SS (Uddhav)",
     "committee": 10
@@ -1489,7 +1489,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 202,
+  "pk": 503,
   "fields": {
     "name": "Shri Aditya Thackrey SS (Uddhav)",
     "committee": 10
@@ -1497,7 +1497,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 203,
+  "pk": 504,
   "fields": {
     "name": "Shri Lalu Prasad Yadav RJD",
     "committee": 10
@@ -1505,15 +1505,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 204,
+  "pk": 505,
   "fields": {
-    "name": "Shri Tejaswi Yadav RJD",
+    "name": "Shri Tejashwi Yadav RJD",
     "committee": 10
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 205,
+  "pk": 506,
   "fields": {
     "name": "Prof. Manoj Kumar Jha RJD",
     "committee": 10
@@ -1521,7 +1521,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 206,
+  "pk": 507,
   "fields": {
     "name": "Shri Arvind Kejriwal AAP",
     "committee": 10
@@ -1529,7 +1529,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 207,
+  "pk": 508,
   "fields": {
     "name": "Shri Raghav Chadha  AAP",
     "committee": 10
@@ -1537,15 +1537,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 208,
+  "pk": 509,
   "fields": {
-    "name": "Shri Bhagwaat Maan  AAP",
+    "name": "Shri Bhagwant Mann  AAP",
     "committee": 10
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 209,
+  "pk": 510,
   "fields": {
     "name": "Shri Hemant Soren JMM",
     "committee": 10
@@ -1553,7 +1553,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 210,
+  "pk": 511,
   "fields": {
     "name": "Shri Akhilesh Yadav SP",
     "committee": 10
@@ -1561,7 +1561,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 211,
+  "pk": 512,
   "fields": {
     "name": "Shri Sitaram Yechury CPI(M)",
     "committee": 10
@@ -1569,7 +1569,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 212,
+  "pk": 513,
   "fields": {
     "name": "Shri Farooq Abdullah  JKNC",
     "committee": 10
@@ -1577,7 +1577,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 213,
+  "pk": 514,
   "fields": {
     "name": "Shri Omar Abdullah JKNC",
     "committee": 10
@@ -1585,7 +1585,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 214,
+  "pk": 515,
   "fields": {
     "name": "Shri Nitish Kumar  JDU",
     "committee": 10
@@ -1593,7 +1593,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 215,
+  "pk": 516,
   "fields": {
     "name": "Smt. Harsimrat Kaur Badal SAD",
     "committee": 10
@@ -1601,7 +1601,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 216,
+  "pk": 517,
   "fields": {
     "name": "Smt. Mehbooba Mufti PDP",
     "committee": 10
@@ -1609,7 +1609,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 217,
+  "pk": 518,
   "fields": {
     "name": "Shri K. Chandrashekar Rao BRS",
     "committee": 10
@@ -1617,7 +1617,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 218,
+  "pk": 519,
   "fields": {
     "name": "Shri Asaduddin Owaisi AIMIM",
     "committee": 10
@@ -1625,7 +1625,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 219,
+  "pk": 520,
   "fields": {
     "name": "Smt. Mayawati BSP",
     "committee": 10
@@ -1633,255 +1633,15 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 220,
+  "pk": 521,
   "fields": {
-    "name": "Shri Y.S. Jagmohan Reddy YSRCP",
+    "name": "Shri Y.S. Jagan Mohan Reddy YSRCP",
     "committee": 10
   }
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 221,
-  "fields": {
-    "name": "Permanent Members - French Republic",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 222,
-  "fields": {
-    "name": "Non permanent Members - Republic of Albania",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 223,
-  "fields": {
-    "name": "Observer/Consulting Members- People’s Republic of Burkina Faso",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 224,
-  "fields": {
-    "name": "Permanent Members - People’s Republic of China",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 225,
-  "fields": {
-    "name": "Non permanent Members - Federative Republic of Brazil",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 226,
-  "fields": {
-    "name": "Observer/Consulting Members- Islamic Republic of Mauritania",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 227,
-  "fields": {
-    "name": "Permanent Members - Russian Federation",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 228,
-  "fields": {
-    "name": "Non permanent Members - Republic of Ecuador",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 229,
-  "fields": {
-    "name": "Observer/Consulting Members- Republic of Mali",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 230,
-  "fields": {
-    "name": "Permanent Members - United Kingdoms of Great Britain and Northern Ireland",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 231,
-  "fields": {
-    "name": "Non permanent Members - The Gabonese Republic",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 232,
-  "fields": {
-    "name": "Observer/Consulting Members- Republic of Niger",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 233,
-  "fields": {
-    "name": "Permanent Members - United States of America",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 234,
-  "fields": {
-    "name": "Non permanent Members - Republic of Ghana",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 235,
-  "fields": {
-    "name": "Observer/Consulting Members- Republic of Chad",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 236,
-  "fields": {
-    "name": "Non permanent Members - State of Japan",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 237,
-  "fields": {
-    "name": "Observer/Consulting Members- Federal republic of Nigeria",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 238,
-  "fields": {
-    "name": "Non permanent Members - Republic of Malta",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 239,
-  "fields": {
-    "name": "Observer/Consulting Members- Republic of Sudan",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 240,
-  "fields": {
-    "name": "Non permanent Members - Republic of Mozambique",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 241,
-  "fields": {
-    "name": "Observer/Consulting Members- The Italian Republic",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 242,
-  "fields": {
-    "name": "Non permanent Members - The Swiss Confederation",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 243,
-  "fields": {
-    "name": "Observer/Consulting Members- Federal Republic of Germany",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 244,
-  "fields": {
-    "name": "Non permanent Members - United Arab Emirates",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 245,
-  "fields": {
-    "name": "Observer/Consulting Members- Republic of India",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 246,
-  "fields": {
-    "name": "Observer/Consulting Members- Kingdom of Saudi Arabia",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 247,
-  "fields": {
-    "name": "Observer/Consulting Members- Islamic Republic of Iran",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 248,
-  "fields": {
-    "name": "Observer/Consulting Members- Republic of South Africa",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 249,
-  "fields": {
-    "name": "Observer/Consulting Members- The Kingdom of Belgium",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 250,
-  "fields": {
-    "name": "Observer/Consulting Members- Canada",
-    "committee": 11
-  }
-},
-{
-  "model": "Challenge.portfolio",
-  "pk": 251,
+  "pk": 522,
   "fields": {
     "name": "Afghanistan",
     "committee": null
@@ -1889,7 +1649,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 252,
+  "pk": 523,
   "fields": {
     "name": "Angola",
     "committee": null
@@ -1897,7 +1657,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 253,
+  "pk": 524,
   "fields": {
     "name": "Argentina",
     "committee": null
@@ -1905,7 +1665,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 254,
+  "pk": 525,
   "fields": {
     "name": "Australia",
     "committee": null
@@ -1913,7 +1673,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 255,
+  "pk": 526,
   "fields": {
     "name": "Austria",
     "committee": null
@@ -1921,7 +1681,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 256,
+  "pk": 527,
   "fields": {
     "name": "Bahrain",
     "committee": null
@@ -1929,7 +1689,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 257,
+  "pk": 528,
   "fields": {
     "name": "Bangladesh",
     "committee": null
@@ -1937,7 +1697,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 258,
+  "pk": 529,
   "fields": {
     "name": "Belgium",
     "committee": null
@@ -1945,7 +1705,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 259,
+  "pk": 530,
   "fields": {
     "name": "Brazil",
     "committee": null
@@ -1953,7 +1713,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 260,
+  "pk": 531,
   "fields": {
     "name": "Cambodia",
     "committee": null
@@ -1961,7 +1721,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 261,
+  "pk": 532,
   "fields": {
     "name": "Canada",
     "committee": null
@@ -1969,7 +1729,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 262,
+  "pk": 533,
   "fields": {
     "name": "Central African Republic",
     "committee": null
@@ -1977,7 +1737,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 263,
+  "pk": 534,
   "fields": {
     "name": "Chile",
     "committee": null
@@ -1985,7 +1745,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 264,
+  "pk": 535,
   "fields": {
     "name": "China",
     "committee": null
@@ -1993,7 +1753,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 265,
+  "pk": 536,
   "fields": {
     "name": "Congo",
     "committee": null
@@ -2001,7 +1761,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 266,
+  "pk": 537,
   "fields": {
     "name": "Cuba",
     "committee": null
@@ -2009,7 +1769,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 267,
+  "pk": 538,
   "fields": {
     "name": "Czech Republic",
     "committee": null
@@ -2017,7 +1777,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 268,
+  "pk": 539,
   "fields": {
     "name": "Denmark",
     "committee": null
@@ -2025,7 +1785,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 269,
+  "pk": 540,
   "fields": {
     "name": "Ecuador",
     "committee": null
@@ -2033,7 +1793,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 270,
+  "pk": 541,
   "fields": {
     "name": "Egypt",
     "committee": null
@@ -2041,7 +1801,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 271,
+  "pk": 542,
   "fields": {
     "name": "Ethiopia",
     "committee": null
@@ -2049,7 +1809,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 272,
+  "pk": 543,
   "fields": {
     "name": "Finland",
     "committee": null
@@ -2057,7 +1817,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 273,
+  "pk": 544,
   "fields": {
     "name": "France",
     "committee": null
@@ -2065,7 +1825,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 274,
+  "pk": 545,
   "fields": {
     "name": "Germany",
     "committee": null
@@ -2073,7 +1833,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 275,
+  "pk": 546,
   "fields": {
     "name": "Hungary",
     "committee": null
@@ -2081,7 +1841,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 276,
+  "pk": 547,
   "fields": {
     "name": "India",
     "committee": null
@@ -2089,7 +1849,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 277,
+  "pk": 548,
   "fields": {
     "name": "Indonesia",
     "committee": null
@@ -2097,7 +1857,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 278,
+  "pk": 549,
   "fields": {
     "name": "Iran",
     "committee": null
@@ -2105,7 +1865,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 279,
+  "pk": 550,
   "fields": {
     "name": "iraq",
     "committee": null
@@ -2113,7 +1873,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 280,
+  "pk": 551,
   "fields": {
     "name": "Ireland",
     "committee": null
@@ -2121,7 +1881,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 281,
+  "pk": 552,
   "fields": {
     "name": "Israel",
     "committee": null
@@ -2129,7 +1889,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 282,
+  "pk": 553,
   "fields": {
     "name": "Italy",
     "committee": null
@@ -2137,7 +1897,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 283,
+  "pk": 554,
   "fields": {
     "name": "Japan",
     "committee": null
@@ -2145,7 +1905,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 284,
+  "pk": 555,
   "fields": {
     "name": "Kazakhstan",
     "committee": null
@@ -2153,7 +1913,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 285,
+  "pk": 556,
   "fields": {
     "name": "Luxembourg",
     "committee": null
@@ -2161,7 +1921,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 286,
+  "pk": 557,
   "fields": {
     "name": "Malaysia",
     "committee": null
@@ -2169,7 +1929,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 287,
+  "pk": 558,
   "fields": {
     "name": "Mexico",
     "committee": null
@@ -2177,7 +1937,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 288,
+  "pk": 559,
   "fields": {
     "name": "Mongolia",
     "committee": null
@@ -2185,7 +1945,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 289,
+  "pk": 560,
   "fields": {
     "name": "Nepal",
     "committee": null
@@ -2193,7 +1953,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 290,
+  "pk": 561,
   "fields": {
     "name": "Netherlands",
     "committee": null
@@ -2201,7 +1961,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 291,
+  "pk": 562,
   "fields": {
     "name": "New Zealand",
     "committee": null
@@ -2209,7 +1969,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 292,
+  "pk": 563,
   "fields": {
     "name": "Norway",
     "committee": null
@@ -2217,7 +1977,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 293,
+  "pk": 564,
   "fields": {
     "name": "Pakistan",
     "committee": null
@@ -2225,7 +1985,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 294,
+  "pk": 565,
   "fields": {
     "name": "Peru",
     "committee": null
@@ -2233,7 +1993,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 295,
+  "pk": 566,
   "fields": {
     "name": "Poland",
     "committee": null
@@ -2241,7 +2001,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 296,
+  "pk": 567,
   "fields": {
     "name": "Portugal",
     "committee": null
@@ -2249,7 +2009,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 297,
+  "pk": 568,
   "fields": {
     "name": "Qatar",
     "committee": null
@@ -2257,7 +2017,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 298,
+  "pk": 569,
   "fields": {
     "name": "Republic of Korea",
     "committee": null
@@ -2265,7 +2025,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 299,
+  "pk": 570,
   "fields": {
     "name": "Russian Federation",
     "committee": null
@@ -2273,7 +2033,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 300,
+  "pk": 571,
   "fields": {
     "name": "Saudi Arabia",
     "committee": null
@@ -2281,7 +2041,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 301,
+  "pk": 572,
   "fields": {
     "name": "Singapore",
     "committee": null
@@ -2289,7 +2049,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 302,
+  "pk": 573,
   "fields": {
     "name": "South Africa",
     "committee": null
@@ -2297,7 +2057,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 303,
+  "pk": 574,
   "fields": {
     "name": "Spain",
     "committee": null
@@ -2305,7 +2065,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 304,
+  "pk": 575,
   "fields": {
     "name": "Sri Lanka",
     "committee": null
@@ -2313,7 +2073,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 305,
+  "pk": 576,
   "fields": {
     "name": "Switzerland",
     "committee": null
@@ -2321,7 +2081,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 306,
+  "pk": 577,
   "fields": {
     "name": "Syria",
     "committee": null
@@ -2329,7 +2089,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 307,
+  "pk": 578,
   "fields": {
     "name": "Thailand",
     "committee": null
@@ -2337,7 +2097,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 308,
+  "pk": 579,
   "fields": {
     "name": "Turkey",
     "committee": null
@@ -2345,7 +2105,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 309,
+  "pk": 580,
   "fields": {
     "name": "Ukraine",
     "committee": null
@@ -2353,7 +2113,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 310,
+  "pk": 581,
   "fields": {
     "name": "United Arab Emirates",
     "committee": null
@@ -2361,7 +2121,7 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 311,
+  "pk": 582,
   "fields": {
     "name": "United Kingdom",
     "committee": null
@@ -2369,10 +2129,250 @@
 },
 {
   "model": "Challenge.portfolio",
-  "pk": 312,
+  "pk": 583,
   "fields": {
     "name": "United States of America",
     "committee": null
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 584,
+  "fields": {
+    "name": "Permanent Members - French Republic",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 585,
+  "fields": {
+    "name": "Non permanent Members - Republic of Albania",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 586,
+  "fields": {
+    "name": "Observer/Consulting Members- People’s Republic of Burkina Faso",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 587,
+  "fields": {
+    "name": "Permanent Members - People’s Republic of China",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 588,
+  "fields": {
+    "name": "Non permanent Members - Federative Republic of Brazil",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 589,
+  "fields": {
+    "name": "Observer/Consulting Members- Islamic Republic of Mauritania",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 590,
+  "fields": {
+    "name": "Permanent Members - Russian Federation",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 591,
+  "fields": {
+    "name": "Non permanent Members - Republic of Ecuador",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 592,
+  "fields": {
+    "name": "Observer/Consulting Members- Republic of Mali",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 593,
+  "fields": {
+    "name": "Permanent Members - United Kingdoms of Great Britain and Northern Ireland",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 594,
+  "fields": {
+    "name": "Non permanent Members - The Gabonese Republic",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 595,
+  "fields": {
+    "name": "Observer/Consulting Members- Republic of Niger",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 596,
+  "fields": {
+    "name": "Permanent Members - United States of America",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 597,
+  "fields": {
+    "name": "Non permanent Members - Republic of Ghana",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 598,
+  "fields": {
+    "name": "Observer/Consulting Members- Republic of Chad",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 599,
+  "fields": {
+    "name": "Non permanent Members - State of Japan",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 600,
+  "fields": {
+    "name": "Observer/Consulting Members- Federal republic of Nigeria",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 601,
+  "fields": {
+    "name": "Non permanent Members - Republic of Malta",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 602,
+  "fields": {
+    "name": "Observer/Consulting Members- Republic of Sudan",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 603,
+  "fields": {
+    "name": "Non permanent Members - Republic of Mozambique",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 604,
+  "fields": {
+    "name": "Observer/Consulting Members- The Italian Republic",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 605,
+  "fields": {
+    "name": "Non permanent Members - The Swiss Confederation",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 606,
+  "fields": {
+    "name": "Observer/Consulting Members- Federal Republic of Germany",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 607,
+  "fields": {
+    "name": "Non permanent Members - United Arab Emirates",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 608,
+  "fields": {
+    "name": "Observer/Consulting Members- Republic of India",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 609,
+  "fields": {
+    "name": "Observer/Consulting Members- Kingdom of Saudi Arabia",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 610,
+  "fields": {
+    "name": "Observer/Consulting Members- Islamic Republic of Iran",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 611,
+  "fields": {
+    "name": "Observer/Consulting Members- Republic of South Africa",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 612,
+  "fields": {
+    "name": "Observer/Consulting Members- The Kingdom of Belgium",
+    "committee": 11
+  }
+},
+{
+  "model": "Challenge.portfolio",
+  "pk": 613,
+  "fields": {
+    "name": "Observer/Consulting Members- Canada",
+    "committee": 11
   }
 }
 ]
