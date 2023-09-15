@@ -287,7 +287,10 @@ class TeamView(FormView):
 def get_options(request):
     model_id = request.GET.get('model_id')
     print("javascript model id -----", model_id)
-    committee = Committee.objects.get(name=model_id)
+    if model_id.isalpha():
+        committee = Committee.objects.get(name=model_id)
+    else:
+        committee = Committee.objects.get(pk=int(model_id))
     print(committee)
 
     if str(committee) in ["Lok Sabha", "Rajya Sabha", "AIPPM", "UNSC"]:
