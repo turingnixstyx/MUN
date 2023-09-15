@@ -1,6 +1,9 @@
 from django.apps import apps
-from django.core.management.base import (BaseCommand, CommandError,
-                                         CommandParser)
+from django.core.management.base import (
+    BaseCommand,
+    CommandError,
+    CommandParser,
+)
 
 
 class Command(BaseCommand):
@@ -8,7 +11,9 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser: CommandParser) -> None:
         parser.add_argument(
-            "model_name", type=str, help="Name of the model to delete entries from"
+            "model_name",
+            type=str,
+            help="Name of the model to delete entries from",
         )
 
     def handle(self, *args, **kwargs):
@@ -23,5 +28,7 @@ class Command(BaseCommand):
         model.objects.all().delete()
 
         self.stdout.write(
-            self.style.SUCCESS(f"All entries in {model_name} have been deleted")
+            self.style.SUCCESS(
+                f"All entries in {model_name} have been deleted"
+            )
         )

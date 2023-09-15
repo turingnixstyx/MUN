@@ -27,14 +27,19 @@ urlpatterns = [
     path("login/", core_views.Login_View.as_view(), name="login"),
     path("logout/", core_views.logout_user, name="logout"),
     path("", core_views.Home.as_view(), name="home"),
-    path("comittee", challenge_views.CommitteeView.as_view(), name="committee"),
+    path(
+        "comittee", challenge_views.CommitteeView.as_view(), name="committee"
+    ),
+    path('get_options/', challenge_views.get_options, name='get_options'),
     path("teams", challenge_views.TeamView.as_view(), name="teams"),
-    path("addons", challenge_views.AddOnView.as_view(), name="addon"),
+    # path("addons", challenge_views.AddOnView.as_view(), name="addon"),
     path("success", core_views.success, name="success"),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+    )
 
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns

@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import FormView
@@ -14,8 +14,12 @@ from Core.logger_util import MUNLogger
 from Core.models import AllTracker, ImpactChallengeTable, MUNChallengeTable
 from Student.models import Students
 
-from .forms import (AddonForms, ExtendedTeamForm, PersonalInfoForm,
-                    PreferenceForm, TeamForm)
+from .forms import (
+    ExtendedTeamForm,
+    PersonalInfoForm,
+    PreferenceForm,
+    TeamForm,
+)
 from .models import Committee, Portfolio
 
 # Create your views here.
@@ -36,7 +40,9 @@ class CommitteeView(FormView):
         )
         self.current_school = self.current_student.school
         self.challenge_name = (
-            self.request.session["first_page_data"].get("challenge", {}).get("name")
+            self.request.session["first_page_data"]
+            .get("challenge", {})
+            .get("name")
         )
 
     def form_valid(self, form):
@@ -51,7 +57,11 @@ class CommitteeView(FormView):
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        cname = self.request.session["first_page_data"].get("challenge", {}).get("name")
+        cname = (
+            self.request.session["first_page_data"]
+            .get("challenge", {})
+            .get("name")
+        )
         if "model" in cname.lower() or "united" in cname.lower():
             info = PersonalInfoForm()
             context["iterations"] = range(3)
@@ -71,7 +81,11 @@ class CommitteeView(FormView):
 
     def get_form_kwargs(self) -> Dict[str, Any]:
         kwargs = super().get_form_kwargs()
-        cname = self.request.session["first_page_data"].get("challenge", {}).get("name")
+        cname = (
+            self.request.session["first_page_data"]
+            .get("challenge", {})
+            .get("name")
+        )
         MODEL = (
             MUNChallengeTable
             if "united" in cname or "model" in cname
@@ -81,7 +95,9 @@ class CommitteeView(FormView):
         committee_queryset = Committee.objects.exclude(
             id__in=MODEL.objects.values("id")
         )
-        portfolio_querset = Portfolio.objects.exclude(id__in=MODEL.objects.values("id"))
+        portfolio_querset = Portfolio.objects.exclude(
+            id__in=MODEL.objects.values("id")
+        )
 
         kwargs["com_queryset"] = committee_queryset
         kwargs["por_queryset"] = portfolio_querset
@@ -123,7 +139,9 @@ class CommitteeView(FormView):
                 )
 
                 if personal_info:
-                    a.remarks = f"Personal achivements and accolades {personal_info}"
+                    a.remarks = (
+                        f"Personal achivements and accolades {personal_info}"
+                    )
                 a.save()
 
                 preference += 1
@@ -134,7 +152,9 @@ class CommitteeView(FormView):
             )
 
             if personal_info:
-                t.remarks = f"Personal achivements and accolades {personal_info}"
+                t.remarks = (
+                    f"Personal achivements and accolades {personal_info}"
+                )
 
             t.save()
 
@@ -160,7 +180,11 @@ class TeamView(FormView):
     success_url = reverse_lazy("success")
 
     def get_form_class(self):
-        cname = self.request.session["first_page_data"].get("challenge", {}).get("name")
+        cname = (
+            self.request.session["first_page_data"]
+            .get("challenge", {})
+            .get("name")
+        )
         if "theatrics" in cname.lower():
             return ExtendedTeamForm
         else:
@@ -173,7 +197,9 @@ class TeamView(FormView):
         )
         self.current_school = self.current_student.school
         self.challenge_name = (
-            self.request.session["first_page_data"].get("challenge", {}).get("name")
+            self.request.session["first_page_data"]
+            .get("challenge", {})
+            .get("name")
         )
 
     def random_teamID_generator(self):
@@ -258,11 +284,21 @@ class TeamView(FormView):
                 member_name.save()
 
 
-@method_decorator(login_required, name="dispatch")
-class AddOnView(FormView):
-    template_name = "add_ons.html"
-    form_class = AddonForms
-    success_url = reverse_lazy("success")
+def get_options(request):
+    model_id = request.GET.get('model_id')
+    print("javascript model id -----", model_id)
+    committee = Committee.objects.get(name=model_id)
+    print(committee)
 
-    def form_valid(self, form):
-        return super().form_valid(form)
+    if str(committee) in ["Lok Sabha", "Rajya Sabha", "AIPPM", "UNSC"]:
+        options = Portfolio.objects.filter(committee=committee)
+    else:
+        options = Portfolio.objects.filter(committee=None)
+
+    data_list = []
+    if options:
+        for op in options:
+            data = op.to_dict()
+            data_list.append(data)
+
+    return JsonResponse({'options': list(data_list)})

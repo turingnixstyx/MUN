@@ -24,7 +24,9 @@ class Home(View):
     def get(self, request):
         form = ChallengeForm()
         challenges_set = Challenge.objects.all()
-        return render(request, "home.html", {"form": form, "chls": challenges_set})
+        return render(
+            request, "home.html", {"form": form, "chls": challenges_set}
+        )
 
     def post(self, request):
         challenge = request.POST.get("challenge")
@@ -53,12 +55,16 @@ class Login_View(View):
         q_filter = Q()
         q_filter &= Q(Q(email=username) | Q(name=username))
         q_filter &= ~Q(name="naman")
-        current_student = Students.objects.filter(q_filter).values("name", "team")
+        current_student = Students.objects.filter(q_filter).values(
+            "name", "team"
+        )
 
         if len(current_student) == 1 and current_student[0].get("team"):
             student_name = current_student[0].get("name")
             team_id = current_student[0].get("team")
-            return self.create_response_for_team(request, student_name, team_id)
+            return self.create_response_for_team(
+                request, student_name, team_id
+            )
 
         else:
             login(request, user)
@@ -71,7 +77,10 @@ class Login_View(View):
         print(challenge)
         if challenge:
             challenge_name = challenge[0].challenge
-            if challenge.count() > 1 and challenge[0].student != challenge[1].student:
+            if (
+                challenge.count() > 1
+                and challenge[0].student != challenge[1].student
+            ):
                 members = [c.student for c in challenge]
             else:
                 student_name = challenge[0].student
@@ -89,9 +98,9 @@ class Login_View(View):
         )
 
     def get_challenge_status(self, student_name):
-        mun_status = MUNChallengeTable.objects.filter(student=student_name).values(
-            "committee", "portfolio", "status"
-        )
+        mun_status = MUNChallengeTable.objects.filter(
+            student=student_name
+        ).values("committee", "portfolio", "status")
         if len(mun_status) > 0:
             if mun_status[0].get("status") == "AL":
                 cid = mun_status[0].get("committee")
@@ -103,9 +112,9 @@ class Login_View(View):
                 return {"committee": committee, "portfolio": portfolio}
             else:
                 return None
-        ic_status = ImpactChallengeTable.objects.filter(student=student_name).values(
-            "committee", "portfolio", "status"
-        )
+        ic_status = ImpactChallengeTable.objects.filter(
+            student=student_name
+        ).values("committee", "portfolio", "status")
 
         if len(ic_status) > 0:
             if ic_status[0].get("status") == "AL":

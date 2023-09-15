@@ -14,7 +14,11 @@ class Command(BaseCommand):
                 instance.team = None
                 instance.save()
                 self.stdout.write(
-                    self.style.SUCCESS(f"{instance.name}'s teams value set to None")
+                    self.style.SUCCESS(
+                        f"{instance.name}'s teams value set to None"
+                    )
                 )
         else:
-            self.stdout.write(self.style.WARNING("No instances found for the Students"))
+            self.stdout.write(
+                self.style.WARNING("No instances found for the Students")
+            )

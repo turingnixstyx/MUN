@@ -15,7 +15,11 @@ class Migration(migrations.Migration):
             model_name="impactchallengetable",
             name="status",
             field=models.CharField(
-                choices=[("NF", "Not filled"), ("AW", "Awaiting"), ("AL", "Alloted")],
+                choices=[
+                    ("NF", "Not filled"),
+                    ("AW", "Awaiting"),
+                    ("AL", "Alloted"),
+                ],
                 default="NF",
                 max_length=2,
             ),
@@ -24,7 +28,11 @@ class Migration(migrations.Migration):
             model_name="munchallengetable",
             name="status",
             field=models.CharField(
-                choices=[("NF", "Not filled"), ("AW", "Awaiting"), ("AL", "Alloted")],
+                choices=[
+                    ("NF", "Not filled"),
+                    ("AW", "Awaiting"),
+                    ("AL", "Alloted"),
+                ],
                 default="NF",
                 max_length=2,
             ),

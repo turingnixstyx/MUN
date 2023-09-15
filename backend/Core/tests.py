@@ -2,6 +2,7 @@ from unittest.mock import Mock, patch
 
 from django.contrib.auth.models import User
 from django.http import HttpRequest
+
 # Create your tests here.
 from django.test import TestCase
 from django.test.client import RequestFactory
@@ -16,7 +17,9 @@ class LoginViewTestCase(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
         self.user = User.objects.create_user(
-            username="testuser", email="test@example.com", password="testpassword"
+            username="testuser",
+            email="test@example.com",
+            password="testpassword",
         )
 
     def test_check_team_and_return_response(self):
@@ -35,7 +38,9 @@ class LoginViewTestCase(TestCase):
                 request, self.user, "testuser"
             )
 
-        self.assertEqual(response.status_code, 200)  # Assuming a successful response
+        self.assertEqual(
+            response.status_code, 200
+        )  # Assuming a successful response
 
     def test_create_response_for_team(self):
         # Create and setup a mock request
@@ -51,7 +56,9 @@ class LoginViewTestCase(TestCase):
             view = Login_View()
             response = view.create_response_for_team(request, "StudentName", 1)
 
-        self.assertEqual(response.status_code, 200)  # Assuming a successful response
+        self.assertEqual(
+            response.status_code, 200
+        )  # Assuming a successful response
 
     def test_get_challenge_status(self):
         # Simulate the MUNChallengeTable queryset result
@@ -73,14 +80,18 @@ class LoginViewTestCase(TestCase):
         view = Login_View()
         response = view.login_failed_response(request)
 
-        self.assertEqual(response.status_code, 200)  # Assuming a successful response
+        self.assertEqual(
+            response.status_code, 200
+        )  # Assuming a successful response
 
     def test_get(self):
         request = self.factory.get("/login/")
         view = Login_View.as_view()
         response = view(request)
 
-        self.assertEqual(response.status_code, 200)  # Assuming a successful response
+        self.assertEqual(
+            response.status_code, 200
+        )  # Assuming a successful response
 
     def test_post(self):
         request = self.factory.post(
@@ -89,4 +100,6 @@ class LoginViewTestCase(TestCase):
         view = Login_View.as_view()
         response = view(request)
 
-        self.assertEqual(response.status_code, 200)  # Assuming a successful response
+        self.assertEqual(
+            response.status_code, 200
+        )  # Assuming a successful response

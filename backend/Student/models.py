@@ -21,15 +21,25 @@ class School(models.Model):
 
 class Students(models.Model):
     name = models.CharField(
-        max_length=255, unique=False, null=True, blank=False, default="Test Name"
+        max_length=255,
+        unique=False,
+        null=True,
+        blank=False,
+        default="Test Name",
     )
     email = models.EmailField(
         max_length=254, unique=True, null=False, default="sample@email.com"
     )
     contact = models.CharField(
-        max_length=25, unique=False, null=True, default="1111111111", blank=True
+        max_length=25,
+        unique=False,
+        null=True,
+        default="1111111111",
+        blank=True,
     )
-    standard = models.CharField(max_length=255, unique=False, blank=True, null=True)
+    standard = models.CharField(
+        max_length=255, unique=False, blank=True, null=True
+    )
     school = models.ForeignKey(
         School,
         on_delete=models.CASCADE,
@@ -39,7 +49,11 @@ class Students(models.Model):
     )
     team = models.CharField(max_length=5, unique=False, null=True, blank=True)
     password = models.CharField(
-        max_length=100, unique=False, null=False, blank=False, default="password"
+        max_length=100,
+        unique=False,
+        null=False,
+        blank=False,
+        default="password",
     )
 
     personal_info = models.TextField(null=True)

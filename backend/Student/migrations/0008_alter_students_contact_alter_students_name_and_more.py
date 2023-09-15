@@ -19,7 +19,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="students",
             name="name",
-            field=models.CharField(default="Test Name", max_length=255, null=True),
+            field=models.CharField(
+                default="Test Name", max_length=255, null=True
+            ),
         ),
         migrations.AlterField(
             model_name="students",

@@ -27,7 +27,9 @@ class AllTrackerAdmin(admin.ModelAdmin):
         meta = (
             self.model._meta
         )  # used to determine the exported file name, The format is:app name. Model class name
-        field_names = [field.name for field in meta.fields]  # all property names
+        field_names = [
+            field.name for field in meta.fields
+        ]  # all property names
         response = HttpResponse(
             content_type="text/csv"
         )  # specify the response content type
@@ -65,11 +67,11 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
         com = form.cleaned_data["committee"]
         por = form.cleaned_data["portfolio"]
 
-        combination = ImpactChallengeTable.objects.filter(committee=com, portfolio=por)
+        combination = ImpactChallengeTable.objects.filter(
+            committee=com, portfolio=por
+        )
         if combination:
-            error_message = (
-                "This combination of committee and portfolio is already allotted"
-            )
+            error_message = "This combination of committee and portfolio is already allotted"
             messages.set_level(request, messages.ERROR)
             messages.error(request, error_message)
         else:
@@ -82,9 +84,7 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
             challenge="Impact Challenge",
             preference=1,
         ).values("committee", "portfolio")
-        pref_list = (
-            f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        )
+        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
         return pref_list
 
     def get_preferences_two(self, obj):
@@ -94,16 +94,16 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
             challenge="Impact Challenge",
             preference=2,
         ).values("committee", "portfolio")
-        pref_list = (
-            f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        )
+        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
         return pref_list
 
     def export_as_csv(self, request, queryset):
         meta = (
             self.model._meta
         )  # used to determine the exported file name, The format is:app name. Model class name
-        field_names = [field.name for field in meta.fields]  # all property names
+        field_names = [
+            field.name for field in meta.fields
+        ]  # all property names
         response = HttpResponse(
             content_type="text/csv"
         )  # specify the response content type
@@ -144,11 +144,11 @@ class MUNAdmin(admin.ModelAdmin):
         com = form.cleaned_data["committee"]
         por = form.cleaned_data["portfolio"]
 
-        combination = MUNChallengeTable.objects.filter(committee=com, portfolio=por)
+        combination = MUNChallengeTable.objects.filter(
+            committee=com, portfolio=por
+        )
         if combination:
-            error_message = (
-                "This combination of committee and portfolio is already allotted"
-            )
+            error_message = "This combination of committee and portfolio is already allotted"
             messages.set_level(request, messages.ERROR)
             messages.error(request, error_message)
         else:
@@ -162,9 +162,7 @@ class MUNAdmin(admin.ModelAdmin):
             challenge="United Nations Simulation",
             preference=1,
         ).values("committee", "portfolio")
-        pref_list = (
-            f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        )
+        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
         return pref_list
 
     def get_preferences_two(self, obj):
@@ -174,9 +172,7 @@ class MUNAdmin(admin.ModelAdmin):
             challenge="United Nations Simulation",
             preference=2,
         ).values("committee", "portfolio")
-        pref_list = (
-            f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        )
+        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
         return pref_list
 
     def get_preferences_three(self, obj):
@@ -186,16 +182,16 @@ class MUNAdmin(admin.ModelAdmin):
             challenge="United Nations Simulation",
             preference=3,
         ).values("committee", "portfolio")
-        pref_list = (
-            f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        )
+        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
         return pref_list
 
     def export_as_csv(self, request, queryset):
         meta = (
             self.model._meta
         )  # used to determine the exported file name, The format is:app name. Model class name
-        field_names = [field.name for field in meta.fields]  # all property names
+        field_names = [
+            field.name for field in meta.fields
+        ]  # all property names
         response = HttpResponse(
             content_type="text/csv"
         )  # specify the response content type

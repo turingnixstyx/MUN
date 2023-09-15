@@ -42,17 +42,21 @@ class StudentAdmin(admin.ModelAdmin):
     def export_as_csv(self, request, queryset):
         meta = (
             self.model._meta
-        )  # used to determine the exported file name, The format is:app name. Model class name
-        field_names = [field.name for field in meta.fields]  # all property names
+        )
+        # used to determine the exported file name,
+        # The format is:app name. Model class name
+        field_names = [
+            field.name for field in meta.fields
+        ]  # all property names
         response = HttpResponse(
             content_type="text/csv"
         )  # specify the response content type
         response["content-disposition"] = f"attachment;filename={meta} .csv"
-        response.charset = "utf-8-sig"  # Optional, modify the encoding to UTF-8 format with bom (excel will not have garbled characters)
+        response.charset = "utf-8-sig"
         writer = csv.writer(response)
         writer.writerow(field_names)  # write property names to csv
         for obj in queryset:  # traverse the list of objects to be exported
-            row = writer.writerow(
+            row = writer.writerow( # noqa
                 [getattr(obj, field) for field in field_names]
             )  # write the attribute values ​​of the current object to the csv
         return response
@@ -70,17 +74,19 @@ class SchoolAdmin(admin.ModelAdmin):
     def export_as_csv(self, request, queryset):
         meta = (
             self.model._meta
-        )  # used to determine the exported file name, The format is:app name. Model class name
-        field_names = [field.name for field in meta.fields]  # all property names
+        )
+        field_names = [
+            field.name for field in meta.fields
+        ]  # all property names
         response = HttpResponse(
             content_type="text/csv"
         )  # specify the response content type
         response["content-disposition"] = f"attachment;filename={meta} .csv"
-        response.charset = "utf-8-sig"  # Optional, modify the encoding to UTF-8 format with bom (excel will not have garbled characters)
+        response.charset = "utf-8-sig"
         writer = csv.writer(response)
         writer.writerow(field_names)  # write property names to csv
         for obj in queryset:  # traverse the list of objects to be exported
-            row = writer.writerow(
+            row = writer.writerow( # noqa
                 [getattr(obj, field) for field in field_names]
             )  # write the attribute values ​​of the current object to the csv
         return response
@@ -90,7 +96,7 @@ class SchoolAdmin(admin.ModelAdmin):
 
         for school in queryset:
             csv_file_name = School.objects.get(name=school.name).csv_file
-            file_name = str(csv_file_name).split('/')[1]
+            file_name = str(csv_file_name).split("/")[1]
             csv_filepath = os.path.join(filepath, file_name)
             with open(csv_filepath, "r") as file:
                 csvreader = csv.DictReader(file)
@@ -107,7 +113,7 @@ class SchoolAdmin(admin.ModelAdmin):
                         elif "contact" in field.lower():
                             contact = row.get(field, None)
 
-                        if ( # noqa
+                        if (  # noqa
                             "class" in field.lower()
                             or "grade" in field.lower()
                             or "standard" in field.lower()
@@ -163,7 +169,6 @@ def create_students_as_users(
             )
             s.save()
             u = User.objects.create(
-                username=email,
-                password=make_password(my_pass)
+                username=email, password=make_password(my_pass)
             )
             u.save()

@@ -14,6 +14,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="school",
             name="csv_file",
-            field=models.FileField(null=True, upload_to=Student.models.upload_to),
+            field=models.FileField(
+                null=True, upload_to=Student.models.upload_to
+            ),
         ),
     ]

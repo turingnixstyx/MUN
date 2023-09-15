@@ -21,13 +21,31 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("student", models.CharField(blank=True, max_length=255, null=True)),
+                (
+                    "student",
+                    models.CharField(blank=True, max_length=255, null=True),
+                ),
                 ("school", models.CharField(max_length=255)),
-                ("challenge", models.CharField(blank=True, max_length=255, null=True)),
-                ("committee", models.CharField(blank=True, max_length=255, null=True)),
-                ("portfolio", models.CharField(blank=True, max_length=255, null=True)),
-                ("add_on", models.CharField(blank=True, max_length=255, null=True)),
-                ("team", models.CharField(blank=True, max_length=100, null=True)),
+                (
+                    "challenge",
+                    models.CharField(blank=True, max_length=255, null=True),
+                ),
+                (
+                    "committee",
+                    models.CharField(blank=True, max_length=255, null=True),
+                ),
+                (
+                    "portfolio",
+                    models.CharField(blank=True, max_length=255, null=True),
+                ),
+                (
+                    "add_on",
+                    models.CharField(blank=True, max_length=255, null=True),
+                ),
+                (
+                    "team",
+                    models.CharField(blank=True, max_length=100, null=True),
+                ),
                 ("preference", models.IntegerField(blank=True, null=True)),
                 ("created_at", models.DateTimeField(auto_now_add=True)),
                 ("updated_at", models.DateTimeField(auto_now=True)),

@@ -37,14 +37,20 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("name", models.CharField(default="Test Name", max_length=255)),
+                (
+                    "name",
+                    models.CharField(default="Test Name", max_length=255),
+                ),
                 (
                     "email",
                     models.EmailField(
                         default="sample@email.com", max_length=254, unique=True
                     ),
                 ),
-                ("contact", models.CharField(default="1111111111", max_length=10)),
+                (
+                    "contact",
+                    models.CharField(default="1111111111", max_length=10),
+                ),
                 ("standard", models.IntegerField(default=10)),
                 (
                     "school",
