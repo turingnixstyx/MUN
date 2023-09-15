@@ -3,24 +3,62 @@
 
 {% block heading %} 
 {% load static %}
-
-CONGRATULATIONS 
-{% endblock %}
-{% block content %}
-
 <div style="
         display: flex;
         justify-content: center;
         align-items: center;
         height: 1vh; /* Set the desired height of the div */
-        margin-top:100px
+        margin-bottom:80px;
         ">
         <img src="{% static 'verified_account.png' %}" style="max-width: 150px; max-height: 150px; width: auto; height: auto;">
 </div>
 
+CONGRATULATIONS !
+{% endblock %}
+{% block content %}
 
+<h3 style="text-align : center; margin-top: 20px; margin-left:0px; font-size:32px;">You have successfully registered for the MU20 High School Summit.<br><br></h3>
 
-<h3 style="text-align : center; margin-top: 100px; margin-left:0px; font-family:math;">Thank you for registering yourself in the MU20 Summit. Your allotment {{challenge}} will be reflected on the portal soon.</h3>
+<b style="text-align:center;">If you have registered for Model UN or the Impact Challenge, your allotments will be visible here shortly.<br>For other challenges, further details and resources will be available on the portal soon.</b>
+
+<div style="display:flex; flex-direction:row; margin-left:3%;">
+    <div style="margin-top:3%; align-items: flex-end;">
+        <button style="
+            position:absolute;
+            left: 5%;
+            bottom: 17%;
+            border-radius:100px;
+            background-color:#FFFFFF;
+            height: 45px;
+            width: 45px;
+            margin-bottom: 0%;
+            margin-left:0%;
+            ">
+            <img src="{% static 'Whatsapp.png' %}" style="max-width: 20px; max-height: 20px; width: auto; height: auto;">
+        </button>
+    </div>
+    <div>
+        <button 
+            style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #14A56C;
+            margin-top: 5%;
+            margin-left:8%;
+            margin-bottom: 5%;
+            height: 38px;
+            width: 130%;
+            border-radius: 20px;
+            color:white;
+            font-size: 105%;
+            "
+            type="submit"
+            
+            >   Kindly Reach out to us on Whatsapp for any queries
+        </button>
+    </div>
+</div>
 
 <a href="{% url 'login' %}">
 <button
@@ -29,8 +67,8 @@ CONGRATULATIONS
         justify-content: center;
         align-items: center;
         background-color: #231f20;
-        margin-top: 70px;
-        margin-left:15px;
+        margin-top: 0px;
+        margin-left:34%;
         border: none;
         color: white;
         height: 38px;

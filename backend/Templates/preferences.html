@@ -5,7 +5,7 @@
 {%block heading%} Fill The Form {% endblock %}
 
 {% block desc %} 
-Select You top Three preferences for<br> Committees and their respective Portfolios
+Select you committee preferences and portfolio preferences.<br>(Please note, the allotment will be on the basis of experience and availability)
 
 {% endblock %}
 
@@ -15,9 +15,10 @@ Select You top Three preferences for<br> Committees and their respective Portfol
 <form method="POST" required>
     {% csrf_token %}
     {% for i in iterations %}
-      <p style="font-size:20px; margin-top:20px;text-align:left;">Select Committee {{form.committee}}<br> Select Portfolio <br>{{form.portfolio}}</p><br>
+      <p style="font-size:20px; margin-top:20px;text-align:center;">Select Committee {{form.committee}}<br> Select Portfolio <br>{{form.portfolio}}</p><br>
     {% endfor %}
     {% if info %}
+    <p style="margin-bottom:10px; font-style:italic;">Please detail your Model UN experience for the allocation process.</p>
       {{info.text}}
     {% endif %}
 
