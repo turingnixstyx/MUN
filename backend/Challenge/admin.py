@@ -38,6 +38,7 @@ class ChallengeAdmin(admin.ModelAdmin):
 
 @admin.register(Committee)
 class CommitteeAdmin(admin.ModelAdmin):
+    list_display = ["name", "challenge"]
     actions = ["export_as_csv"]
     search_fields = ("name",)
 
@@ -66,8 +67,8 @@ class CommitteeAdmin(admin.ModelAdmin):
 
 @admin.register(Portfolio)
 class PortfolioAdmin(admin.ModelAdmin):
-    list_display = ['name', 'committee']
-    list_filter = ['committee']
+    list_display = ["name", "committee"]
+    list_filter = ["committee"]
     actions = ["export_as_csv"]
     search_fields = ("name",)
 
@@ -75,7 +76,9 @@ class PortfolioAdmin(admin.ModelAdmin):
         meta = (
             self.model._meta
         )  # used to determine the exported file name, The format is:app name. Model class name
-        field_names = [field.name for field in meta.fields]  # all property names
+        field_names = [
+            field.name for field in meta.fields
+        ]  # all property names
         response = HttpResponse(
             content_type="text/csv"
         )  # specify the response content type

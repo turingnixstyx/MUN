@@ -62,7 +62,7 @@ class CommitteeView(FormView):
             .get("challenge", {})
             .get("name")
         )
-        if "model" in cname.lower() or "united" in cname.lower():
+        if "united" in cname.lower():
             info = PersonalInfoForm()
             context["iterations"] = range(3)
             context["info"] = info
@@ -92,11 +92,19 @@ class CommitteeView(FormView):
             else ImpactChallengeTable
         )
 
-        committee_queryset = Committee.objects.exclude(
-            id__in=MODEL.objects.values("id")
+        BASE_MODEL = (
+            "Impact Challenge"
+            if "impact" in MODEL.name.lower()
+            else "Model United Challenge"
         )
-        portfolio_querset = Portfolio.objects.exclude(
-            id__in=MODEL.objects.values("id")
+
+        committee_queryset = Committee.objects.filter(
+            Q(challenge__name=BASE_MODEL)
+            & ~Q(id__in=MODEL.objects.values("id"))
+        )
+        portfolio_querset = Portfolio.objects.filter(
+            Q(committee__challenge__name=BASE_MODEL)
+            & ~Q(id__in=MODEL.objects.values("id"))
         )
 
         kwargs["com_queryset"] = committee_queryset
@@ -285,7 +293,7 @@ class TeamView(FormView):
 
 
 def get_options(request):
-    model_id = request.GET.get('model_id')
+    model_id = request.GET.get("model_id")
     print("javascript model id -----", model_id)
     if model_id.isalpha():
         committee = Committee.objects.get(name=model_id)
@@ -304,4 +312,4 @@ def get_options(request):
             data = op.to_dict()
             data_list.append(data)
 
-    return JsonResponse({'options': list(data_list)})
+    return JsonResponse({"options": list(data_list)})
