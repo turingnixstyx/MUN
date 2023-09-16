@@ -91,15 +91,22 @@ class CommitteeView(FormView):
             MODEL, BASE_MODEL = MUNChallengeTable, "Model United Nations"
         else:
             MODEL, BASE_MODEL = ImpactChallengeTable, "MU20 Impact Challenge",
+        
+        qc_filter, qp_filter = Q(), Q()
 
-        committee_queryset = Committee.objects.filter(
-            Q(challenge__name=BASE_MODEL)
-            & ~Q(id__in=MODEL.objects.values("id"))
-        )
-        portfolio_querset = Portfolio.objects.filter(
-            Q(committee__challenge__name=BASE_MODEL)
-            & ~Q(id__in=MODEL.objects.values("id"))
-        )
+        # set committee filter
+        qc_filter &= Q(challenge__name=BASE_MODEL)
+        qc_filter &= ~Q(id__in=MODEL.objects.values("id"))
+
+        # set portfolio filter
+        qp_filter &= Q(committee__challenge__name=BASE_MODEL)
+        qp_filter &= ~Q(id__in=MODEL.objects.values("id"))
+        
+        if "united" in cname.lower():
+            qp_filter &= Q(committee=None)
+
+        committee_queryset = Committee.objects.filter(qc_filter)
+        portfolio_querset = Portfolio.objects.filter(qp_filter)
 
         kwargs["com_queryset"] = committee_queryset
         kwargs["por_queryset"] = portfolio_querset
