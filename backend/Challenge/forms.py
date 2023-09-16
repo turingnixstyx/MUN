@@ -42,8 +42,8 @@ class TextForm(forms.Form):
 
 
 class TeamForm(forms.Form):
-    student1 = forms.ModelChoiceField(queryset=Students.objects.all())
-    student2 = forms.ModelChoiceField(queryset=Students.objects.all())
+    student1 = forms.ModelChoiceField(queryset=Students.objects.none())
+    student2 = forms.ModelChoiceField(queryset=Students.objects.none())
 
     def __init__(self, queryset=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -67,8 +67,8 @@ class TeamForm(forms.Form):
 
 
 class ExtendedTeamForm(TeamForm):
-    student3 = forms.ModelChoiceField(queryset=Students.objects.all())
-    student4 = forms.ModelChoiceField(queryset=Students.objects.all())
+    student3 = forms.ModelChoiceField(queryset=Students.objects.none())
+    student4 = forms.ModelChoiceField(queryset=Students.objects.none())
 
     def __init__(self, queryset=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
