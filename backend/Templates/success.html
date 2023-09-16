@@ -17,13 +17,14 @@ CONGRATULATIONS !
 {% endblock %}
 {% block content %}
 
-<h3 style="text-align : center; margin-top: 20px; margin-left:0px; font-size:32px;">You have successfully registered for the MU20 High School Summit.<br><br></h3>
+<h3 style="text-align : center; margin-top: 20px; margin-left:0px; margin-right:14px; font-size:32px;">You have successfully registered for the MU20 High School Summit.<br><br></h3>
 
-<b style="text-align:center;">If you have registered for Model UN or the Impact Challenge, your allotments will be visible here shortly.<br>For other challenges, further details and resources will be available on the portal soon.</b>
+<b class = "success-text">If you have registered for Model UN or the Impact Challenge, your allotments will be visible here shortly.<br>For other challenges, further details and resources will be available on the portal soon.</b>
 
 <div style="display:flex; flex-direction:row; margin-left:3%;">
     <div style="margin-top:3%; align-items: flex-end;">
         <button style="
+            display: none;
             position:absolute;
             left: 5%;
             bottom: 17%;
@@ -38,25 +39,11 @@ CONGRATULATIONS !
         </button>
     </div>
     <div>
-        <button 
-            style="
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #14A56C;
-            margin-top: 5%;
-            margin-left:8%;
-            margin-bottom: 5%;
-            height: 38px;
-            width: 130%;
-            border-radius: 20px;
-            color:white;
-            font-size: 105%;
-            "
-            type="submit"
-            
-            >   Kindly Reach out to us on Whatsapp for any queries
-        </button>
+        <a href="https://wa.me/+919424536621" style="text-decoration:none;">
+            <button class="whatsapp" type="submit">
+                Kindly Reach out to us on Whatsapp for any queries
+            </button>
+        </a>
     </div>
 </div>
 

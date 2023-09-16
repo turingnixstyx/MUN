@@ -35,11 +35,45 @@
     pointer-events: none;
 }
 
+.success-text{
+    text-align: center;
+}
+
+.whatsapp { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #14A56C;
+    margin-top: 5%;
+    margin-left:8%;
+    margin-bottom: 5%;
+    height: 38px;
+    width: 130%;
+    border-radius: 20px;
+    color:white;
+    font-size: 105%;
+}
+
 @media screen and (max-width: 600px){
     .logo-class{
         width:71px;
         height: 71px;
         margin-left:30px;
+    }
+
+    .success-text{
+        font-size: 16px;
+    }
+
+    .whatsapp{
+        margin-top: 8%;
+        margin-bottom: 8%;
+        margin-left:0;
+        height: 50px;
+        width: 100%;
+        font-size: small;
+        padding-left: 2px;
+        padding-right: 2px;
     }
 
     .img-class-one{
