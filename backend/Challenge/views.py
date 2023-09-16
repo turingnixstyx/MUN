@@ -86,16 +86,14 @@ class CommitteeView(FormView):
             .get("challenge", {})
             .get("name")
         )
-        MODEL = (
-            MUNChallengeTable
-            if "united" in cname or "model" in cname
-            else ImpactChallengeTable
-        )
-
-        BASE_MODEL = (
-            "MU20 Impact Challenge"
-            if "impact" in MODEL.name.lower()
-            else "Model United Nations"
+        MODEL, BASE_MODEL = (
+            (
+                MUNChallengeTable,
+                "Model United Nations"
+                if "united" in cname or "model" in cname
+                else ImpactChallengeTable,
+                "MU20 Impact Challenge",
+            ),
         )
 
         committee_queryset = Committee.objects.filter(
