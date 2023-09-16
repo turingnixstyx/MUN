@@ -54,7 +54,7 @@ class Login_View(View):
     def check_team_and_return_response(self, request, user, username):
         q_filter = Q()
         q_filter &= Q(Q(email=username) | Q(name=username))
-        q_filter &= ~Q(name="naman")
+        # q_filter &= ~Q(name="naman")
         current_student = Students.objects.filter(q_filter).values(
             "name", "team"
         )

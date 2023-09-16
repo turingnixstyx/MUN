@@ -4,13 +4,19 @@
     padding-right: 20px;
     font-family: math;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .members-css{
     text-align: center; 
-    margin-right:10%; 
+    margin-right:0%; 
     margin-top:10px;
-    font-family: Apple Chancery, cursive;
+    font-size: 16px;;
+}
+.headings-3{
+    text-align: center; 
+    margin-right:0%; 
+    margin-bottom:2%
 }
 
 .tick-ec{
@@ -33,8 +39,14 @@
     }
 
     .members-css{
-        font-size: 22px;
-        margin-right: 22%;
+        margin-left: 12%;
+        font-size: 20px;
+        margin-right: 15%;
+    }
+
+    .headings-3{
+        margin-top: 12%;
+        font-size: 17px;
     }
 
     .tick-ec{
