@@ -29,7 +29,7 @@ class Students(models.Model):
         blank=False,
         default="Test Name",
     )
-    User = models.OneToOneField(
+    user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
         unique=True,
