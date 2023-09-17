@@ -6,6 +6,7 @@ from django.http import HttpResponse
 
 from .modelforms import ImpactModelAdminForm, MUNModelAdminForm
 from .models import AllTracker, ImpactChallengeTable, MUNChallengeTable
+import pdb
 
 
 # Register your models here.
@@ -77,25 +78,23 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
         else:
             obj.save()
 
-    def get_preferences_one(self, obj):
+    def get_preferences(self, obj, preference):
         preferences = AllTracker.objects.filter(
             student=obj.student,
             school=obj.school,
-            challenge="Impact Challenge",
-            preference=1,
-        ).values("committee", "portfolio")
-        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        return pref_list
+            challenge="MU20 Impact Challenge",
+            preference=preference,
+        ).values("committee", "portfolio").first()
+
+        if preferences:
+            return f"{preferences['committee']} {preferences['portfolio']}"
+        return ""
+
+    def get_preferences_one(self, obj):
+        return self.get_preferences(obj, 1)
 
     def get_preferences_two(self, obj):
-        preferences = AllTracker.objects.filter(
-            student=obj.student,
-            school=obj.school,
-            challenge="Impact Challenge",
-            preference=2,
-        ).values("committee", "portfolio")
-        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        return pref_list
+        return self.get_preferences(obj, 2)
 
     def export_as_csv(self, request, queryset):
         meta = (
@@ -155,35 +154,27 @@ class MUNAdmin(admin.ModelAdmin):
             print("This logic is working atleast")
             obj.save()
 
-    def get_preferences_one(self, obj):
+    def get_preferences(self, obj, preference):
         preferences = AllTracker.objects.filter(
             student=obj.student,
             school=obj.school,
-            challenge="United Nations Simulation",
-            preference=1,
-        ).values("committee", "portfolio")
-        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        return pref_list
+            challenge="Model United Nations",
+            preference=preference,
+        ).values("committee", "portfolio").first()
+
+        if preferences:
+            return f"{preferences['committee']} {preferences['portfolio']}"
+        return ""
+
+    def get_preferences_one(self, obj):
+        return self.get_preferences(obj, 1)
 
     def get_preferences_two(self, obj):
-        preferences = AllTracker.objects.filter(
-            student=obj.student,
-            school=obj.school,
-            challenge="United Nations Simulation",
-            preference=2,
-        ).values("committee", "portfolio")
-        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        return pref_list
+        return self.get_preferences(obj, 2)
 
     def get_preferences_three(self, obj):
-        preferences = AllTracker.objects.filter(
-            student=obj.student,
-            school=obj.school,
-            challenge="United Nations Simulation",
-            preference=3,
-        ).values("committee", "portfolio")
-        pref_list = f"{preferences[0].get('committee')} {preferences[0].get('portfolio')}"
-        return pref_list
+        return self.get_preferences(obj, 3)
+
 
     def export_as_csv(self, request, queryset):
         meta = (
