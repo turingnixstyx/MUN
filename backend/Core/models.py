@@ -74,7 +74,9 @@ class ImpactChallengeTable(models.Model):
     all_tracker = models.ForeignKey(
         AllTracker,
         on_delete=models.CASCADE,
-        related_name="ic_to_alltracker"
+        related_name="ic_to_alltracker",
+        null=True,
+        blank=True
     )
 
     def __str__(self):
@@ -121,7 +123,9 @@ class MUNChallengeTable(models.Model):
     all_tracker = models.ForeignKey(
         AllTracker,
         on_delete=models.CASCADE,
-        related_name="mun_to_alltracker"
+        related_name="mun_to_alltracker",
+        null=True,
+        blank=True
     )
 
     def __str__(self):
