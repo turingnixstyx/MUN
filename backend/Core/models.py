@@ -1,7 +1,7 @@
 from django.db import models
-from django.utils import timezone
 
 from Challenge.models import Committee, Portfolio
+from Student.models import Students, School
 
 
 # Create your models here.
@@ -40,10 +40,20 @@ class ImpactChallengeTable(models.Model):
         ("AW", "Awaiting"),
         ("AL", "Alloted"),
     )
-    student = models.CharField(
-        max_length=255, unique=True, null=True, blank=True
+    student = models.OneToOneField(
+        Students,
+        on_delete=models.CASCADE,
+        unique=True,
+        null=True,
+        blank=True
     )
-    school = models.CharField(max_length=255)
+    school = models.ForeignKey(
+        School,
+        on_delete=models.CASCADE,
+        unique=False,
+        null=True,
+        blank=True
+    )
     committee = models.ForeignKey(
         Committee, on_delete=models.CASCADE, null=True, blank=True
     )
@@ -60,6 +70,12 @@ class ImpactChallengeTable(models.Model):
         auto_now=True,
     )
     remarks = models.TextField()
+
+    all_tracker = models.ForeignKey(
+        AllTracker,
+        on_delete=models.CASCADE,
+        related_name="ic_to_alltracker"
+    )
 
     def __str__(self):
         return "IC " + self.student + " " + self.school
@@ -71,10 +87,20 @@ class MUNChallengeTable(models.Model):
         ("AW", "Awaiting"),
         ("AL", "Alloted"),
     )
-    student = models.CharField(
-        max_length=255, unique=True, null=True, blank=True
+    student = models.OneToOneField(
+        Students,
+        on_delete=models.CASCADE,
+        unique=True,
+        null=True,
+        blank=True
     )
-    school = models.CharField(max_length=255)
+    school = models.ForeignKey(
+        School,
+        on_delete=models.CASCADE,
+        unique=False,
+        null=True,
+        blank=True
+    )
     committee = models.ForeignKey(
         Committee, on_delete=models.CASCADE, null=True, blank=True
     )
@@ -91,6 +117,12 @@ class MUNChallengeTable(models.Model):
         auto_now=True,
     )
     remarks = models.TextField()
+
+    all_tracker = models.ForeignKey(
+        AllTracker,
+        on_delete=models.CASCADE,
+        related_name="mun_to_alltracker"
+    )
 
     def __str__(self):
         return "MUN " + self.student + " " + self.school

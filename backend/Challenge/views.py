@@ -156,8 +156,9 @@ class CommitteeView(FormView):
                 preference += 1
 
             t = MODEL.objects.create(
-                student=str(self.current_student),
-                school=str(self.current_school),
+                student=self.current_student,
+                school=self.current_school,
+                all_tracker=a,
             )
 
             if personal_info:

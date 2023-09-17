@@ -1,8 +1,10 @@
 import os
-
 from django.db import models
+from django.contrib.auth import get_user_model
 
 # Create your models here.
+
+User = get_user_model()
 
 
 def upload_to(instance, filename):
@@ -26,6 +28,13 @@ class Students(models.Model):
         null=True,
         blank=False,
         default="Test Name",
+    )
+    User = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        unique=True,
+        null=True,
+        blank=True
     )
     email = models.EmailField(
         max_length=254, unique=True, null=False, default="sample@email.com"
