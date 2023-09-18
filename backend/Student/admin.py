@@ -37,7 +37,7 @@ class StudentAdmin(admin.ModelAdmin):
     list_display = ["name", "standard", "school"]
     list_filter = ["standard", "school", TeamFilter]
     search_fields = ["name", "contact", "email"]
-    actions = ["export_as_csv"]
+    actions = ["export_as_csv", "delete_users_from_students"]
 
     def export_as_csv(self, request, queryset):
         meta = (
@@ -61,7 +61,19 @@ class StudentAdmin(admin.ModelAdmin):
             )  # write the attribute values ​​of the current object to the csv
         return response
 
+    def delete_users_from_students(self, request, queryset):
+        for student in queryset:
+            email = student.email
+            linked_user = User.objects.filter(username=email)
+
+            if linked_user and len(linked_user) == 1:
+                linked_user.delete()
+                print(f"{student.name} deleted successfully!")
+            else:
+                print("User not found!")
+
     export_as_csv.short_description = "Export csv"
+    delete_users_from_students.short_description = "Delete Student <--> USER"
 
 
 @admin.register(School)
