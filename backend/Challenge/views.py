@@ -62,13 +62,8 @@ class CommitteeView(FormView):
             .get("challenge", {})
             .get("name")
         )
-        if "united" in cname.lower():
-            info = PersonalInfoForm()
-            context["iterations"] = range(3)
-            context["info"] = info
-
-        else:
-            context["iterations"] = range(2)
+        
+        context["iterations"] = range(3) if "united" in cname.lower() else range(2)
 
         return context
 

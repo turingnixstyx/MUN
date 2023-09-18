@@ -17,10 +17,9 @@ Select you committee preferences and portfolio preferences.<br>(Please note, the
     {% for i in iterations %}
       <p style="font-size:20px; margin-top:20px;text-align:center;">Select Committee {{form.committee}}<br> Select Portfolio <br>{{form.portfolio}}</p><br>
     {% endfor %}
-    {% if info %}
+  
     <p style="margin-bottom:10px; font-style:italic;">Please detail your Model UN experience for the allocation process.</p>
-      {{info.text}}
-    {% endif %}
+    {{form.text}}
 
     {% include 'button.html' %}
 

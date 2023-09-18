@@ -16,6 +16,10 @@ class ChallengeForm(forms.Form):
 class PreferenceForm(forms.Form):
     committee = forms.ModelChoiceField(queryset=Committee.objects.all())
     portfolio = forms.ModelChoiceField(queryset=Portfolio.objects.all())
+    text = forms.CharField(
+        widget=forms.Textarea(attrs={'rows': 4, 'cols': 50}),
+        label='My Text Area'
+    )
 
     def __init__(self, com_queryset=None, por_queryset=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -35,10 +39,6 @@ class PreferenceForm(forms.Form):
             raise forms.ValidationError(
                 "Both committee and portfolio must be selected."
             )
-
-
-class TextForm(forms.Form):
-    text = forms.TextInput()
 
 
 class TeamForm(forms.Form):
