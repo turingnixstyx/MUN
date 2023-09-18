@@ -80,7 +80,7 @@ class ImpactChallengeTable(models.Model):
     )
 
     def __str__(self):
-        return "IC " + self.student + " " + self.school
+        return "IC " + self.student.name + " " + self.school.name
 
 
 class MUNChallengeTable(models.Model):
@@ -129,4 +129,4 @@ class MUNChallengeTable(models.Model):
     )
 
     def __str__(self):
-        return "MUN " + self.student + " " + self.school
+        return "MUN " + self.student.name + " " + self.school.name
