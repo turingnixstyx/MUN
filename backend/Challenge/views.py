@@ -109,7 +109,7 @@ class CommitteeView(FormView):
             challenge__name=BASE_MODEL
         )
         portfolio_querset = Portfolio.objects.filter(
-            Q(committee__challenge__name=BASE_MODEL) | Q(committee=None)
+            Q(qp_filter)
         )
 
         kwargs["com_queryset"] = committee_queryset
