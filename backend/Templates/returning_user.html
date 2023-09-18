@@ -27,6 +27,7 @@
     </style> -->
 
     {% if members %}
+    {% comment %} For all the Teams related Task. Only one screen {% endcomment %}
 
     <div style="display: flex; flex-direction:column;">
         <div class="something">
@@ -41,7 +42,6 @@
     </div>
     
     
-    
     {% for member in members %}
         {%if member != user %}
         <h3 class="members-css">{{member}}</h3>
@@ -49,40 +49,51 @@
 
     {% endfor %}
     <h3 class="other-text">You have been registered. Thank you for your patience, your allotments will be visible here within 7 days.</h3>
+
+
     {% else%}
-    {% load static %}
-        {% if status %}
-            <img src="{% static 'confetti.png'%}" class="confetti">
-            <h1 class="you-have-been-alloted">You have Been Allotted !</h1>
-             
-            <div class="container">
-                <div style="">
-                  <h3 class="por-comm-text">Your Committee</h3>
-                  <h1 class="por-comm">{{status.committee}}</h1>
-                  <!-- <span style="position: absolute; height: 100%; width: 10px; background-color: #f0f0f0; left: 240;"></span> -->
-                </div>
-                <!-- <div style="height: 8em; background-color: grey; width: 0.2em; border-radius: 2em"></div> -->
-                <div>
-                    <h3 class="por-comm-text">Your Portfolio</h3>
-                  <h1 class="por-comm">{{status.portfolio}}</h1>
-                </div>
-              </div>
+    {% comment %} For MUN or Impact Challenge
+        1. Case 1, people are not alloted yet
+        2. Case 2, people are already alloted/
+    {% endcomment %}
+        {% load static %}
 
-            
-        {% else %}
-        <img src="{% static 'verified_account.png' %}" 
-            class="sit-back-image">
-        
-        <h1 class="sit-back">Sit Back, Relax & Be Prepared !</h1>
+            {% if status %}
+                {% comment %} 
+                    Case 2 
+                {% endcomment %}
+                <img src="{% static 'confetti.png'%}" class="confetti">
+                <h1 class="you-have-been-alloted">You have Been Allotted !</h1>
+                
+                <div class="container">
+                    <div style="">
+                    <h3 class="por-comm-text">Your Committee</h3>
+                    <h1 class="por-comm">{{status.committee}}</h1>
+                    <!-- <span style="position: absolute; height: 100%; width: 10px; background-color: #f0f0f0; left: 240;"></span> -->
+                    </div>
+                    <!-- <div style="height: 8em; background-color: grey; width: 0.2em; border-radius: 2em"></div> -->
+                    <div>
+                        <h3 class="por-comm-text">Your Portfolio</h3>
+                    <h1 class="por-comm">{{status.portfolio}}</h1>
+                    </div>
+                </div>
 
-        <h3 class="other-text">You have been registered. Thank you for your patience, your allotments will be visible here within 7 days.</h3>
-        {% endif %}
+                
+            {% else %}
+                {% comment %} 
+                    Case 1. Not Allotted 
+                {% endcomment %}
+                <img src="{% static 'verified_account.png' %}" 
+                    class="sit-back-image">
+                
+                <h1 class="sit-back">Sit Back, Relax & Be Prepared !</h1>
+
+                <h3 class="other-text">You have been registered. Thank you for your patience, your allotments will be visible here within 7 days.</h3>
+            {% endif %}
 
     {% endif %}
 
     <i><p style="font-size: 12px; margin-top:28px;text-align:center;">* All the material will be<br> available to you in the month of October</p></i>
-
-    <!-- {'user': 'naman', 'cname': 'Theatrics Challenge', 'members': ['naman', 'Test Name 1', 'Test Name 8', 'Test Name 4', 'Test Name 3'], 'status': None} -->
 
     <div>
         <a href="https://wa.me/+919424536621" style="text-decoration:none;">
@@ -93,7 +104,7 @@
     </div>
 </div>
 
-<a href="">
+<a href="https://mu20.co/mu20-summit/">
 <button
         style="
         display: flex;
