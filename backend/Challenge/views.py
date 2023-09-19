@@ -62,8 +62,12 @@ class CommitteeView(FormView):
             .get("challenge", {})
             .get("name")
         )
-        
-        context["iterations"] = range(3) if "united" in cname.lower() else range(2)
+        if "united" in cname.lower():
+            context["iterations"] = range(3)
+            context["agenda"] = "Click here to check MUN <a href='https://postimg.cc/Q9RKdBFK'>Agendas</a>"
+
+        else:
+            context["iterations"] = range(2)
 
         return context
 
