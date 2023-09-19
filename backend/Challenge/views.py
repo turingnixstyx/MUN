@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import FormView
+from django.utils.safestring import mark_safe
 
 from Core.logger_util import MUNLogger
 from Core.models import AllTracker, ImpactChallengeTable, MUNChallengeTable
@@ -64,7 +65,7 @@ class CommitteeView(FormView):
         )
         if "united" in cname.lower():
             context["iterations"] = range(3)
-            context["agenda"] = "Click here to check MUN <a href='https://postimg.cc/Q9RKdBFK'>Agendas</a>"
+            context["agenda"] = mark_safe("Click here to check MUN <a href='https://postimg.cc/Q9RKdBFK'>Agendas</a>")
 
         else:
             context["iterations"] = range(2)
