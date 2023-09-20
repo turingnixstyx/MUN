@@ -54,14 +54,11 @@ class Login_View(View):
     def check_team_and_return_response(self, request, user, username):
         q_filter = Q()
         q_filter &= Q(Q(email=username) | Q(name=username))
-        q_filter &= ~Q(name="naman")
-        current_student = Students.objects.filter(q_filter).values(
-            "name", "team"
-        )
-
-        if len(current_student) == 1 and current_student[0].get("team"):
-            student_name = current_student[0].get("name")
-            team_id = current_student[0].get("team")
+        # q_filter &= ~Q(name="naman")
+        current_student = Students.objects.filter(q_filter)
+        if len(current_student) == 1 and current_student[0].team:
+            student_name = current_student[0]
+            team_id = current_student[0].team
             return self.create_response_for_team(
                 request, student_name, team_id
             )
@@ -74,7 +71,6 @@ class Login_View(View):
         challenge_name, members, status = None, None, None
 
         challenge = AllTracker.objects.filter(team=team_id)
-        print(challenge)
         if challenge:
             challenge_name = challenge[0].challenge
             if (
@@ -83,7 +79,7 @@ class Login_View(View):
             ):
                 members = [c.student for c in challenge]
             else:
-                student_name = challenge[0].student
+                # student_name = challenge[0].student
                 status = self.get_challenge_status(student_name)
 
         return render(
@@ -97,7 +93,18 @@ class Login_View(View):
             },
         )
 
-    def get_challenge_status(self, student_name):
+    def get_challenge_status(self, student_name) -> dict | None:
+        """
+            returns the status of already filled MUN Committee
+
+            args:
+                student_name | Students.models.Student()
+
+            return:
+                dict => Alloted
+                None => Not Alloted
+        """
+        print("inside get_challenge_status")
         mun_status = MUNChallengeTable.objects.filter(
             student=student_name
         ).values("committee", "portfolio", "status")
