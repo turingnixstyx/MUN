@@ -119,11 +119,17 @@ class SchoolAdmin(admin.ModelAdmin):
                     for field in field_names:
                         if "name" in field.lower():
                             name = row.get(field, None)
+                            if name:
+                                name = name.strip()
                         elif "email" in field.lower():
                             email = row.get(field, None)
+                            if email:
+                                email = email.strip()
 
                         elif "contact" in field.lower():
                             contact = row.get(field, None)
+                            if contact:
+                                contact = contact.strip()
 
                         if (  # noqa
                             "class" in field.lower()
@@ -131,6 +137,8 @@ class SchoolAdmin(admin.ModelAdmin):
                             or "standard" in field.lower()
                         ):
                             std = row.get(field, None)
+                            if std:
+                                std = std.strip()
 
                     school_name = school.name
                     create_students_as_users(
