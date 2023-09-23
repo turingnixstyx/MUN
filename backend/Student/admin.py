@@ -125,6 +125,8 @@ class SchoolAdmin(admin.ModelAdmin):
                             email = row.get(field, None)
                             if email:
                                 email = email.strip()
+                                if " " in email:
+                                    email = email.replace(" ", "")
 
                         elif "contact" in field.lower():
                             contact = row.get(field, None)
