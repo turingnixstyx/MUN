@@ -1,0 +1,357 @@
+
+@import url('https://fonts.cdnfonts.com/css/gelion');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" , sans-serif;
+}
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image:  url('../img/bg.png');
+  padding: 30px;
+}
+.container{
+  position: relative;
+  max-width: 850px;
+  width: 100%;
+  background: #fff;
+  padding: 40px 30px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  perspective: 2700px;
+  z-index: 98;
+
+}
+.container .cover{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 50%;
+  z-index: 98;
+  transition: all 1s ease;
+  transform-origin: left;
+  transform-style: preserve-3d;
+}
+
+ /* .container .cover .front,
+ .container .cover .back{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+} */
+/* .cover .back{
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+.container .cover::before,
+.container .cover::after{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #7d2ae8;
+  opacity: 0.5;
+  z-index: 12;
+} */
+.container .cover::after{
+  opacity: 0.3;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+.container .cover img{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 10;
+}
+.container .cover .text{
+  position: absolute;
+  z-index: 130;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cover .text .text-1,
+.cover .text .text-2{
+  font-size: 26px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+.cover .text .text-2{
+  font-size: 15px;
+  font-weight: 500;
+}
+.container .forms{
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
+.container .form-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-content .login-form{
+  /* width: calc(100% / 2 - 25px); */
+  width: 80rem;
+}
+.forms .form-content .title{
+  position: relative;
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.forms .form-content .title:before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: auto;
+  background: #7d2ae8;
+}
+
+.forms .form-content .input-boxes{
+  margin-top: 30px;
+}
+.forms .form-content .input-box{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 10rem;
+  justify-content: center;
+  margin: 10px 0;
+  position: relative;
+}
+.form-content .input-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+.form-content .input-box input:focus,
+.form-content .input-box input:valid{
+  border-color: #7d2ae8;
+}
+.form-content .input-box i{
+  position: absolute;
+  color: #7d2ae8;
+  font-size: 17px;
+}
+.forms .form-content .text{
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+.forms .form-content .text a{
+  text-decoration: none;
+}
+.forms .form-content .text a:hover{
+  text-decoration: underline;
+}
+.forms .form-content .button{
+  color: #fff;
+  margin-top: 40px;
+}
+.forms .form-content .button input{
+  color: #fff;
+  background: #7d2ae8;
+  border-radius: 6px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.forms .form-content .button input:hover{
+  background: black;
+}
+.forms .form-content label{
+  color: black;
+  cursor: pointer;
+}
+.forms .form-content label:hover{
+  text-decoration: underline;
+}
+.forms .form-content .login-text,
+.forms .form-content .sign-up-text{
+  text-align: center;
+  margin-top: 25px;
+}
+
+
+.chal1_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    z-index: 999;
+}
+.chal1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pref{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.preference-container{
+  margin-bottom: 1rem;
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.feedback_container{
+  margin-top: 1rem
+}
+
+.feedback_container textarea{
+    width: 100%;
+    margin-top: 1rem;
+    height: 10rem;
+}
+
+/* LOGO */
+.logo-container{
+  display: flex;
+  justify-content: space-between;
+}
+.logo-container-left{
+  padding: 1rem;
+  margin: 1rem;
+  align-self: center;
+}
+.logo-container-left img{
+  margin-left: -2rem;
+  height: 77px;
+  width: 77px;
+}
+.logo-container-right{
+  padding: 1rem;
+  margin: 1rem;
+  align-self: center;
+}
+.logo-container-right img{
+  margin-right: -2rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+.chal1 input{
+  margin-left: 3rem;
+}
+
+.chal1 span{
+  font-size: x-small;
+}
+
+.opt{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.committee-stakeholder-container{
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+
+.committee-stakeholder{
+  padding: 4px;
+}
+.note{
+  margin-top: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-submit{
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.btn-submit button{
+  padding: 1rem;
+  width: auto;
+  border: 1px solid #7d2ae8;
+  border-radius: 4px;
+  margin: 2px;
+  color: white;
+  cursor: pointer;
+
+  background-color: #7d2ae8;
+}
+
+
+
+.whatsapp-btn{
+  display: flex ;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.whatsapp-btn button{
+  background-color: #14a56c;
+  color: white; 
+  border: 1px solid #14a56c ;
+  border-radius: 4px;
+padding: 2px;
+
+  cursor: pointer;
+}
+
+
+
+/*  MEDIA QUERIES   */
+@media (max-width: 730px) {
+  .container .cover{
+    display: none;
+  }
+  .form-content .login-form{
+    width: 100%;
+  }
+
+  .preference-container{
+    flex-direction: column;
+  }
+
+  .pref{
+    flex-direction: column;
+  }
+
+  .opt{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+ 
+}
