@@ -41,6 +41,7 @@ class CommitteeAdmin(admin.ModelAdmin):
     list_display = ["name", "challenge"]
     actions = ["export_as_csv"]
     search_fields = ("name",)
+    list_filter = ["challenge"]
 
     def export_as_csv(self, request, queryset):
         meta = (
@@ -68,7 +69,7 @@ class CommitteeAdmin(admin.ModelAdmin):
 @admin.register(Portfolio)
 class PortfolioAdmin(admin.ModelAdmin):
     list_display = ["name", "committee"]
-    list_filter = ["committee"]
+    list_filter = ["committee", "committee__challenge"]
     actions = ["export_as_csv"]
     search_fields = ("name",)
 
