@@ -18,6 +18,7 @@ urlpatterns = [
     path("teams", challenge_views.TeamView.as_view(), name="teams"),
     # path("addons", challenge_views.AddOnView.as_view(), name="addon"),
     path("success", core_views.success, name="success"),
+    path("not-alloted", core_views.sit_back_relax, name="sit-back-relax"),
 ]
 
 if settings.DEBUG:
@@ -27,5 +28,4 @@ if settings.DEBUG:
 
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
 urlpatterns += staticfiles_urlpatterns()
