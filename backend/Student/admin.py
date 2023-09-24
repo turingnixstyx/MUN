@@ -37,7 +37,13 @@ class StudentAdmin(admin.ModelAdmin):
     list_display = ["name", "standard", "school"]
     list_filter = ["standard", "school", TeamFilter]
     search_fields = ["name", "contact", "email"]
-    actions = ["export_as_csv", "delete_users_from_students"]
+    actions = ["export_as_csv", "delete_users_from_students", "set_team_value_to_zero"]
+
+    def set_team_value_to_zero(self, request, queryset):
+        for student in queryset:
+            if student.team is not None:
+                student.team = None
+                student.save()
 
     def export_as_csv(self, request, queryset):
         meta = (
@@ -74,6 +80,7 @@ class StudentAdmin(admin.ModelAdmin):
 
     export_as_csv.short_description = "Export csv"
     delete_users_from_students.short_description = "Delete Student <--> USER"
+    set_team_value_to_zero.short_description = "Team 0"
 
 
 @admin.register(School)
@@ -81,7 +88,7 @@ class SchoolAdmin(admin.ModelAdmin):
     actions = [
         "export_as_csv",
         "import_students_from_csv",
-    ]  # add actions, Corresponding method name
+    ]
 
     def export_as_csv(self, request, queryset):
         meta = (
