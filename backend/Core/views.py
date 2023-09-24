@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponse # noqa
 from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
 from django.views import View
@@ -19,13 +19,13 @@ logger = MUNLogger(__name__)
 
 
 @method_decorator(login_required, name="dispatch")
-@logger.handle_exceptions_class
 class Home(View):
     def get(self, request):
         form = ChallengeForm()
         challenges_set = Challenge.objects.all()
         return render(
-            request, "home.html", {"form": form, "chls": challenges_set}
+            request, "chall_desc/index.html",
+            {"form": form, "chls": challenges_set}
         )
 
     def post(self, request):
@@ -52,18 +52,22 @@ class Home(View):
 
 class Login_View(View):
     def check_team_and_return_response(self, request, user, username):
+        print(username)
         q_filter = Q()
         q_filter &= Q(Q(email=username) | Q(name=username))
         # q_filter &= ~Q(name="naman")
         current_student = Students.objects.filter(q_filter)
+        print("current_student-----------", current_student)
         if len(current_student) == 1 and current_student[0].team:
             student_name = current_student[0]
             team_id = current_student[0].team
+            print("working fine", student_name, team_id)
             return self.create_response_for_team(
                 request, student_name, team_id
             )
 
         else:
+            print("comming inside else")
             login(request, user)
             return redirect("home")
 
@@ -71,6 +75,7 @@ class Login_View(View):
         challenge_name, members, status = None, None, None
 
         challenge = AllTracker.objects.filter(team=team_id)
+        print("challenge--------", challenge)
         if challenge:
             challenge_name = challenge[0].challenge
             if (
@@ -78,25 +83,25 @@ class Login_View(View):
                 and challenge[0].student != challenge[1].student
             ):
                 members = [c.student for c in challenge]
+                return render(
+                    request,
+                    "success_mates/index.html",
+                    {
+                        "user": student_name.name,
+                        "cname": challenge_name,
+                        "members": members,
+                        "status": status,
+                    },
+                )
+
             else:
                 # student_name = challenge[0].student
-                status = self.get_challenge_status(student_name)
+                return self.get_challenge_status(request, student_name)
 
-        return render(
-            request,
-            "returning_user.html",
-            {
-                "user": student_name,
-                "cname": challenge_name,
-                "members": members,
-                "status": status,
-            },
-        )
-
-    def get_challenge_status(self, student_name) -> dict | None:
+    def get_challenge_status(
+            self, request, student) -> HttpResponseRedirect | HttpResponse:
         """
             returns the status of already filled MUN Committee
-
             args:
                 student_name | Students.models.Student()
 
@@ -104,49 +109,53 @@ class Login_View(View):
                 dict => Alloted
                 None => Not Alloted
         """
-        print("inside get_challenge_status")
-        mun_status = MUNChallengeTable.objects.filter(
-            student=student_name
-        ).values("committee", "portfolio", "status")
-        if len(mun_status) > 0:
-            if mun_status[0].get("status") == "AL":
-                cid = mun_status[0].get("committee")
-                pid = mun_status[0].get("portfolio")
 
-                committee = Committee.objects.get(pk=cid)
-                portfolio = Portfolio.objects.get(pk=pid)
-
+        def get_allotment_data(challenge_table) -> dict | None:
+            status = challenge_table.values(
+                "committee", "portfolio", "status").first()
+            if status and status.get("status") == "AL":
+                committee_id, portfolio_id = status["committee"], status["portfolio"] # noqa
+                committee = Committee.objects.get(pk=committee_id)
+                portfolio = Portfolio.objects.get(pk=portfolio_id)
                 return {"committee": committee, "portfolio": portfolio}
-            else:
-                return None
-        ic_status = ImpactChallengeTable.objects.filter(
-            student=student_name
-        ).values("committee", "portfolio", "status")
+            return None
 
-        if len(ic_status) > 0:
-            if ic_status[0].get("status") == "AL":
-                cid = ic_status[0].get("committee")
-                pid = ic_status[0].get("portfolio")
+        mun_data = get_allotment_data(
+            MUNChallengeTable.objects.filter(student=student),
+        )
 
-                committee = Committee.objects.get(pk=cid)
-                portfolio = Portfolio.objects.get(pk=pid)
+        if mun_data:
+            print("Alloted")
+            return render(request, 'mun_alloted/index.html', mun_data)
 
-                return {"committee": committee, "portfolio": portfolio}
-            else:
-                return None
+        ic_data = get_allotment_data(
+            ImpactChallengeTable.objects.filter(student=student)
+        )
+
+        if ic_data:
+            print("Alloted")
+            return render(request, 'chall_alloted/index.html', ic_data)
+
+        print("Not Alloted")
+        return redirect("sit-back-relax")
 
     def login_failed_response(self, request):
-        print("login_failed_response")
         error_message = "Incorrect username or password. Please try again."
-        return render(request, "login.html", {"error_message": error_message})
+        return render(
+            request,
+            "login_signup/index.html",
+            {"error_message": error_message}
+        )
 
     def get(self, request):
         print("Inside Login View")
-        return render(request, "login.html")
+        return render(request, "login_signup/index.html")
 
     def post(self, request):
         username = request.POST.get("username")
         password = request.POST.get("password")
+        print("&*" * 15)
+        print(username, password)
 
         # Check whether this User has teams as None
 
@@ -159,14 +168,15 @@ class Login_View(View):
 
 
 @login_required
-@logger.handle_exceptions_class
 def success(request):
-    # logout(request)
-    return render(request, "success.html")
+    return render(request, "success_congrats/index.html")
+
+
+def sit_back_relax(request):
+    return render(request, "success_congrats/index.html")
 
 
 @login_required
-@logger.handle_exceptions_class
 def logout_user(request):
     logout(request)
     return redirect("login")
