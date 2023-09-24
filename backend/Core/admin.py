@@ -1,12 +1,11 @@
 import csv
 
-from django import forms
 from django.contrib import admin, messages
 from django.http import HttpResponse
+from django.db.models import Q
 
 from .modelforms import ImpactModelAdminForm, MUNModelAdminForm
 from .models import AllTracker, ImpactChallengeTable, MUNChallengeTable
-import pdb
 
 
 # Register your models here.
@@ -28,14 +27,12 @@ class AllTrackerAdmin(admin.ModelAdmin):
         meta = (
             self.model._meta
         )  # used to determine the exported file name, The format is:app name. Model class name
-        field_names = [
-            field.name for field in meta.fields
-        ]  # all property names
+        field_names = [field.name for field in meta.fields]  # all property names
         response = HttpResponse(
             content_type="text/csv"
         )  # specify the response content type
         response["content-disposition"] = f"attachment;filename={meta} .csv"
-        response.charset = "utf-8-sig"  # Optional, modify the encoding to UTF-8 format with bom (excel will not have garbled characters)
+        response.charset = "utf-8-sig"
         writer = csv.writer(response)
         writer.writerow(field_names)  # write property names to csv
         for obj in queryset:  # traverse the list of objects to be exported
@@ -67,24 +64,36 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         com = form.cleaned_data["committee"]
         por = form.cleaned_data["portfolio"]
+        student = form.cleaned_data["id"].student
 
-        combination = ImpactChallengeTable.objects.filter(
-            committee=com, portfolio=por
-        )
-        if combination:
-            error_message = "This combination of committee and portfolio is already allotted"
+        q_filter = Q()
+        q_filter &= Q(committee=com)
+        q_filter &= Q(portfolio=por)
+        q_filter &= Q(status="AL")
+        q_filter &= ~Q(student=student)
+
+        combination = ImpactChallengeTable.objects.filter(q_filter)
+
+        if combination and len(combination) == 1:
+            error_message = f"This committee and portfolio has already been alloted to \
+                => {combination[0].student.name} from The School \
+                => {combination[0].student.school.name}"  # noqa
             messages.set_level(request, messages.ERROR)
             messages.error(request, error_message)
         else:
             obj.save()
 
     def get_preferences(self, obj, preference):
-        preferences = AllTracker.objects.filter(
-            student=obj.student,
-            school=obj.school,
-            challenge="MU20 Impact Challenge",
-            preference=preference,
-        ).values("committee", "portfolio").first()
+        preferences = (
+            AllTracker.objects.filter(
+                student=obj.student,
+                school=obj.school,
+                challenge="MU20 Impact Challenge",
+                preference=preference,
+            )
+            .values("committee", "portfolio")
+            .first()
+        )
 
         if preferences:
             return f"{preferences['committee']} {preferences['portfolio']}"
@@ -100,9 +109,7 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
         meta = (
             self.model._meta
         )  # used to determine the exported file name, The format is:app name. Model class name
-        field_names = [
-            field.name for field in meta.fields
-        ]  # all property names
+        field_names = [field.name for field in meta.fields]  # all property names
         response = HttpResponse(
             content_type="text/csv"
         )  # specify the response content type
@@ -142,12 +149,20 @@ class MUNAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         com = form.cleaned_data["committee"]
         por = form.cleaned_data["portfolio"]
+        student = form.cleaned_data["id"].student
 
-        combination = MUNChallengeTable.objects.filter(
-            committee=com, portfolio=por
-        )
-        if combination:
-            error_message = "This combination of committee and portfolio is already allotted"
+        q_filter = Q()
+        q_filter &= Q(committee=com)
+        q_filter &= Q(portfolio=por)
+        q_filter &= Q(status="AL")
+        q_filter &= ~Q(student=student)
+
+        combination = MUNChallengeTable.objects.filter(q_filter)
+
+        if combination and len(combination) == 1:
+            error_message = f"This committee and portfolio has already been alloted to \
+                => {combination[0].student.name} from The School \
+                => {combination[0].student.school.name}"  # noqa
             messages.set_level(request, messages.ERROR)
             messages.error(request, error_message)
         else:
@@ -155,12 +170,16 @@ class MUNAdmin(admin.ModelAdmin):
             obj.save()
 
     def get_preferences(self, obj, preference):
-        preferences = AllTracker.objects.filter(
-            student=obj.student,
-            school=obj.school,
-            challenge="Model United Nations",
-            preference=preference,
-        ).values("committee", "portfolio").first()
+        preferences = (
+            AllTracker.objects.filter(
+                student=obj.student,
+                school=obj.school,
+                challenge="Model United Nations",
+                preference=preference,
+            )
+            .values("committee", "portfolio")
+            .first()
+        )
 
         if preferences:
             return f"{preferences['committee']} {preferences['portfolio']}"
@@ -175,14 +194,11 @@ class MUNAdmin(admin.ModelAdmin):
     def get_preferences_three(self, obj):
         return self.get_preferences(obj, 3)
 
-
     def export_as_csv(self, request, queryset):
         meta = (
             self.model._meta
         )  # used to determine the exported file name, The format is:app name. Model class name
-        field_names = [
-            field.name for field in meta.fields
-        ]  # all property names
+        field_names = [field.name for field in meta.fields]  # all property names
         response = HttpResponse(
             content_type="text/csv"
         )  # specify the response content type
