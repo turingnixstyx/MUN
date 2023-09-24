@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static "success_congrats/style.css" %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Congratulations</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- <input type="checkbox" id="flip" /> -->
+      <!-- <div class="cover"> -->
+      <!-- <div class="front">
+          <img src="../img/img-2.png" alt="" />
+        </div> -->
+      <!-- <div class="back">
+          <img class="backImg" src="../img/bg.png" alt="" />
+        </div> -->
+      <!-- </div> -->
+      <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="logo-container">
+              <div class="logo-container-left">
+                <img
+                  src="{% static "img/mu20-SOO-logo-2.png" %}"
+                  alt="MU20-Black-logo-1"
+                  class="login-logo"
+                />
+              </div>
+
+              <div class="logo-container-right">
+                <img
+                  src="{% static "img/AFS-india-main-logo-1.png" %}"
+                  alt="MU20-Black-logo-1"
+                  class="login-logo"
+                />
+              </div>
+            </div>
+
+            <div class="logo-container-mid">
+              <img src="{% static "img/verified_acc.png" %}" class="login-logo" alt="" />
+            </div>
+            <div class="title">
+              <div class="title-head">
+                <h1 style="font-size: 23px">
+                  <u>Congratulations</u>
+                </h1>
+              </div>
+              <div class="title-desc">
+                <h3>
+                  You have successfully registered for the MU20 High School
+                  Summit.
+                </h3>
+              </div>
+            </div>
+
+            <div class="congrats-container" style="padding: 1rem">
+              <span
+                >If you have registered for Model UN or the Impact Challenge,
+                your allotments will be visible here within a week. For other
+                challenges, further details and resources will be available on
+                the portal soon.</span
+              >
+            </div>
+
+            <div class="whatsapp-btn">
+              <button
+                onclick="window.location.href = 'https://wa.me/+919424536621';"
+              >
+                <i class="fa fa-whatsapp"></i>
+                Kindly reach out to us on WhatsApp for any queries.
+              </button>
+            </div>
+
+            <div class="flex-btn">
+              <div class="btn-submit">
+                <button
+                  onclick="window.location.href = 'https://mu20.co/mu20-summit/';"
+                >
+                  MU20 Summit website
+                </button>
+              </div>
+              <div class="btn-submit">
+                <button>View Allotment</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
