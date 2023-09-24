@@ -43,63 +43,33 @@ Select your committee preferences and portfolio preferences. (Please note, the a
               </div>
             </div>
 
-            <form>
+            <form method="POST" required>
+              {% csrf_token %}
               <div class="preference-container">
+                {% for i in iterations %}
                 <div class="chal1_container">
+                  {% comment %} for loop here {% endcomment %}
                   <div class="chal1">
-                    <h3 class="head">Preference 1</h3>
+                    <h3 class="head">Preference {{i}}</h3>
                     <div class="pref">
                       <div class="opt">
-                        <label for="committee">Select Committee: </label>
-                        <select name="committee" id="committee">
-                          <option value="lok sabha">lok sabha</option>
-                          <option value="rajya sabha">rajya sabha</option>
-                          <option value="parliament">parliament</option>
-                        </select>
+                        <label for="committee">Select Committee: {{form.committee}}</label>
                       </div>
                       <div class="opt">
-                        <label for="portfolio">Select Portfolio: </label>
-                        <select name="portfolio" id="portfolio">
-                          <option value="narendra modi">narendra modi</option>
-                          <option value="amit shah">amit shah</option>
-                          <option value="bhim rao">bhim rao</option>
-                        </select>
+                        <label for="portfolio">Select Portfolio: {{form.portfolio}}</label>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="chal1_container">
-                  <div class="chal1">
-                    <h3 class="head">Preference 2</h3>
-                    <div class="pref">
-                      <div class="opt">
-                        <label for="committee">Select Committee: </label>
-                        <select name="committee" id="committee">
-                          <option value="lok sabha">lok sabhaaaaaaaaaaaaaaaaaaaaaa</option>
-                          <option value="rajya sabha">rajya sabha</option>
-                          <option value="parliament">parliament</option>
-                        </select>
-                      </div>
-                      <div class="opt">
-                        <label for="portfolio">Select Portfolio: </label>
-                        <select name="portfolio" id="portfolio">
-                          <option value="narendra modi">narendra modiiiiiiiiiiiiiiii</option>
-                          <option value="amit shah">amit shah</option>
-                          <option value="bhim rao">bhim rao</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <hr>
+                {% endfor %}
               </div>
-              <hr>
               <div class="feedback_container">
                 <h3 for="feedback" style="font-weight: 300px"></h3>
-                Please detail your past Model UN experience for the allocation process.
+                Please detail your past Model UN experience for the allocation process.
                 </h3>
                 <br />
-                <textarea id="feedback" name="feedback" >
-                </textarea>
+                {{form.text}}
                 <br />
               </div>
               
