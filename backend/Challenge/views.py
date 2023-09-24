@@ -17,7 +17,6 @@ from Student.models import Students
 
 from .forms import (
     ExtendedTeamForm,
-    PersonalInfoForm,
     PreferenceForm,
     TeamForm,
 )
@@ -29,7 +28,7 @@ logger = MUNLogger(__name__)
 
 @method_decorator(login_required, name="dispatch")
 class CommitteeView(FormView):
-    template_name = "preferences.html"
+    template_name = "select_committee/index.html"
     form_class = PreferenceForm
     success_url = reverse_lazy("success")
 
@@ -63,8 +62,9 @@ class CommitteeView(FormView):
             .get("challenge", {})
             .get("name")
         )
+        context['cname'] = cname
         if "united" in cname.lower():
-            context["iterations"] = range(3)
+            context["iterations"] = range(1, 4)
             context["agenda"] = mark_safe("Click here to check MUN <a href='https://postimg.cc/Q9RKdBFK'>Agendas</a>")
 
         else:
@@ -190,7 +190,7 @@ class CommitteeView(FormView):
 
 @method_decorator(login_required, name="dispatch")
 class TeamView(FormView):
-    template_name = "teams.html"
+    template_name = "select_team/index.html"
     success_url = reverse_lazy("success")
 
     def get_form_class(self):
@@ -249,7 +249,7 @@ class TeamView(FormView):
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
-
+        context['stud'] = self.current_student.name
         return context
 
     def get_form_kwargs(self):
