@@ -1,5 +1,7 @@
 import csv
 
+# this is my first commit
+
 from django.contrib import admin, messages
 from django.http import HttpResponse
 from django.db.models import Q
@@ -27,7 +29,8 @@ class AllTrackerAdmin(admin.ModelAdmin):
         meta = (
             self.model._meta
         )  # used to determine the exported file name, The format is:app name. Model class name
-        field_names = [field.name for field in meta.fields]  # all property names
+        # all property names
+        field_names = [field.name for field in meta.fields]
         response = HttpResponse(
             content_type="text/csv"
         )  # specify the response content type
@@ -113,12 +116,14 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
         meta = (
             self.model._meta
         )  # used to determine the exported file name, The format is:app name. Model class name
-        field_names = [field.name for field in meta.fields]  # all property names
+        # all property names
+        field_names = [field.name for field in meta.fields]
         response = HttpResponse(
             content_type="text/csv"
         )  # specify the response content type
         response["content-disposition"] = f"attachment;filename={meta} .csv"
-        response.charset = "utf-8-sig"  # Optional, modify the encoding to UTF-8 format with bom (excel will not have garbled characters)
+        # Optional, modify the encoding to UTF-8 format with bom (excel will not have garbled characters)
+        response.charset = "utf-8-sig"
         writer = csv.writer(response)
         writer.writerow(field_names)  # write property names to csv
         for obj in queryset:  # traverse the list of objects to be exported
@@ -207,12 +212,14 @@ class MUNAdmin(admin.ModelAdmin):
         meta = (
             self.model._meta
         )  # used to determine the exported file name, The format is:app name. Model class name
-        field_names = [field.name for field in meta.fields]  # all property names
+        # all property names
+        field_names = [field.name for field in meta.fields]
         response = HttpResponse(
             content_type="text/csv"
         )  # specify the response content type
         response["content-disposition"] = f"attachment;filename={meta} .csv"
-        response.charset = "utf-8-sig"  # Optional, modify the encoding to UTF-8 format with bom (excel will not have garbled characters)
+        # Optional, modify the encoding to UTF-8 format with bom (excel will not have garbled characters)
+        response.charset = "utf-8-sig"
         writer = csv.writer(response)
         writer.writerow(field_names)  # write property names to csv
         for obj in queryset:  # traverse the list of objects to be exported
