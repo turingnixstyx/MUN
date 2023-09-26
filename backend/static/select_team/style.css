@@ -215,14 +215,16 @@ body{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding: 1rem;
 }
 
 .preference-container{
-  margin-bottom: 3rem;
+  margin-bottom: 0rem;
   display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 2rem;
+    margin-top: 0rem;
+    flex-wrap: wrap;
 }
 
 .feedback_container{
@@ -293,6 +295,8 @@ body{
   width: 5rem;
 }
 
+
+
 .chal1 input{
   margin-left: 3rem;
 }
@@ -305,6 +309,11 @@ body{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+
+.opt select{
+  width: 25rem;
 }
 
 .title-desc span{
@@ -322,27 +331,30 @@ body{
     width: 100%;
   }
 
+  /* .logo-container{
+    justify-content: center;
+  } */
   .preference-container{
     flex-direction: column;
     margin-bottom: 0rem;
     margin-top: 0rem;
   }
-
+  .title-mate{
+    font-size: large;
+  }
+  .opt select{
+    width: 12rem;
+  }
   .pref{
     flex-direction: column;
   }
-
   .opt{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: 1rem;
-  }
-
-  
+  } 
 .title-desc span{
   font-size: xx-small;
 }
-
- 
 }
