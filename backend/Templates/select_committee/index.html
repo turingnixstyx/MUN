@@ -38,7 +38,7 @@
               <div class="title-desc">
                 <span >
                   MUN/IC
-Select your committee preferences and portfolio preferences. (Please note, the allotment will be on the basis of experience and availability)
+Select your committee preferences and portfolio preferences. (Please note, the allotment will be on the basis of experience and availability) {{agenda}}
                 </span>
               </div>
             </div>
@@ -50,7 +50,7 @@ Select your committee preferences and portfolio preferences. (Please note, the a
                 <div class="chal1_container">
                   {% comment %} for loop here {% endcomment %}
                   <div class="chal1">
-                    <h3 class="head">Preference {{i}}</h3>
+                    <h3 class="head">Preference {{i+1}}</h3>
                     <div class="pref">
                       <div class="opt">
                         <label for="committee">Select Committee: {{form.committee}}</label>
