@@ -68,7 +68,7 @@ class CommitteeView(FormView):
             context["agenda"] = mark_safe("Click here to check MUN <a href='https://postimg.cc/Q9RKdBFK'>Agendas</a>")
 
         else:
-            context["iterations"] = range(2)
+            context["iterations"] = range(1, 3)
 
         return context
 
