@@ -4,6 +4,7 @@
   <head>
     <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="{% static "select_committee/style.css" %}" />
+    <script src="{% static "select_committee/main.js" %}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Select Committee</title>
   </head>
@@ -46,7 +47,7 @@ Select your committee preferences and portfolio preferences. (Please note, the a
               </div>
             </div>
 
-            <form method="POST" required>
+            <form method="POST" required id="preference-form">
               {% csrf_token %}
               <div class="preference-container">
                 {% for i in iterations %}
@@ -55,10 +56,10 @@ Select your committee preferences and portfolio preferences. (Please note, the a
                   <div class="chal1">
                     <h3 class="head">Preference {{i}}</h3>
                     <div class="pref">
-                      <div class="opt">
+                      <div class="opt" id="committees">
                         <label for="committee">Select Committee: {{form.committee}}</label>
                       </div>
-                      <div class="opt">
+                      <div class="opt" id="portfolios">
                         <label for="portfolio">Select Portfolio: {{form.portfolio}}</label>
                       </div>
                     </div>

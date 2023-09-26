@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponse # noqa
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponse, JsonResponse  # noqa
 from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
 from django.views import View
@@ -114,7 +114,7 @@ class Login_View(View):
             status = challenge_table.values(
                 "committee", "portfolio", "status").first()
             if status and status.get("status") == "AL":
-                committee_id, portfolio_id = status["committee"], status["portfolio"] # noqa
+                committee_id, portfolio_id = status["committee"], status["portfolio"]  # noqa
                 committee = Committee.objects.get(pk=committee_id)
                 portfolio = Portfolio.objects.get(pk=portfolio_id)
                 return {"committee": committee, "portfolio": portfolio}
@@ -185,3 +185,8 @@ def logout_user(request):
 
 def test(request):
     return HttpResponse("Site is working fine")
+
+
+def get_dependent_dropdown(request):
+    print(request.GET)
+    return JsonResponse({'message': 'committee endpoint working'})
