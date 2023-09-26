@@ -49,6 +49,7 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
     form = ImpactModelAdminForm
     list_display = [
         "student",
+        "show_standard",
         "school",
         "get_preferences_one",
         "get_preferences_two",
@@ -60,6 +61,9 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
     list_filter = ["school", "committee", "portfolio", "status"]
     list_editable = ("committee", "portfolio", "status")
     actions = ["export_as_csv"]
+
+    def show_standard(self, obj):
+        return obj.student.standard
 
     def save_model(self, request, obj, form, change):
         com = form.cleaned_data["committee"]
@@ -126,6 +130,7 @@ class ImpactChallengeAdmin(admin.ModelAdmin):
     export_as_csv.short_description = "Export csv"
     get_preferences_one.short_description = "Preference 1"
     get_preferences_two.short_description = "Preference 2"
+    show_standard.short_description = "Class"
 
 
 @admin.register(MUNChallengeTable)
@@ -133,6 +138,7 @@ class MUNAdmin(admin.ModelAdmin):
     form = MUNModelAdminForm
     list_display = [
         "student",
+        "show_standard",
         "school",
         "get_preferences_one",
         "get_preferences_two",
@@ -145,6 +151,9 @@ class MUNAdmin(admin.ModelAdmin):
     list_filter = ["school", "committee", "portfolio", "status"]
     list_editable = ("committee", "portfolio", "status")
     actions = ["export_as_csv"]
+
+    def show_standard(self, obj):
+        return obj.student.standard
 
     def save_model(self, request, obj, form, change):
         com = form.cleaned_data["committee"]
@@ -216,3 +225,4 @@ class MUNAdmin(admin.ModelAdmin):
     get_preferences_one.short_description = "Preference 1"
     get_preferences_two.short_description = "Preference 2"
     get_preferences_three.short_description = "Preference 3"
+    show_standard.short_description = "Class"
