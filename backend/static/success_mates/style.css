@@ -205,12 +205,10 @@ body{
   margin-top: 25px;
 }
 
-.logo-container-mid{
+.verified-container-mid{
   display: flex;
+  height: 5rem;
   justify-content: center;
-}
-.logo-container-mid{
-height: 5rem;
 }
 
 
@@ -244,12 +242,12 @@ height: 5rem;
 .feedback_container{
   margin-top: 2rem
 }
-
 .feedback_container textarea{
     width: 100%;
     margin-top: 1rem;
     height: 10rem;
 }
+
 
 /* LOGO */
 .logo-container{
@@ -257,24 +255,34 @@ height: 5rem;
   justify-content: space-between;
 }
 .logo-container-left{
-  padding: 1rem;
-  margin: 1rem;
+  /* padding: 1rem; */
+  /* margin: 1rem; */
   align-self: center;
 }
 .logo-container-left img{
-  margin-left: -2rem;
+  /* margin-left: -2rem; */
   height: 77px;
   width: 77px;
 }
 .logo-container-right{
-  padding: 1rem;
-  margin: 1rem;
+  /* padding: 1rem; */
+  /* margin: 1rem; */
   align-self: center;
 }
 .logo-container-right img{
-  margin-right: -2rem;
+  /* margin-right: -2rem; */
   height: 3rem;
   width: 3rem;
+}
+.logo-container-mid{
+  /* padding: 1rem; */
+  /* margin: 1rem; */
+  align-self: center;
+}
+.logo-container-mid img{
+  /* margin-right: -2rem; */
+  height: 5rem;
+  width: 5rem;
 }
 
 .chal1 input{

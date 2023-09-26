@@ -12,9 +12,7 @@
     <div class="container">
       <input type="checkbox" id="flip" />
       <div class="cover">
-        <div class="front">
-          <img src="{% static "img/img.png" %}" alt="" />
-        </div>
+        <div class="front"><img src="{% static "img/img.png" %}" alt="" /></div>
         <div class="back">
           <img class="backImg" src="{% static 'img/bg.png' %}" alt="" />
           <div class="text">
@@ -31,20 +29,16 @@
           <div class="login-form">
             <div class="logo-container">
               <div class="logo-container-left">
-                <img
-                  src="{% static "img/mu20-SOO-logo-2.png" %}"
-                  alt="MU20-Black-logo-1"
-                  border="0"
-                  class="login-logo"
-                />
+                <img src="{% static "img/mu20-SOO-logo-2.png" %}"
+                alt="MU20-Black-logo-1" border="0" class="login-logo" />
+              </div>
+              <div class="logo-container-mid">
+                <img src="{% static "img/summit-logo.png" %}"
+                alt="MU20-Black-logo-1" class="login-logo" />
               </div>
               <div class="logo-container-right">
-                <img
-                  src="{% static "img/AFS-india-main-logo-1.png" %}"
-                  alt="MU20-Black-logo-1"
-                  border="0"
-                  class="login-logo"
-                />
+                <img src="{% static "img/AFS-india-main-logo-1.png" %}"
+                alt="MU20-Black-logo-1" border="0" class="login-logo" />
               </div>
             </div>
             <div class="title">Login</div>
@@ -53,7 +47,13 @@
               <div class="input-boxes">
                 <div class="input-box">
                   <i class="fas fa-envelope"></i>
-                  <input type="text" name="username" id="username" placeholder="Enter your email" required />
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="Enter your email"
+                    required
+                  />
                 </div>
                 <div class="input-box">
                   <i class="fas fa-lock"></i>
@@ -67,10 +67,10 @@
                 </div>
                 <!-- <div class="text"><a href="#">Forgot password?</a></div> -->
                 {% if error_message %}
-                  <p style="color: red; margin-top: 8px;">{{ error_message }}</p>
+                <p style="color: red; margin-top: 8px">{{ error_message }}</p>
                 {% endif %}
                 <div class="button input-box">
-                  <input type="submit" value="Submit" />
+                  <input type="submit" value="Login" />
                 </div>
                 <!-- <div class="text sign-up-text">
                   Don't have an account? <label for="flip">Sigup now</label>
