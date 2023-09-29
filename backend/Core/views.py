@@ -221,7 +221,7 @@ def submit_preference(request):
         ajax_response_string = request.POST.get('all_list')
 
         if ajax_response_string:
-            current_student = Students.objects.get(email=request.user.email)
+            current_student = Students.objects.get(Q(email=request.user.email) | Q(email=request.user.username))
             current_school = current_student.school
 
             challenge_name = request.session.get("first_page_data", {}).get('challenge', {}).get('name')
