@@ -5,11 +5,14 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponse, JsonRe
 from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
 from django.views import View
+import json
+from django.db import transaction
 
 from Challenge.forms import ChallengeForm
 from Challenge.models import Challenge, Committee, Portfolio
 from Core.logger_util import MUNLogger
 from Student.models import Students
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import AllTracker, ImpactChallengeTable, MUNChallengeTable
 
@@ -187,6 +190,85 @@ def test(request):
     return HttpResponse("Site is working fine")
 
 
-def get_dependent_dropdown(request):
-    print(request.GET)
-    return JsonResponse({'message': 'committee endpoint working'})
+def random_teamID_generator() -> str:
+    import random
+    import string
+
+    characters = string.ascii_letters + string.digits
+    return "".join(random.choice(characters) for _ in range(5))
+
+
+def load_portfolios(request):
+    committee_id = request.GET.get('committee_id')
+    committee = Committee.objects.get(pk=int(committee_id))
+    portfolios = Portfolio.objects.filter(committee=committee).order_by('name')
+    if not portfolios:
+        portfolios = Portfolio.objects.filter(committee=None).order_by('name')
+
+    portfolio_list = [{'id': portfolio.id, 'name': portfolio.name}
+                      for portfolio in portfolios]
+
+    return JsonResponse({'portfolios': portfolio_list})
+
+
+@csrf_exempt
+@login_required
+def submit_preference(request):
+    if request.method == 'POST':
+
+        # get student and its school
+
+        ajax_response_string = request.POST.get('all_list')
+
+        if ajax_response_string:
+            current_student = Students.objects.get(email=request.user.email)
+            current_school = current_student.school
+
+            challenge_name = request.session.get("first_page_data", {}).get('challenge', {}).get('name')
+            MODEL = (
+                ImpactChallengeTable
+                if "impact" in challenge_name.lower()
+                else MUNChallengeTable
+            )
+            ajax_dict = json.loads(ajax_response_string)
+
+            personal_info = ajax_dict[-1].get("personal_info")
+
+            with transaction.atomic():
+                team_id = random_teamID_generator()
+                current_student.team = team_id
+                current_student.save()
+                for p in ajax_dict:
+                    if "preference" in p:
+                        pref = p.get("preference")
+                        com = Committee.objects.get(pk=int(p.get("committee")))
+                        prt = Portfolio.objects.get(pk=int(p.get("portfolio")))
+
+                        a = AllTracker.objects.create(
+                            student=str(current_student),
+                            school=str(current_school),
+                            challenge=str(challenge_name),
+                            committee=str(com.name),
+                            portfolio=str(prt.name),
+                            preference=int(int(pref)),
+                            team=team_id,
+                        )
+                        a.save()
+                    else:
+                        break
+
+                t = MODEL.objects.create(
+                    student=current_student,
+                    school=current_school,
+                    all_tracker=a,
+                )
+
+                if personal_info:
+                    t.remarks = (
+                        f"Personal achivements and accolades {personal_info}"
+                    )
+                t.save()
+
+        return JsonResponse({'message': 'Data saved successfully'})
+    else:
+        return JsonResponse({'message': 'Invalid request method'})

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "Student",
     "Core",
     "Challenge",
+    "widget_tweaks",
 ]
 
 MIDDLEWARE = [

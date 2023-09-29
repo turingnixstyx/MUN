@@ -15,12 +15,13 @@ urlpatterns = [
     path(
         "comittee", challenge_views.CommitteeView.as_view(), name="committee"
     ),
-    path('get_options/', challenge_views.get_options, name='get_options'),
+    # path('get_options/', challenge_views.get_options, name='get_options'),
     path("teams", challenge_views.TeamView.as_view(), name="teams"),
     # path("addons", challenge_views.AddOnView.as_view(), name="addon"),
     path("success", core_views.success, name="success"),
     path("not-alloted", core_views.sit_back_relax, name="sit-back-relax"),
-    path("committee-json", core_views.get_dependent_dropdown),
+    path('load-portfolios/', core_views.load_portfolios, name='load_portfolios'),
+    path('submit-preference/', core_views.submit_preference, name='submit_preference'),
 ]
 
 if settings.DEBUG:

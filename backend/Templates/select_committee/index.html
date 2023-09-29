@@ -1,53 +1,49 @@
 {% load static %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="{% static "select_committee/style.css" %}" />
-    <script src="{% static "select_committee/main.js" %}"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Select Committee</title>
-  </head>
-  <body>
-    <div class="container">
-      <div class="forms">
-        <div class="form-content">
-          <div class="login-form">
-            <div class="logo-container">
-              <div class="logo-container-left">
-                <img
-                  src="{% static "img/mu20-SOO-logo-2.png" %}"
-                  alt="MU20-Black-logo-1"
-                  class="login-logo"
-                />
-              </div>
-              <div class="logo-container-mid">
-                <img src="{% static "img/summit-logo.png" %}"
-                alt="MU20-Black-logo-1" class="login-logo" />
-              </div>
-              <div class="logo-container-right">
-                <img
-                  src="{% static "img/AFS-india-main-logo-1.png" %}"
-                  alt="MU20-Black-logo-1"
-                  class="login-logo"
-                />
-              </div>
-            </div>
-            <div class="title">
-              <div class="title-head">
-                <h1 style="font-size: 23px">
-                  <u>Fill up the form below </u>
-                </h1>
-              </div>
-              <div class="title-desc">
-                <span >
-                  MUN/IC
-Select your committee preferences and portfolio preferences. (Please note, the allotment will be on the basis of experience and availability) {{agenda}}
-                </span>
-              </div>
-            </div>
 
-            <form method="POST" required id="preference-form">
+<head>
+  <!-- <link rel="stylesheet" href="{% static " select_committee/style.css" %}" /> -->
+  <link rel="stylesheet" href="{% static "select_committee/style.css" %}">
+  <!-- <script src="{% static "select_committee/main.js" %}"></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Committee</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="forms">
+      <div class="form-content">
+        <div class="login-form">
+          <div class="logo-container">
+            <div class="logo-container-left">
+              <img src="{% static 'img/mu20-SOO-logo-2.png' %}" alt="MU20-Black-logo-1" class="login-logo" />
+            </div>
+            <div class="logo-container-mid">
+              <img src="{% static 'img/summit-logo.png' %}" alt="MU20-Black-logo-1" class="login-logo" />
+            </div>
+            <div class="logo-container-right">
+              <img src="{% static "img/AFS-india-main-logo-1.png" %}" alt="MU20-Black-logo-1" class="login-logo" />
+            </div>
+          </div>
+          <div class="title">
+            <div class="title-head">
+              <h1 style="font-size: 23px">
+                <u>Fill up the form below </u>
+              </h1>
+            </div>
+            <div class="title-desc">
+              <span>
+                MUN/IC Select your committee preferences and portfolio preferences. (Please note, the allotment will be
+                on the basis of experience and availability) {{agenda}}
+              </span>
+            </div>
+          </div>
+
+          <form method="POST" id="preference-form">
               {% csrf_token %}
               <div class="preference-container">
                 {% for i in iterations %}
@@ -55,14 +51,34 @@ Select your committee preferences and portfolio preferences. (Please note, the a
                   {% comment %} for loop here {% endcomment %}
                   <div class="chal1">
                     <h3 class="head">Preference {{i}}</h3>
-                    <div class="pref">
-                      <div class="opt">
+                    <div class="pref" id="prefsss">
+                      <div class="opt" id="committees">
                         <label for="committee">Select Committee: </label>
-                        {{form.committee}}
+                        <!-- {{form.committee}} -->
+                        <select name="{{ form.committee.name }}" id="committee_{{i}}">
+                          {% for option in form.committee.field.choices %}
+                              {% if option.0 == form.committee.value %}
+                                  <option  value="{{ option.0 }}" selected>{{ option.1 }}</option>
+                              {% else %}
+                                  <option value="{{ option.0 }}">{{ option.1 }}</option>
+                              {% endif %}
+                              {# You can add additional logic or attributes to each option here #}
+                          {% endfor %}
+                      </select>
                       </div>
-                      <div class="opt">
+                      <div class="opt" id="portfolios">
                         <label for="portfolio">Select Portfolio: </label>
-                        {{form.portfolio}}
+                        <!-- {{form.portfolio}} -->
+                        <select name="{{ form.portfolio.name }}" id="portfolio_{{i}}">
+                          {% for option in form.portfolio.field.choices %}
+                              {% if option.0 == form.portfolio.value %}
+                                  <option  value="{{ option.0 }}" selected>{{ option.1 }}</option>
+                              {% else %}
+                                  <option value="{{ option.0 }}">{{ option.1 }}</option>
+                              {% endif %}
+                              {# You can add additional logic or attributes to each option here #}
+                          {% endfor %}
+                      </select>
                       </div>
                     </div>
                   </div>
@@ -81,13 +97,96 @@ Select your committee preferences and portfolio preferences. (Please note, the a
               
               <div class="flex-btn">
                 <div class="btn-submit">
-                  <button>Continue</button>
+                  <button type="submit">Submit</button>
                 </div>
               </div>
             </form>
-          </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+
+  <!-----------------JAVASCRIPT CODE------------------>
+  <script>
+    console.log("testing");
+    $(document).ready(function () {
+      {% for i in iterations %}
+      $("#committee_{{i}}").change(function () {
+        var committee_id = $(this).val();
+        var preference = {{i}};
+        if (committee_id) {
+          $("#portfolio_{{i}}").attr("disabled", false);
+          $.ajax({
+            url: "/load-portfolios/",
+            type: "GET",
+            data: { committee_id: committee_id , preference : preference},
+            dataType: "json",
+            success: function (data) {
+              $("#portfolio_{{i}}").empty();
+              $("#portfolio_{{i}}").append(
+                '<option value="">Select a portfolio</option>'
+              );
+              $.each(data.portfolios, function (key, value) {
+                $("#portfolio_{{i}}").append(
+                  '<option value="' + value.id + '">' + value.name + "</option>"
+                );
+              });
+            },
+          });
+        } else {
+          $("#portfolio_{{i}}").attr("disabled", true);
+          $("#portfolio_{{i}}").empty();
+          $("#portfolio_{{i}}").append('<option value="">Select a portfolio</option>');
+        }
+      });
+      {% endfor %}
+
+
+      // Handle form submission
+      $("#preference-form").submit(function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        var response = [];
+
+        {% for j in iterations %}
+          var committee_id = $("#committee_{{ j }}").val();
+          var portfolio_id = $("#portfolio_{{ j }}").val();
+
+          // Create a new object and push it into the response array
+          response.push({
+            'preference': {{ j }},
+            'committee': committee_id,
+            'portfolio': portfolio_id
+          });
+        {% endfor %}
+
+        var personal_info = $("#id_text").val()
+        response.push({"personal_info" : personal_info})
+
+        var jsonstring = JSON.stringify(response)
+
+
+        // Send the data to the server
+        $.ajax({
+          url: "/submit-preference/", // Define the URL to handle form submission
+          type: "POST",
+          data: {
+            all_list : jsonstring
+          },
+          dataType: "json",
+          success: function (data) {
+            // Handle success response from the server
+
+            window.location.href = '/success';
+          },
+          error: function (xhr, errmsg, err) {
+            // Handle error response from the server
+            alert("Error submitting data");
+          },
+        });
+      });
+    });
+  </script>
+</body>
+
 </html>
