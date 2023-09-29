@@ -18,12 +18,22 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         model_name = kwargs.get("model_name")
+        print("hello world")
 
-        try:
-            model = apps.get_model("Core", model_name)
+        if model_name == "*":
+            # Delete all entries in all models of the app
+            app_name = "Core"  # Replace with your app name
+            all_models = apps.all_models[app_name]
+            for model in all_models.values():
+                model.objects.all().delete()
+            self.stdout.write(self.style.SUCCESS(f"All entries in {app_name} models have been deleted"))
+        else:
+            try:
+                model = apps.get_model("Core", model_name)
+            except LookupError:
+                raise CommandError(f"Model '{model_name}' not found")
 
-        except LookupError:
-            raise CommandError(f"Model '{model_name}' not found")
+            model.objects.all().delete()
 
         model.objects.all().delete()
 
