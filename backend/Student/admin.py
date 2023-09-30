@@ -16,11 +16,16 @@ class BaseAdminClass(admin.ModelAdmin):
 
 
 @admin.register(Students)
-class StudentAdmin(BaseAdminClass):
+class StudentAdmin(admin.ModelAdmin):
     list_display = ["name", "standard", "school"]
     list_filter = ["standard", "school", TeamFilter]
     search_fields = ["name", "contact", "email"]
-    actions = BaseAdminClass.actions + ["delete_users_from_students", "set_team_value_to_zero"] # type: ignore
+    actions = ['export_selected_as_csv', "delete_users_from_students", "set_team_value_to_zero"] # type: ignore
+
+    def export_selected_as_csv(self, request, queryset):
+        return CSVExport.export_as_csv(self, request, queryset)
+
+    export_selected_as_csv.short_description = "Export csv"
 
     def delete_users_from_students(self, request, queryset):
         for student in queryset:
@@ -44,8 +49,9 @@ class StudentAdmin(BaseAdminClass):
 
 
 @admin.register(School)
-class SchoolAdmin(BaseAdminClass):
-    actions = BaseAdminClass.actions + [
+class SchoolAdmin(admin.ModelAdmin):
+    actions = [
+        "export_selected_as_csv",
         "import_students_from_csv",
     ]  # type: ignore
 
@@ -53,4 +59,8 @@ class SchoolAdmin(BaseAdminClass):
         # Using the import_students_from_csv method from StudentImporter
         return StudentImporter.import_students_from_csv(request, queryset)
 
+    def export_selected_as_csv(self, request, queryset):
+        return CSVExport.export_as_csv(self, request, queryset)
+
+    export_selected_as_csv.short_description = "Export csv"
     import_students_from_csv.short_description = "Import Students"
