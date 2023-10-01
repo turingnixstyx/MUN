@@ -272,3 +272,7 @@ def submit_preference(request):
         return JsonResponse({'message': 'Data saved successfully'})
     else:
         return JsonResponse({'message': 'Invalid request method'})
+
+
+def custom_500_error(request, *args, **kwargs):
+    return render(request, '500.html', status=500)
