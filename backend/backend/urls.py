@@ -6,6 +6,11 @@ from django.urls import path
 
 from Challenge import views as challenge_views
 from Core import views as core_views
+from django.conf.urls import handler500, handler404
+
+handler500 = 'Core.views.custom_500_error'
+handler404 = 'Core.views.custom_500_error'
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
