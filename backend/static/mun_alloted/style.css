@@ -306,8 +306,8 @@ body{
 
 .btn-submit{
   display: flex;
-  justify-content: center;
-  padding: 1rem;
+  justify-content: space-around;
+  padding: 0rem;
 }
 
 .btn-submit button{
