@@ -33,17 +33,19 @@ class AllTrackerAdmin(admin.ModelAdmin):
         )  # used to determine the exported file name, The format is:app name. Model class name
         # all property names
         field_names = [field.name for field in meta.fields]
+        field_names.append('team')
         response = HttpResponse(
             content_type="text/csv"
-        )  # specify the response content type
+        )
         response["content-disposition"] = f"attachment;filename={meta} .csv"
         response.charset = "utf-8-sig"
         writer = csv.writer(response)
         writer.writerow(field_names)  # write property names to csv
         for obj in queryset:  # traverse the list of objects to be exported
+            obj.team = self.get_teams(obj)
             row = writer.writerow(
                 [getattr(obj, field) for field in field_names]
-            )  # write the attribute values ​​of the current object to the csv
+            )
         return response
 
     export_as_csv.short_description = "Export csv"
