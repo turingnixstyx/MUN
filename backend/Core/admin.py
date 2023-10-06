@@ -51,10 +51,17 @@ class AllTrackerAdmin(admin.ModelAdmin):
     export_as_csv.short_description = "Export csv"
 
     def get_teams(self, obj):
-        name, email = obj.student.split()
+        split_list = obj.student.strip().split(" ")
+        split_list_without_email = list(filter(lambda s: "@" not in s, split_list))
+
+        if len(split_list_without_email) >= 2:
+            name = " ".join(split_list_without_email[:2])
+        else:
+            name = split_list_without_email[0]
+
         student = Students.objects.filter(name=name).first()
         return f"{obj.challenge} - {student.team}" if student else ""
-    
+
     get_teams.short_description = "Team"
 
 
