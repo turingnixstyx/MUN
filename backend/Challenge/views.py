@@ -28,7 +28,7 @@ logger = MUNLogger(__name__)
 
 
 @method_decorator(login_required, name="dispatch")
-@csrf_exempt
+@method_decorator(csrf_exempt, name="dispatch")
 class CommitteeView(FormView):
     template_name = "select_committee/index.html"
     form_class = PreferenceForm
@@ -191,7 +191,7 @@ class CommitteeView(FormView):
 
 
 @method_decorator(login_required, name="dispatch")
-@csrf_exempt
+@method_decorator(csrf_exempt, name="dispatch")
 class TeamView(FormView):
     template_name = "select_team/index.html"
     success_url = reverse_lazy("success")

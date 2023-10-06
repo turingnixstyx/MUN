@@ -22,7 +22,7 @@ logger = MUNLogger(__name__)
 
 
 @method_decorator(login_required, name="dispatch")
-@csrf_exempt
+@method_decorator(csrf_exempt, name="dispatch")
 class Home(View):
     def get(self, request):
         form = ChallengeForm()
@@ -53,7 +53,8 @@ class Home(View):
         else:
             return redirect("teams")
 
-@csrf_exempt
+
+@method_decorator(csrf_exempt, name="dispatch")
 class Login_View(View):
     def check_team_and_return_response(self, request, user, username):
         print(username)
