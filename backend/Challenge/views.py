@@ -10,6 +10,7 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import FormView
 from django.utils.safestring import mark_safe
+from django.views.decorators.csrf import csrf_exempt
 
 from Core.logger_util import MUNLogger
 from Core.models import AllTracker, ImpactChallengeTable, MUNChallengeTable
@@ -27,6 +28,7 @@ logger = MUNLogger(__name__)
 
 
 @method_decorator(login_required, name="dispatch")
+@csrf_exempt
 class CommitteeView(FormView):
     template_name = "select_committee/index.html"
     form_class = PreferenceForm
@@ -189,6 +191,7 @@ class CommitteeView(FormView):
 
 
 @method_decorator(login_required, name="dispatch")
+@csrf_exempt
 class TeamView(FormView):
     template_name = "select_team/index.html"
     success_url = reverse_lazy("success")

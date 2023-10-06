@@ -22,6 +22,7 @@ logger = MUNLogger(__name__)
 
 
 @method_decorator(login_required, name="dispatch")
+@csrf_exempt
 class Home(View):
     def get(self, request):
         form = ChallengeForm()
@@ -52,7 +53,7 @@ class Home(View):
         else:
             return redirect("teams")
 
-
+@csrf_exempt
 class Login_View(View):
     def check_team_and_return_response(self, request, user, username):
         print(username)
@@ -171,16 +172,18 @@ class Login_View(View):
 
 
 @login_required
+@csrf_exempt
 def success(request):
     logout(request)
     return render(request, "success_congrats/index.html")
 
-
+@csrf_exempt
 def sit_back_relax(request):
     return render(request, "success_congrats/index.html")
 
 
 @login_required
+@csrf_exempt
 def logout_user(request):
     logout(request)
     return redirect("login")
@@ -197,7 +200,7 @@ def random_teamID_generator() -> str:
     characters = string.ascii_letters + string.digits
     return "".join(random.choice(characters) for _ in range(5))
 
-
+@csrf_exempt
 def load_portfolios(request):
     committee_id = request.GET.get('committee_id')
     committee = Committee.objects.get(pk=int(committee_id))
@@ -273,6 +276,6 @@ def submit_preference(request):
     else:
         return JsonResponse({'message': 'Invalid request method'})
 
-
+@csrf_exempt
 def custom_500_error(request, *args, **kwargs):
     return render(request, '500.html', status=500)
