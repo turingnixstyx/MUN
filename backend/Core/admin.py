@@ -8,6 +8,7 @@ from django.db.models import Q
 
 from .modelforms import ImpactModelAdminForm, MUNModelAdminForm
 from .models import AllTracker, ImpactChallengeTable, MUNChallengeTable
+from Student.models import Students
 
 
 # Register your models here.
@@ -20,6 +21,7 @@ class AllTrackerAdmin(admin.ModelAdmin):
         "committee",
         "portfolio",
         "preference",
+        "get_teams",
     ]
     list_filter = ["school", "challenge", "committee", "portfolio"]
     actions = ["export_as_csv"]
@@ -45,6 +47,14 @@ class AllTrackerAdmin(admin.ModelAdmin):
         return response
 
     export_as_csv.short_description = "Export csv"
+
+    def get_teams(self, obj):
+        name, email = obj.student.split()
+        student = Students.objects.filter(name=name).first()
+        return f"{obj.challenge} - {student.team}" if student else ""
+    
+    get_teams.short_description = "Team"
+
 
 
 @admin.register(ImpactChallengeTable)
