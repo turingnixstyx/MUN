@@ -5,6 +5,7 @@ import csv
 import random
 from django.conf import settings
 import os
+import random
 
 from Core.models import AllTracker, MUNChallengeTable
 from .models import School, Students
@@ -98,7 +99,7 @@ class StudentImporter:
                                 committee=str(com),
                                 portfolio=str(prt),
                                 preference=int(per),
-                                team=school,
+                                team=random.choices("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", k=5),
                             )
 
                             a.save()
